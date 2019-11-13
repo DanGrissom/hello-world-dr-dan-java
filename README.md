@@ -1,8 +1,23 @@
 # Hello World w/ Dr. Dan - A Complete Introduction to Programming from Java to C++ (hello-world-dr-dan-java)
 An in-depth beginner's walk-through, taught by [Dr. Dan Grissom](http://www.dangrissom.com), of the Java programming language with a transition into (and intro to) C++. Video tutorials of this code being written from scratch and being explained in-depth can be found at [hellodrdan.com](http://www.hellodrdan.com) (coming soon).
 
+**NOTE: Video tutorials coming soon. [Join my e-mail list](https://mailchi.mp/e468e9e3efeb/helloworldwithdrdan) to be the first to know when modules are released.
+
+[JOIN NOW!](https://mailchi.mp/e468e9e3efeb/helloworldwithdrdan)
+**
+
 # Syllabus
 This course is taught in 8 modules and mimics the education you'd obtain if you sat through an entire year of introductory programming at the university level. I've taught intro-level programming for 6+ years and am accutely aware of what beginners need to see and hear. In short, **I DON'T SKIP STEPS!**.
+
+The 8 modules included in this course are as follows:
+1. [Basics](#module-1---basics)
+2. [Functions and Storage](#module-2---functions-and-storage)
+3. [Object-Oriented Programming](#module-3---object-oriented-programming)
+4. [Exceptions and File Input/Output (I/O)](#module-4---exceptions-and-file-inputoutput-io)
+5. [Memory Organization, Lambda Expressions and Basic Data Structures](#module-5---memory-organization-lambda-expressions-and-basic-data-structures)
+6. [Threads, GUIs and APIs](#module-6---threads-guis-and-apis)
+7. [Recursion](#module-7---recursion)
+8. [Tranitioning to C++ (from Java)](#module-8---tranitioning-to-c-from-java)
 
 ## Module 1 - Basics
 Module 1 covers the basics of programming, specifically with the Java programming language. The content in this section is almost always taught in a "101"-style intro programming course. A wide variety of concepts are covered, but the high-level topics and goals of this module are broken down into the following lessons:
@@ -26,7 +41,7 @@ Module 2 covers the intermediate topics of programming (in Java), specifically f
 7. ArrayLists (declaring, methods, iterating, sorting, nesting) [(more details)](Module_02_Functions_And_Storage/src/Lesson_07_ArrayList_Toy_Examples.java)
 8. More 2D-Array and ArrayList Practice (cards shuffling example) [(more details)](Module_02_Functions_And_Storage/src/Lesson_08_2D_Arrays_And_ArrayList_Cards_Example.java)
 
-## Module 3 - Object Oriented Programming
+## Module 3 - Object-Oriented Programming
 Module 3 covers the beginner, intermediate and advanced topics of programming (in Java), specifically focusing on object oriented programming. The portion of this module covering basic classes, is typically taught in a "101"-style intro programming course, while the rest is usually taught in a "102"-style intro programming course. A wide variety of concepts are covered, but the high-level topics and goals of this module are broken down in one monolithic lesson/program:
 1. Object Oriented Programming [(more details)](Module_03_Advanced_OOP/src/client/Lesson_01_OOP_StarWarsUniverseClient.java)
    - Basic Classes
