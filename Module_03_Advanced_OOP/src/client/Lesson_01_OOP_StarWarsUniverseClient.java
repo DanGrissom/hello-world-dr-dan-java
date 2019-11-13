@@ -1,3 +1,19 @@
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//In this lesson you will learn:
+//		1) Class Creation
+//			a) Instance variables
+//			b) Access modifiers
+//			c) Constructors (default, overloaded)
+//			d) Getters/Setters
+//			e) Overriding methods
+//			f) Custom/Class methods
+//		2) Advanced object-oriented functionality
+//			a) Abstract methods
+//			b) Abstract classes
+//			c) Interfaces
+//
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 package client;
 
 import java.util.ArrayList;
