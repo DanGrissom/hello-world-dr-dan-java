@@ -1,10 +1,9 @@
 # Hello World w/ Dr. Dan - A Complete Introduction to Programming from Java to C++ (hello-world-dr-dan-java)
 An in-depth beginner's walk-through, taught by [Dr. Dan Grissom](http://www.dangrissom.com), of the Java programming language with a transition into (and intro to) C++. Video tutorials of this code being written from scratch and being explained in-depth can be found at [hellodrdan.com](http://www.hellodrdan.com) (coming soon).
 
-**NOTE: Video tutorials coming soon. [Join my e-mail list](https://mailchi.mp/e468e9e3efeb/helloworldwithdrdan) to be the first to know when modules are released.
+**NOTE (November 2019): Video tutorials of this code being created from scratch coming soon! [Join my e-mail list](https://mailchi.mp/e468e9e3efeb/helloworldwithdrdan) to be the first to know when modules are released.**
 
-[JOIN NOW!](https://mailchi.mp/e468e9e3efeb/helloworldwithdrdan)
-**
+**[SIGN-UP NOW!](https://mailchi.mp/e468e9e3efeb/helloworldwithdrdan)**
 
 # Syllabus
 This course is taught in 8 modules and mimics the education you'd obtain if you sat through an entire year of introductory programming at the university level. I've taught intro-level programming for 6+ years and am accutely aware of what beginners need to see and hear. In short, **I DON'T SKIP STEPS!**.
