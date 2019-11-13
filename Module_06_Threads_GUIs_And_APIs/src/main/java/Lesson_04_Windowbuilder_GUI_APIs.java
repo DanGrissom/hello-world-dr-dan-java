@@ -5,7 +5,8 @@
 //		2) Continued practice with API calls
 //			a) How to use more Yelp API methods
 //
-//	***NOTE: Before you begin this project, you must complete the steps in the READ_ME
+//	***NOTE: Before you begin this project, you must complete the steps in the READ_ME: 
+//				https://github.com/DanGrissom/hello-world-dr-dan-java/blob/master/Module_06_Threads_GUIs_And_APIs/READ_ME.txt
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 import javax.swing.JFrame;
 

@@ -1,8 +1,3 @@
-import java.util.Scanner;
-
-import models.IllegalUserAccountArgumentException;
-import models.UserAccount;
-
 //*****Start with code from: Lesson_07_For_Loop_Char_Password_Analyzer
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -11,6 +6,10 @@ import models.UserAccount;
 //			a) Creating own password exception class
 //			b) Throwing exceptions
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+import java.util.Scanner;
+import models.IllegalUserAccountArgumentException;
+import models.UserAccount;
+
 public class Lesson_02_Custom_Exceptions_Password_Manager_Example {
 
 	///////////////////////////////////////////////////////////////

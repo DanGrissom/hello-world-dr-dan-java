@@ -10,7 +10,8 @@
 //		2) Importing external libraries to add new functionality
 //			a) Using Maven and the MVN repository to add new jar libraries to your project
 //
-//	***NOTE: Before you begin this project, you must complete the steps in the READ_ME
+//	***NOTE: Before you begin this project, you must complete the steps in the READ_ME: 
+//				https://github.com/DanGrissom/hello-world-dr-dan-java/blob/master/Module_06_Threads_GUIs_And_APIs/READ_ME.txt
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 import java.io.BufferedReader;
