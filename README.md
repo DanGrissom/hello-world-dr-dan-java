@@ -75,6 +75,6 @@ Module 7 covers advanced topics of programming (in Java), specifically focusing 
 ## Module 8 - Tranitioning to C++ (from Java)
 Module 8 covers beginner and intermediate topics of C++, taught toward students who are well-trained in Java (like the students who completed Modules 1-7 of this course). A quick comparison is provided of syntax (Java vs. C++) and lessons demonstrate the differences of C++ when compared to the Java content covered in Modules 1, 2 and the portion of Module 3 covering basic classes. Lessons in this course are taught to **jump start** students into C++ so they have a solid foundation to confidently learn advanced C++ topics on their own. A wide variety of concepts are covered, but the high-level topics and goals of this module are broken down into the following lessons:
 1. Basics (includes, console I/O, loops, conditional statements, arrays, vectors) [(more details)](Module_08_Transition_To_C++/Source/Lesson_01_C++_Basics.cpp)
-2. Pointers (* and & syntax, pointer arithmetic) [(more details)]Module_08_Transition_To_C++/Source/Lesson_02_Pointer_Basics.cpp)
+2. Pointers (* and & syntax, pointer arithmetic) [(more details)](Module_08_Transition_To_C++/Source/Lesson_02_Pointer_Basics.cpp)
 3. Functions (pass by value, pass by reference) [(more details)](Module_08_Transition_To_C++/Source/Lesson_03_Pass_By_Reference_Vs_Value.cpp)
 4. Basic Classes (define macros, .h header files, .cpp source files, deconstructors) [(more details)](Module_08_Transition_To_C++/Source/Lesson_04_Burrito_Client.cpp)
