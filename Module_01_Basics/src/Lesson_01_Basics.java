@@ -22,22 +22,6 @@ public class Lesson_01_Basics {
 		// Simple welcome statements printed to screen
 		System.out.println("Program Objective: Learn to print to console, escape characters & comments.");
 		System.out.println("===========================================================================");
-		//System.out.println();
 
-		// Variable test and output
-		String name = "Dr. Dan";
-		int numWorkDays = 5;
-		int numWeekendDays = 2;
-		int numDaysInWeek = numWorkDays + numWeekendDays;
-		
-		// Print out variables in output
-		/*System.out.println(name + " there are " + numWorkDays + " days in a work week.");
-		System.out.println(name + " there are " + numWeekendDays + " days in a weekend.");
-		System.out.println(name + " there are " + numDaysInWeek + " days in a week.");*/
-		System.out.printf("%s, there are %s work days and %s weekend days, which makes %s total days.\n\n", name, numWorkDays, numWeekendDays, numDaysInWeek);
-
-		// Testing the escape ('\') character (tabs, new-lines, quotes
-		System.out.print("I'm so glad I don't have to work the two weekend days:\n\tSaturday\n\tSunday\n\n");
-		System.out.printf("When the weekend comes, %s says \"Yay, let's visit http:\\\\dangrissom.com\"", name);
 	}
 }
