@@ -49,7 +49,7 @@ public class Lesson_05_Basic_Math {
 
 		
 		//////////////////////////////////////////////////////////////////////////////////////
-		// Perform basic math operation with doubles (numbers that can have decimal points.
+		// Perform basic math operation with doubles (numbers that can have decimal points.)
 		//////////////////////////////////////////////////////////////////////////////////////		
 		// Prompt user for equation and read input
 		System.out.print("Please enter an equation with spacing between equation parts (decimals supported; Ex: 4.5 + 2.65): ");
