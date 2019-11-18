@@ -1,6 +1,10 @@
-import java.util.Scanner;
-
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Hello World with Dr. Dan - A Complete Introduction to Programming from Java to C++ (Code and Course © Dan Grissom)
+//
+// Additional Lesson Resources from Dr. Dan:
+// 		High-Quality Video Tutorials: www.helloDrDan.com
+// 		Free Commented Code: https://github.com/DanGrissom/hello-world-dr-dan-java
+//
 // In this lesson you will learn:
 //		1) Functions
 //			a) Function Prototype: accessModifier static returnType functionName(parameters)
@@ -8,6 +12,8 @@ import java.util.Scanner;
 //		2) Static variables
 //			a) Variables that can be used anywhere in the file when using a main() method
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+import java.util.Scanner;
+
 public class Lesson_01_Functions_Pass_By_Value_And_Static {
 
 	//////////////////////////////////////////////////////////////////

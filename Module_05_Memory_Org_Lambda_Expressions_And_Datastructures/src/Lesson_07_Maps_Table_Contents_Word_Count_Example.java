@@ -1,5 +1,11 @@
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//In this lesson you will learn:
+// Hello World with Dr. Dan - A Complete Introduction to Programming from Java to C++ (Code and Course © Dan Grissom)
+//
+// Additional Lesson Resources from Dr. Dan:
+//		High-Quality Video Tutorials: www.helloDrDan.com
+//		Free Commented Code: https://github.com/DanGrissom/hello-world-dr-dan-java
+//
+// In this lesson you will learn:
 //		1) Complex usage of the Map data structure
 //			a) Creating a Table of Contents
 //				i) Sorting a Map by key (using Collections.sort() to sort the map's key set)

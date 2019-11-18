@@ -1,9 +1,12 @@
 // *****NOTE: Create createOrderedDeck() LAST so we can show pass by value when creating new shuffled deck
-import java.util.Arrays;
-import java.util.Random;
-import java.util.Scanner;
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Hello World with Dr. Dan - A Complete Introduction to Programming from Java to C++ (Code and Course © Dan Grissom)
+//
+// Additional Lesson Resources from Dr. Dan:
+// 		High-Quality Video Tutorials: www.helloDrDan.com
+// 		Free Commented Code: https://github.com/DanGrissom/hello-world-dr-dan-java
+//
 // In this lesson you will learn:
 //		1) Functions
 //			a) Passing arrays by reference instead of value
@@ -13,6 +16,9 @@ import java.util.Scanner;
 //		3) Array copying
 //			a) Using the Arrays class to make a shallow copy of an array
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+import java.util.Arrays;
+import java.util.Random;
+
 public class Lesson_06_Functions_Pass_By_Reference_Cards_Example {
 
 	// Constants

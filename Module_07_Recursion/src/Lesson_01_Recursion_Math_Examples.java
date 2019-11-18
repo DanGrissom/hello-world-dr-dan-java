@@ -1,12 +1,17 @@
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//In this lesson you will learn:
+// Hello World with Dr. Dan - A Complete Introduction to Programming from Java to C++ (Code and Course © Dan Grissom)
+//
+// Additional Lesson Resources from Dr. Dan:
+//		High-Quality Video Tutorials: www.helloDrDan.com
+//		Free Commented Code: https://github.com/DanGrissom/hello-world-dr-dan-java
+//
+// In this lesson you will learn:
 //		1) Recursion (a method is called recursive if it calls itself)
 //			a) Base Case(s)
 //			b) Recursive Case(s)
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 import java.text.DecimalFormat;
 import java.util.ArrayList;
-import java.util.Scanner;
 
 public class Lesson_01_Recursion_Math_Examples {
 

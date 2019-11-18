@@ -1,5 +1,11 @@
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//In this lesson you will learn:
+// Hello World with Dr. Dan - A Complete Introduction to Programming from Java to C++ (Code and Course © Dan Grissom)
+//
+// Additional Lesson Resources from Dr. Dan:
+//		High-Quality Video Tutorials: www.helloDrDan.com
+//		Free Commented Code: https://github.com/DanGrissom/hello-world-dr-dan-java
+//
+// In this lesson you will learn:
 //		1) WindowBuilder GUI
 //			a) How to use WindowBuilder to create a GUI
 //		2) Continued practice with API calls
@@ -9,16 +15,12 @@
 //				https://github.com/DanGrissom/hello-world-dr-dan-java/blob/master/Module_06_Threads_GUIs_And_APIs/READ_ME.txt
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 import javax.swing.JFrame;
-
 import org.json.JSONArray;
 import org.json.JSONObject;
-
 import com.mashape.unirest.http.Unirest;
 import com.mashape.unirest.http.exceptions.UnirestException;
 import com.mashape.unirest.request.HttpRequest;
-
 import models.Business;
-
 import javax.swing.DefaultListModel;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;

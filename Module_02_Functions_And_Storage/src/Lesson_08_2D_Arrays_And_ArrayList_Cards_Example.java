@@ -1,11 +1,12 @@
 // *****NOTE: Create createOrderedDeck() LAST so we can show pass by value when creating new shuffled deck
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Random;
-import java.util.Scanner;
-import java.util.concurrent.TimeUnit;
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Hello World with Dr. Dan - A Complete Introduction to Programming from Java to C++ (Code and Course © Dan Grissom)
+//
+// Additional Lesson Resources from Dr. Dan:
+// 		High-Quality Video Tutorials: www.helloDrDan.com
+// 		Free Commented Code: https://github.com/DanGrissom/hello-world-dr-dan-java
+//
 // In this lesson you will learn:
 //		1) 2D Arrays
 //			a) Declaring 2D arrays with variable size
@@ -21,6 +22,12 @@ import java.util.concurrent.TimeUnit;
 //			b) Flushing System.out and System.err to force output
 //			c) Using the .sleep method to pause your program
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Random;
+import java.util.Scanner;
+import java.util.concurrent.TimeUnit;
+
 public class Lesson_08_2D_Arrays_And_ArrayList_Cards_Example {
 
 	// Constants

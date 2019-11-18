@@ -1,4 +1,10 @@
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Hello World with Dr. Dan - A Complete Introduction to Programming from Java to C++ (Code and Course © Dan Grissom)
+//
+// Additional Lesson Resources from Dr. Dan:
+// 		High-Quality Video Tutorials: www.helloDrDan.com
+// 		Free Commented Code: https://github.com/DanGrissom/hello-world-dr-dan-java
+//
 // In this lesson you will learn:
 //		1) The basic equality and relational operators
 // 			a) > for greater than

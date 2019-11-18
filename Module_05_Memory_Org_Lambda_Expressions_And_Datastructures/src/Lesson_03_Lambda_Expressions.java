@@ -1,5 +1,11 @@
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//In this lesson you will learn:
+// Hello World with Dr. Dan - A Complete Introduction to Programming from Java to C++ (Code and Course © Dan Grissom)
+//
+// Additional Lesson Resources from Dr. Dan:
+//		High-Quality Video Tutorials: www.helloDrDan.com
+//		Free Commented Code: https://github.com/DanGrissom/hello-world-dr-dan-java
+//
+// In this lesson you will learn:
 //		1) Lambda Expressions (Passing functions as method parameters)
 //			a) Creating an interface
 //			b) Lambda expression syntax ()->System.out.println()

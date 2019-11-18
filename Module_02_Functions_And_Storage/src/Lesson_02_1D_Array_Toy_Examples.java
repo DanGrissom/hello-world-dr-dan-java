@@ -1,8 +1,10 @@
-import java.util.Arrays;
-import java.util.Random;
-import java.util.Scanner;
-
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Hello World with Dr. Dan - A Complete Introduction to Programming from Java to C++ (Code and Course © Dan Grissom)
+//
+// Additional Lesson Resources from Dr. Dan:
+// 		High-Quality Video Tutorials: www.helloDrDan.com
+// 		Free Commented Code: https://github.com/DanGrissom/hello-world-dr-dan-java
+//
 // In this lesson you will learn:
 //		1) 1D Arrays
 //			a) Declaring 1D arrays with constant data
@@ -11,6 +13,9 @@ import java.util.Scanner;
 //		2) Random class
 //			a) Generating random numbers
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+import java.util.Random;
+import java.util.Scanner;
+
 public class Lesson_02_1D_Array_Toy_Examples {
 
 	///////////////////////////////////////////////////////////////

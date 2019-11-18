@@ -1,10 +1,15 @@
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//In this lesson you will learn:
+// Hello World with Dr. Dan - A Complete Introduction to Programming from Java to C++ (Code and Course © Dan Grissom)
+//
+// Additional Lesson Resources from Dr. Dan:
+//		High-Quality Video Tutorials: www.helloDrDan.com
+//		Free Commented Code: https://github.com/DanGrissom/hello-world-dr-dan-java
+//
+// In this lesson you will learn:
 //		1) Map Data structure
 //			a) Mapping a String to an ArrayList of Strings (an object)
 //			b) Creating new objects before putting new data in map
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;

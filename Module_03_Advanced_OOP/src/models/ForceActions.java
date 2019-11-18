@@ -15,11 +15,4 @@ public interface ForceActions {
 	public abstract String forceAttack(Humanoid enemy);	
 	public abstract int getForceLevel();
 	public abstract void setForceLevel(int level);
-	
-//	public void getsHurt(int powerLoss);
-//	public void rechargeHealth();
-	
-	/////////////////////////////////////////////////////////
-	// 
-	//public abstract boolean winsFight(ForceUser forceUser);
 }

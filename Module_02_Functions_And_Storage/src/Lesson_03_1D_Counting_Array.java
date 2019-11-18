@@ -1,14 +1,19 @@
-import java.util.Arrays;
-import java.util.Random;
-import java.util.Scanner;
-
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Hello World with Dr. Dan - A Complete Introduction to Programming from Java to C++ (Code and Course © Dan Grissom)
+//
+// Additional Lesson Resources from Dr. Dan:
+// 		High-Quality Video Tutorials: www.helloDrDan.com
+// 		Free Commented Code: https://github.com/DanGrissom/hello-world-dr-dan-java
+//
 // In this lesson you will learn:
 //		1) 1D Arrays
 //			a) Declaring 1D arrays with constant data
 //			b) Declaring 1D arrays from a variable
 //			c) Iterating through and printing 1D arrays
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+import java.util.Random;
+import java.util.Scanner;
+
 public class Lesson_03_1D_Counting_Array {
 
 	// Define a constant int array with bill values
