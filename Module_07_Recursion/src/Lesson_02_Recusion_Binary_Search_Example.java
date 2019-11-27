@@ -26,8 +26,8 @@ public class Lesson_02_Recusion_Binary_Search_Example {
 		Scanner scan = new Scanner(System.in);
 		
 		// Hardcoded, sorted array
-		int [] sortedArray = {10, 20, 38, 40, 102, 182, 553, 919, 931, 937, 949, 1623, 2039 };
-		// Index values:	   0,  1,  2,  3,   4,   5,  6*,   7,   8,   9,  10,   11,   12
+		int [] sortedArray = { 10, 20, 38, 40, 102, 182, 553, 919, 931, 937, 949, 1623, 2039 };
+		// Index values:	    0,  1,  2,  3,   4,   5,  6*,   7,   8,   9,  10,   11,   12
 
 		// Prompt the user for a number to search
 		System.out.println("Please enter a number to search for in the array: ");

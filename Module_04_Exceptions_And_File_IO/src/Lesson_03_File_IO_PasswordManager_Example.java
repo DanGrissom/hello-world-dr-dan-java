@@ -47,7 +47,7 @@ public class Lesson_03_File_IO_PasswordManager_Example {
 		System.out.println("Would you like to print using plain text (P) or serialized (S)?");
 		boolean plainTextChosen = scan.nextLine().toUpperCase().charAt(0) == 'P';
 
-		// Create arraylist of accounts, read order into arraylist and print accounts
+		// Create arraylist of accounts, read account into arraylist and print accounts
 		ArrayList<UserAccount> accounts = new ArrayList<UserAccount>();
 		readOrder(accounts, plainTextChosen);
 		printAccounts("Existing Accounts", accounts);

@@ -36,8 +36,9 @@ public class Lesson_03_Strings_And_Parsing {
 		firstName = scan.next();
 		middleName = scan.next();
 		lastName = scan.next();
-		System.out.printf("Your name is %s %s %s\n\n", firstName, middleName, lastName);
-
+		System.out.printf("Your name is %s %s %s\n", firstName, middleName, lastName);
+		System.out.println("\tParsed using Scanner.next() on whitespace characters.\n");
+		
 		// Flush the new-line character out of the System.in
 		scan.nextLine();
 
@@ -48,7 +49,8 @@ public class Lesson_03_Strings_And_Parsing {
 		firstName = wholeName.split(" ")[0];
 		middleName = wholeName.split(" ")[1];
 		lastName = wholeName.split(" ")[2];
-		System.out.printf("Your name is %s %s %s\n\n", firstName, middleName, lastName);
+		System.out.printf("Your name is %s %s %s\n", firstName, middleName, lastName);
+		System.out.println("\tParsed using String.split() on the space character.\n");
 
 		//////////////////////////////////////////////////////////////////////////////
 		// Prompt user for first, middle and last name and read in, all at once (use substring)
@@ -64,13 +66,10 @@ public class Lesson_03_Strings_And_Parsing {
 		middleName = remainingNames.substring(0, end);
 		lastName = remainingNames.substring(end+1);
 		
-		
 		// Print out first, middle and last names along with their lengths
 		System.out.printf("Your name is:\n\t%s (length = %s)\n", firstName, firstName.length());
 		System.out.printf("\t%s (length = %s)\n", middleName, middleName.length());
-		System.out.printf("\t%s (length = %s)\n\n", lastName, lastName.length());
-
-		// contains, isEmpty, length, trim 
-
+		System.out.printf("\t%s (length = %s)\n", lastName, lastName.length());
+		System.out.println("\tParsed using String.indexOf() and String.substring().");
 	}
 }

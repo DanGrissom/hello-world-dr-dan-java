@@ -95,7 +95,7 @@ public class Lesson_06_Loops_Toy_Examples {
 				count++;
 			}
 		} while(num >= 0);
-		System.out.println("Sum of " + count + " numbers = " + sum);
+		System.out.println("Sum of " + count + " numbers = " + sum + "\n");
 		
 		// Sum numbers until user enter -1
 		sum = 0;
@@ -110,7 +110,7 @@ public class Lesson_06_Loops_Toy_Examples {
 			sum += num;
 			count++;
 		} while(num >= 0);
-		System.out.println("Sum of " + count + " numbers = " + sum);
+		System.out.println("Sum of " + count + " numbers = " + sum + "\n");
 	}
 
 }

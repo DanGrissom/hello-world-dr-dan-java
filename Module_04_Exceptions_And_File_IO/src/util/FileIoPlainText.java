@@ -54,12 +54,12 @@ public class FileIoPlainText {
 				int year = Integer.parseInt(lScan.next().trim());
 				UserAccount account = new UserAccount(website, username, password, password, month, year);
 				
-				// Add burrito from file/line into order
+				// Add account from file/line into accounts
 				accounts.add(account);
 			}
 
 		} catch (FileNotFoundException e) {
-			System.out.println(filename + " not found, but will be created as a new order.");
+			System.out.println(filename + " not found, but will be created as a new file.");
 		} catch (Exception e) {
 			System.out.println("ERROR: An unknown error occurred.");
 			e.printStackTrace();

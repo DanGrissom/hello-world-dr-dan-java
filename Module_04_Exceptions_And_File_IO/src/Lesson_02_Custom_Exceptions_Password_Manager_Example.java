@@ -9,8 +9,10 @@
 //
 // In this lesson you will learn:
 //		1) Exceptions
-//			a) Creating own password exception class
-//			b) Throwing exceptions
+//			a) Creating own UserAccount-based custom exception class (IllegalUserAccountArgumentException)
+//			b) Throwing exceptions with custom messages
+//		2) Calendar Class
+//			a) Get today's date and date pieces
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 import java.util.Scanner;
 import models.IllegalUserAccountArgumentException;

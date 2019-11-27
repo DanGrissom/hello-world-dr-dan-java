@@ -78,14 +78,14 @@ public class Lesson_07_ArrayList_Toy_Examples {
 		printArrayList("Favorite Places (shortest to longest)", favPlaces);
 		
 		// Prompt user for index of value to remove
-		System.out.print("\nPlease enter an index to remove: ");
+		System.out.print("\nPlease enter an INDEX to remove: ");
 		int iRemove = scan.nextInt();
 		favPlaces.remove(iRemove);
 		printArrayList("Favorite Places (after removing a value by index)", favPlaces);
 		scan.nextLine();
 		
 		// Prompt user for value to remove
-		System.out.print("\nPlease enter an index to remove: ");
+		System.out.print("\nPlease enter a VALUE to remove: ");
 		String valRemove = scan.nextLine();
 		favPlaces.remove(valRemove);
 		printArrayList("Favorite Places (after removing a value)", favPlaces);
@@ -93,8 +93,8 @@ public class Lesson_07_ArrayList_Toy_Examples {
 		///////////////////////////////////////////////////////////////////////////
 		// Nested (2D) ArrayList of ints
 		ArrayList<ArrayList<Integer>> nestedList = new ArrayList<ArrayList<Integer>>();
-		int numRows = randy.nextInt(5);
-		int numCols = randy.nextInt(5);
+		int numRows = randy.nextInt(5) + 2; // Generate random number between 2 and 7
+		int numCols = randy.nextInt(5) + 2; // Generate random number between 2 and 7
 		for (int r = 0; r < numRows; r++) {
 			// For each row, add a new ArrayList of integers
 			nestedList.add(new ArrayList<Integer>());
@@ -105,7 +105,7 @@ public class Lesson_07_ArrayList_Toy_Examples {
 		}
 		
 		// Print out contents of arraylist (similar to 2D array)
-		System.out.printf("\nRandomly generated a %s x %s matrix (r x c):\n", numRows, numCols);
+		System.out.printf("\nRandomly generated a %s x %s matrix (rows x cols):\n", numRows, numCols);
 		for (int r = 0; r < nestedList.size(); r++) {
 			for (int c = 0; c < nestedList.get(r).size(); c++)
 				System.out.print(nestedList.get(r).get(c) + "\t");
@@ -133,8 +133,7 @@ public class Lesson_07_ArrayList_Toy_Examples {
 		else {
 			// Print array values
 			for (int i = 0; i < aList.size(); i++)
-				System.out.printf("\t%s\n", aList.get(i));
+				System.out.printf("\t%s\t(index %s)\n", aList.get(i), i);
 		}
 	}
-
 }

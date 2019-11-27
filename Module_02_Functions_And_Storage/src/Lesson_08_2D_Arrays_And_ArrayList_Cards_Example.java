@@ -82,6 +82,7 @@ public class Lesson_08_2D_Arrays_And_ArrayList_Cards_Example {
 			}
 			
 			// Print out hands
+			System.out.printf("-------------------------ROUND #%s-------------------------\n", i);
 			for (int p = 0; p < numPlayers; p++)
 				printDeck(String.format("Player %s's hand", p), game[p]);
 			
@@ -137,8 +138,13 @@ public class Lesson_08_2D_Arrays_And_ArrayList_Cards_Example {
 	//			void (nothing)
 	///////////////////////////////////////////////////////////////////////////////////////
 	private static void printDeck(String cardSetName, String[] deck) throws InterruptedException {
+		// Pause the thread to allow output to catch up
+		int threadSleepMillis = 150;
+		
 		// Print the cards in the deck
 		System.out.printf(cardSetName + " of %s cards contains:\n", deck.length);
+		System.out.flush();
+		TimeUnit.MILLISECONDS.sleep(threadSleepMillis);
 		for (int i = 0; i < deck.length; i++) {
 			if (deck[i].toUpperCase().contains("SPADES") || deck[i].toUpperCase().contains("CLUBS"))
 				System.out.println("\t" + deck[i]);
@@ -149,10 +155,10 @@ public class Lesson_08_2D_Arrays_And_ArrayList_Cards_Example {
 		// Flush the output streams
 		System.out.flush();
 		System.err.flush();
-		TimeUnit.MILLISECONDS.sleep(200);
+		TimeUnit.MILLISECONDS.sleep(threadSleepMillis);
 		System.out.println();
 		System.out.flush();
-		TimeUnit.MILLISECONDS.sleep(200);
+		TimeUnit.MILLISECONDS.sleep(threadSleepMillis);
 	}
 
 	///////////////////////////////////////////////////////////////////////////////////////
@@ -179,5 +185,4 @@ public class Lesson_08_2D_Arrays_And_ArrayList_Cards_Example {
 		// Return shuffled deck
 		return shuffledDeck;
 	}
-
 }

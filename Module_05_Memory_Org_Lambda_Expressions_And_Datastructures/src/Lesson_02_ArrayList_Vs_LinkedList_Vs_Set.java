@@ -7,6 +7,7 @@
 //
 // In this lesson you will learn:
 //		1) How the Stack and Heap are used to store variables and data
+//		2) How to use System.currentTimeMillis() to time how long your code takes to do something
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 import java.text.DecimalFormat;
 import java.util.ArrayList;
