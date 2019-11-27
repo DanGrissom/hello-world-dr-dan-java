@@ -42,14 +42,16 @@ Module 2 covers the intermediate topics of programming (in Java), specifically f
 
 ## Module 3 - Object-Oriented Programming
 Module 3 covers the beginner, intermediate and advanced topics of programming (in Java), specifically focusing on object oriented programming. The portion of this module covering basic classes, is typically taught in a "101"-style intro programming course, while the rest is usually taught in a "102"-style intro programming course. A wide variety of concepts are covered, but the high-level topics and goals of this module are broken down in one monolithic lesson/program:
-1. Object Oriented Programming [(more details)](Module_03_Advanced_OOP/src/client/Lesson_01_OOP_StarWarsUniverseClient.java)
-   - Basic Classes
+1. Basic Object Oriented Programming [(more details)](Module_03_Advanced_OOP/src/client/Lesson_01_StarWarsUniverseClient_Basic_OOP.java)
+   - Custom Classes
      - Instance Variables
      - Constructors
      - Getters/Setters
      - Method Overriding (toString(), equals())
      - Class Methods
+2. Advanced Object Oriented Programming [(more details)](Module_03_Advanced_OOP/src/client/Lesson_02_StarWarsUniverseClient_Advanced_OOP.java)
    - Inheritance
+   - Polymorphism
    - Abstract Methods and Classes
    - Interfaces
 
