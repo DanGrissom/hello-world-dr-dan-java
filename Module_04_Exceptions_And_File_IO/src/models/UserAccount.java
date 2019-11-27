@@ -58,7 +58,9 @@ public class UserAccount implements Serializable {
 		yearCreated = cal.get(Calendar.YEAR);
 	}
 	
+	///////////////////////////////////////////////////////////////
 	// Getters/setters
+	///////////////////////////////////////////////////////////////
 	public String getWebsite() { return website; }
 	public String getUsername() { return username; }
 	public String getPassword() { return password; }

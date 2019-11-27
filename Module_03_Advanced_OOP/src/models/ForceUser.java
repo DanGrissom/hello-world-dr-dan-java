@@ -1,58 +1,101 @@
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-// This class is consumed by Lesson_01_OOP_StarWarsUniverseClient.
+// Hello World with Dr. Dan - A Complete Introduction to Programming from Java to C++ (Code and Course © Dan Grissom)
+//
+// Additional Lesson Resources from Dr. Dan:
+//		High-Quality Video Tutorials: www.helloDrDan.com
+//		Free Commented Code: https://github.com/DanGrissom/hello-world-dr-dan-java
+//
+// Lesson Note:
+// 		This abstract class is consumed by Lesson_02_StarWarsUniverseClient_Advanced_OOP.
+//		This class encapsulates the ForceUser, which describes unique ForceUser properties and methods not applicable to the
+// 		Humanoid class (which it inherits methods/variables from), but that are applicable to any of ForceUser's
+// 		sub-classes (Jedi and Sith). This class also implements the ForceActions interface.	
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 package models;
 
 import java.util.Random;
 
 public abstract class ForceUser extends Humanoid implements ForceActions {
 
-	/////////////////////////////////////////////////////////
 	// Instance variables
 	private int forceHealth;
 
-	/////////////////////////////////////////////////////////
-	// Default constructor
+	///////////////////////////////////////////////////////////////
+	// Default Constructor
+	//		Parameters:
+	//			NONE
+	///////////////////////////////////////////////////////////////
 	public ForceUser() {
 		// DO NOTHING (implicit call to super() )
 		forceHealth = maxForceHealth;
 	}
 
-	/////////////////////////////////////////////////////////
-	// Overloaded constructor
-	public ForceUser(String humName, String humHomeWorld,
-			String humAttack, String humDefense) {
-		super(humName, humHomeWorld, humAttack, humDefense);
+	///////////////////////////////////////////////////////////////
+	// Overloaded Constructor
+	//		Parameters:
+	//			pName - A String representing the force user's name
+	//			pHomeWorld - A String representing the force user's homeworld
+	//			pAttack - A String representing the force user's default attack
+	//			pDefense - A String representing the force user's default defense
+	///////////////////////////////////////////////////////////////
+	public ForceUser(String pName, String pHomeWorld,
+			String pAttack, String pDefense) {
+		// Pass parameters to super constructor (Humanoid)
+		super(pName, pHomeWorld, pAttack, pDefense);
 	}
 
-	/////////////////////////////////////////////////////////
+	///////////////////////////////////////////////////////////////
 	// This method takes a hit to the user's health, ensuring
 	// that it never goes below 0.
+	// on the homeworld and galactic id
+	//		Parameters:
+	//			powerLoss - An int representing the amount of health to lose
+	//		Returns:
+	//			void (nothing)
+	///////////////////////////////////////////////////////////////
 	private void getsHurt(int powerLoss) {
 		forceHealth = Math.max(0, forceHealth - powerLoss);
 	}
 	
-	/////////////////////////////////////////////////////////
-	// Recharges force user's health to the maximum health
+	///////////////////////////////////////////////////////////////
+	// This method recharges the force user's health to the maximum
+	// health
+	//		Parameters:
+	//			NONE
+	//		Returns:
+	//			void (nothing)
+	///////////////////////////////////////////////////////////////
 	private void rechargeHealth() {
 		forceHealth = maxForceHealth;
 	}
 	
-	/////////////////////////////////////////////////////////
-	// Override the Humanoid's attack to ensure that a ForceUser
-	// always uses their Force-attack
+	///////////////////////////////////////////////////////////////
+	// This method overrides the Humanoid's attack to ensure that
+	// a ForceUser always uses their Force-attack
+	//		Parameters:
+	//			enemy - A Humanoid instance to fight
+	//		Returns:
+	//			A String representing a narrative/story of the fight
+	///////////////////////////////////////////////////////////////
 	public String attack(Humanoid enemy) {
 		return forceAttack(enemy);
 	}
 
-	/////////////////////////////////////////////////////////
-	// This method simulates a fight between two force users.
-	// The two force users alternate turns attacking and 
-	// defending until one is defeated. Returns TRUE if THIS
-	// user wins and FALSE if the ENEMY wins.
-	public boolean winsFight(ForceUser enemy) {
+	///////////////////////////////////////////////////////////////
+	// This method simulates a fight between two force users. The
+	// two force users alternate turns attacking and defending
+	// until one is defeated. Results of each round are printed
+	// in real-time.
+	//		Parameters:
+	//			enemy - A ForceUser instance to fight
+	//		Returns:
+	//			A boolean: 	true if this force user beat the enemy
+	//						false if this force user lost to the enemy
+	///////////////////////////////////////////////////////////////
+	public boolean simulateForceBattle(ForceUser enemy) {
 
 		// Initialize variables
-		Random r = new Random();
+		Random randy = new Random();
 		int round = 1;
 
 		// Initialize attacker/defender and recharge health for battle
@@ -64,8 +107,8 @@ public abstract class ForceUser extends Humanoid implements ForceActions {
 		// Simulate rounds of battle until a winner emerges
 		while (attacker.forceHealth > 0 && defender.forceHealth > 0) {				
 				// Formulate attack/defense based on random nature
-				int attackPower = attacker.getForceLevel() * r.nextInt(10);
-				int defensePower = defender.getForceLevel() * r.nextInt(10);
+				int attackPower = attacker.getForceLevel() * randy.nextInt(10);
+				int defensePower = defender.getForceLevel() * randy.nextInt(10);
 				int powerLoss = Math.abs(attackPower - defensePower);
 				System.out.printf("\tR%s) %s attacks (%s) & %s defends (%s)\n", round++, attacker.getName(), attackPower, defender.getName(), defensePower);
 				
