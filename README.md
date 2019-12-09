@@ -6,7 +6,7 @@ An in-depth beginner's walk-through, taught by [Dr. Dan Grissom](http://www.dang
 **[SIGN-UP NOW!](https://mailchi.mp/e468e9e3efeb/helloworldwithdrdan)**
 
 # Syllabus
-This course is taught in 8 modules and mimics the education you'd obtain if you sat through an entire year of introductory programming at the university level. I've taught intro-level programming for 6+ years and am accutely aware of what beginners need to see and hear. In short, **I DON'T SKIP STEPS!**.
+This course is taught in 8 modules and mimics the education you'd obtain if you sat through an entire year of introductory programming at the university level. I've taught intro-level programming for 6+ years and am acutely aware of what beginners need to see and hear. In short, **I DON'T SKIP STEPS!**.
 
 The 8 modules included in this course are as follows:
 1. [Basics](#module-1---basics)
