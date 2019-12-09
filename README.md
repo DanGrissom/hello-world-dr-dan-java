@@ -20,14 +20,14 @@ The 8 modules included in this course are as follows:
 
 ## Module 1 - Basics
 Module 1 covers the basics of programming, specifically with the Java programming language. The content in this section is almost always taught in a "101"-style intro programming course. A wide variety of concepts are covered, but the high-level topics and goals of this module are broken down into the following lessons:
-1. Printing to Console & Basic Variables [(more details)](Module_01_Basics/src/Lesson_01_Basics.java)
-2. Primitive Data Types [(more details)](Module_01_Basics/src/Lesson_02_Primitives.java)
-3. Strings and Parsing [(more details)](Module_01_Basics/src/Lesson_03_Strings_And_Parsing.java)
-4. Boolean Logic (relational operators, unary operators, conditional operators) [(more details)](Module_01_Basics/src/Lesson_04_Logic.java)
-5. Conditional Logic and Basic Math (math operators, short-hand operators, incrementors) [(more details)](Module_01_Basics/src/Lesson_05_Basic_Math.java)
-6. Loops (for, while, do while) [(more details)](Module_01_Basics/src/Lesson_06_Loops_Toy_Examples.java)
-7. More Loop Practice (String and Character methods, ASCII) [(more details)](Module_01_Basics/src/Lesson_07_For_Loop_Char_Password_Analyzer.java)
-8. Basic Statistics (more loop practice, average, min, max, sum) [(more details)](Module_01_Basics/src/Lesson_08_Loops_Stats_Example.java)
+1. Printing to Console & Basic Variables [(more details)](Module_01_Basics/src/Lesson_01_Basics.java) [(video overview)](https://youtu.be/o1zl31qtyc8)
+2. Primitive Data Types [(more details)](Module_01_Basics/src/Lesson_02_Primitives.java) [(video overview)](https://youtu.be/9cfD9Eruyk4)
+3. Strings and Parsing [(more details)](Module_01_Basics/src/Lesson_03_Strings_And_Parsing.java) [(video overview)](https://youtu.be/SRPayhD1QnE)
+4. Boolean Logic (relational operators, unary operators, conditional operators) [(more details)](Module_01_Basics/src/Lesson_04_Logic.java) [(video overview)](https://youtu.be/LllXEIbWtaA)
+5. Conditional Logic and Basic Math (math operators, short-hand operators, incrementors) [(more details)](Module_01_Basics/src/Lesson_05_Basic_Math.java) [(video overview)](https://youtu.be/eMtvpJmaef8)
+6. Loops (for, while, do while) [(more details)](Module_01_Basics/src/Lesson_06_Loops_Toy_Examples.java) [(video overview)](https://youtu.be/3saWHF_YeHU)
+7. More Loop Practice (String and Character methods, ASCII) [(more details)](Module_01_Basics/src/Lesson_07_For_Loop_Char_Password_Analyzer.java) [(video overview)](https://youtu.be/ep6um0x-ZNQ)
+8. Basic Statistics (more loop practice, average, min, max, sum) [(more details)](Module_01_Basics/src/Lesson_08_Loops_Stats_Example.java) [(video overview)](https://youtu.be/mOBMZHNog5Y)
 
 ## Module 2 - Functions and Storage
 Module 2 covers the intermediate topics of programming (in Java), specifically focusing on functions (methods) and storage (arrays and ArrayLists). The content in this section is almost always taught in a "101"-style intro programming course, although ArrayLists are sometimes taught at the beginning of a "102"-style intro programming course. A wide variety of concepts are covered, but the high-level topics and goals of this module are broken down into the following lessons:
