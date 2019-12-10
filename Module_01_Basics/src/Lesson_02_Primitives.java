@@ -6,7 +6,7 @@
 // 		Free Commented Code: https://github.com/DanGrissom/hello-world-dr-dan-java
 //
 // In this lesson you will learn:
-// 		1) The primitive data types and their ranges
+// 		1) The primitive data types, how to set literal values and their ranges
 //			a) Whole numbers: byte, short, int, long
 //			b) Decimal-point numbers: float, double
 //			c) Misc.: boolean, char
@@ -18,6 +18,7 @@
 //			b) Formatting numbers with thousands separators
 //			c) Formatting numbers to scientific notation
 //		4) To use the Scanner to read user input from the console into variables of any of the primitive data types
+//		5) The binary number system and how numbers are mapped to 0's and 1's
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 public class Lesson_02_Primitives {
@@ -30,6 +31,19 @@ public class Lesson_02_Primitives {
 		System.out.println("Program Objective: Learn primitive data types, printf() mastery, scanner input.");
 		System.out.println("===========================================================================");
 		System.out.println();
+		
+		////////////////////////////////////////////////////////
+		// Primitive Literals (40,000 foot view) 
+		////////////////////////////////////////////////////////
+		// Whole Number Primitives
+		
+		// Decimal Point Primitives
+		
+		// Other Primitives
+		
+		// Print All Primitive Data Types
+		
+		// Initialize Scanner to read in from user
 		
 		// A scanner allows us to read in variables/data from the user
 		
