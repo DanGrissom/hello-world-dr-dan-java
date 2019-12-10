@@ -35,6 +35,28 @@ public class Lesson_05_Basic_Math {
 		System.out.println("Program Objective: Learn Java mathematical operators and conditional statements");
 		System.out.println("===========================================================================");
 
+		//////////////////////////////////////////////////////////////////////////////////////
+		// Sandbox to test shorthand operators and incrementers
+		//////////////////////////////////////////////////////////////////////////////////////
+		System.out.println("Java Shorthand Operator & Incrementer Sandbox:");
+		int i = 10;
+		System.out.printf("\ti = %s\n", i);
+		i += 5; // Same as: i = i + 5;
+		System.out.printf("\tAfter \"%s\", i = %s\n", "i += 5;", i);
+		i -= 5; // Same as: i = i - 5;
+		System.out.printf("\tAfter \"%s\", i = %s\n", "i -= 5;", i);
+		i *= 5; // Same as: i = i * 5;
+		System.out.printf("\tAfter \"%s\", i = %s\n", "i *= 5;", i);
+		i /= 5; // Same as: i = i / 5;
+		System.out.printf("\tAfter \"%s\", i = %s\n", "i /= 5;", i);
+		i++; // Same as: i = i + 1;
+		System.out.printf("\tAfter \"%s\", i = %s\n", "i++;", i);
+		i--; // Same as: i = i - 1;
+		System.out.printf("\tAfter \"%s\", i = %s\n\n", "i--;", i);
+
+		//////////////////////////////////////////////////////////////////////////////////////
+		// Program initialization
+		//////////////////////////////////////////////////////////////////////////////////////
 		// Initialize Scanner to read in from user
 		Scanner scan = new Scanner(System.in);
 
@@ -47,7 +69,7 @@ public class Lesson_05_Basic_Math {
 		System.out.println("\t% for modulus");
 		System.out.println("\t^ for power (NOT A BASIC OPERATOR)\n");
 
-		
+
 		//////////////////////////////////////////////////////////////////////////////////////
 		// Perform basic math operation with doubles (numbers that can have decimal points.)
 		//////////////////////////////////////////////////////////////////////////////////////		
@@ -64,7 +86,7 @@ public class Lesson_05_Basic_Math {
 			System.out.println("Exiting program...");
 			System.exit(0);
 		}
-		
+
 		if (operator.contains("+"))
 			answer = operand1 + operand2;
 		else if (operator.contains("-")) 
@@ -78,16 +100,13 @@ public class Lesson_05_Basic_Math {
 		else if (operator.contains("^")) 
 			answer = Math.pow(operand1, operand2);
 		else {
-			System.out.println("Operators must be one of the following: +, -, *, /, %. You entered: " + operator);
+			System.out.println("Operators must be one of the following: +, -, *, /, %, ^. You entered: " + operator);
 			System.out.println("Exiting program...");
 			System.exit(0);
 		}
 
 		// Print result
 		System.out.printf("\t%.2f %s %.2f = %.2f\n\n", operand1, operator, operand2, answer);
-
-
-
 
 		//////////////////////////////////////////////////////////////////////////////////////
 		// Perform basic math operation with integers (whole numbers with no decimals).
@@ -131,12 +150,10 @@ public class Lesson_05_Basic_Math {
 				System.out.println("Exiting program...");
 				System.exit(0);
 		}
-		
+
 		// Print result
 		System.out.printf("\t%s %s %s = %s\n\n", op1, operator, op2, ans);
-		
-		
-		
+
 		//////////////////////////////////////////////////////////////////////////////////////
 		// Perform basic math operation to demonstrate short-hand operators
 		//////////////////////////////////////////////////////////////////////////////////////
@@ -144,21 +161,21 @@ public class Lesson_05_Basic_Math {
 		System.out.println("You can now modify your answer by adding to it, subtracting from it, multiplying or dividing it.");
 		System.out.print("\tWhat operator would you like to modify " + ans + " by (+, -, *, /): ");
 		operator = scan.next();
-		
+
 		// Check operator length
 		if (operator.length() > 1) {
 			System.out.println("Operator can only be one character long. You entered: " + operator);
 			System.out.println("Exiting program...");
 			System.exit(0);
 		}
-		
+
 		// Prompt user for new operand
 		int op3 = 0;
 		int prevAns = ans;
 		if (operator.contains("+")) {
 			System.out.print("\tAdd how many to " + ans + ": ");
 			op3 = scan.nextInt();
-			
+
 			// If they want to add 1, we can use the increment operator (++)
 			if (op3 == 1)
 				ans++;
@@ -181,11 +198,15 @@ public class Lesson_05_Basic_Math {
 			System.out.print("\tDivide " + ans + " by: ");
 			op3 = scan.nextInt();
 			ans /= op3;
+		} else {
+			System.out.println("Operators must be one of the following: +, -, *, /, %. You entered: " + operator);
+			System.out.println("Exiting program...");
+			System.exit(0);
 		}
-		
+
 		// Print result
 		System.out.printf("\t%s %s %s = %s\n\n", prevAns, operator, op3, ans);
-		
+
 		// Exit program
 		System.out.println("Exiting program...");
 	}
