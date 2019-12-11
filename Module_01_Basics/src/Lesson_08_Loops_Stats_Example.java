@@ -10,9 +10,10 @@
 //			a) FOR loop (for when we know how many times we need to do something)
 //			b) WHILE loop (for when we do NOT know how many times we need to do something)
 //			c) DO WHILE loop (for when we know we need to do something at LEAST once, but not sure how many times after that)
-//		2) Basic statistics
+//		2) Nested Loops
+//		3) Basic statistics
 //			a) Average, minimum, maximum, sum
-//		3) Basic Math class operators
+//		4) Basic Math class operators
 //			a) Math.min() for minimum of two numbers
 //			b) Math.max() for maximum of two numbers
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
