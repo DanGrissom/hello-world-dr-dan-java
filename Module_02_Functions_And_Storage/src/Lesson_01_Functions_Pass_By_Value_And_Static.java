@@ -11,6 +11,7 @@
 //			b) Passing parameters by value
 //		2) Static variables
 //			a) Variables that can be used anywhere in the file when using a main() method
+//		3) Prefix increment operator
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 import java.util.Scanner;
 
@@ -59,6 +60,7 @@ public class Lesson_01_Functions_Pass_By_Value_And_Static {
 		while (moreGrades) {
 			// Get next grade from user, update and print stats
 			double newGrade = getNextGrade(numGrades+1);
+			newGrade -= LATE_PENALTY;
 			updateStats(newGrade, numGrades+1);
 			printStatistics(++numGrades, false);
 
@@ -126,23 +128,22 @@ public class Lesson_01_Functions_Pass_By_Value_And_Static {
 	//		Parameters:
 	//			numGradesCollected: 	An integer which represents how many grades have 
 	//									been collected
+	//			finalStatistics:		A boolean that is true if should print final stats
+	//									and false otherwise
 	//		Returns:
 	//			void (nothing)
 	////////////////////////////////////////////////////////////////////////////////
 	private static void printStatistics(int numGradesCollected, boolean finalStatistics) {
-		// Make sure grades were collected
-		if (numGradesCollected <= 0)
-			System.out.println("You did not enter any grades!");
-		else {
+		if (numGradesCollected > 0) { // We had grades entered
 			// Print appropriate prefix
 			if (finalStatistics)
-				System.out.println("\nFinal statistics for " + numGradesCollected + " grades:");
+				System.out.print("\nFinal statistics for " + numGradesCollected + " grades:\n\t");
 			else
-				System.out.printf("\tAfter %s grades: ", avgGrade, minGrade, maxGrade);
-			
+				System.out.printf("\tAfter %s grades: ", numGradesCollected);
+				
 			// Print stats
-			System.out.printf("\tAvg = %.2f; Min = %.2f; Max = %.2f\n", avgGrade, minGrade, maxGrade);
-		}
-
+			System.out.printf("Avg = %.2f; Min = %.2f; Max = %.2f\n", avgGrade, minGrade, maxGrade);
+		} else // We had NO grades entered
+			System.out.println("You did not enter any grades!");
 	}
 }

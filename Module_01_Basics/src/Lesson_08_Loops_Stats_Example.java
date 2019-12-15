@@ -10,9 +10,10 @@
 //			a) FOR loop (for when we know how many times we need to do something)
 //			b) WHILE loop (for when we do NOT know how many times we need to do something)
 //			c) DO WHILE loop (for when we know we need to do something at LEAST once, but not sure how many times after that)
-//		2) Basic statistics
+//		2) Nested Loops
+//		3) Basic statistics
 //			a) Average, minimum, maximum, sum
-//		3) Basic Math class operators
+//		4) Basic Math class operators
 //			a) Math.min() for minimum of two numbers
 //			b) Math.max() for maximum of two numbers
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -34,13 +35,13 @@ public class Lesson_08_Loops_Stats_Example {
 		// Prompt user for number
 		System.out.print("Please enter the number of assignments submitted on time: ");
 		int numGrades = scan.nextInt();
-		final double LATE_PENALTY = 10;
 
 		// Initialize variables for stats
 		double runningSum = 0;
 		double minGrade = Double.MAX_VALUE;
 		double maxGrade = Double.MIN_VALUE;
 		double avgGrade = 0;
+		final double LATE_PENALTY = 10;
 
 		////////////////////////////////////////////////////////////////////////////////////
 		// Iterate from 0 to numGrades - 1
@@ -76,10 +77,10 @@ public class Lesson_08_Loops_Stats_Example {
 
 		////////////////////////////////////////////////////////////////////////////////////
 		// Print final statistics
-		if (numGrades > 0) {
+		if (numGrades > 0) { // We had grades entered
 			System.out.println("\nFinal statistics for " + numGrades + " grades:");
 			System.out.printf("\tAvg = %.2f; Min = %.2f; Max = %.2f\n", avgGrade, minGrade, maxGrade);
-		} else {
+		} else { // We had NO grades entered
 			System.out.println("You did not enter any grades!");
 		}
 		
@@ -111,7 +112,8 @@ public class Lesson_08_Loops_Stats_Example {
 			} while (badInput);
 
 			// Update stats
-			runningSum += (newGrade - LATE_PENALTY);
+			newGrade -= LATE_PENALTY;
+			runningSum += newGrade;
 			minGrade = Math.min(minGrade, newGrade);
 			maxGrade = Math.max(maxGrade, newGrade);
 			avgGrade = runningSum / (numGrades+1);
@@ -130,10 +132,10 @@ public class Lesson_08_Loops_Stats_Example {
 		
 		////////////////////////////////////////////////////////////////////////////////////
 		// Print final statistics
-		if (numGrades > 0) {
+		if (numGrades > 0) { // We had grades entered
 			System.out.println("\nFinal statistics for " + numGrades + " grades:");
 			System.out.printf("\tAvg = %.2f; Min = %.2f; Max = %.2f\n", avgGrade, minGrade, maxGrade);
-		} else {
+		} else { // We had NO grades entered
 			System.out.println("You did not enter any grades!");
 		}
 	}

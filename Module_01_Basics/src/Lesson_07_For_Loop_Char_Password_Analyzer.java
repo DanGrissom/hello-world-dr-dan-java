@@ -36,19 +36,10 @@ public class Lesson_07_For_Loop_Char_Password_Analyzer {
 		System.out.println("Welcome to the password analyzer, your password must: ");
 		System.out.println("\tBe at least 7 characters in length");
 		System.out.println("\tContain at least one of the following special symbols:");
-		//if ( (c >= 33 && c <=47) || (c >= 58 && c <= 64)  || (c >= 91 && c <= 96) || (c >= 123 && c <= 126) )
 		System.out.print("\t\t");
-//		for (int i = 33; i <= 47; i++)
-//			System.out.print((char)i + " ");
-//		for (int i = 58; i <= 64; i++)
-//			System.out.print((char)i + " ");
-//		for (int i = 91; i <= 96; i++)
-//			System.out.print((char)i + " ");
-//		for (int i = 123; i <= 126; i++)
-//			System.out.print((char)i + " ");
 		for (int c = 0; c <= 127; c++)
 			if ( (c >= 33 && c <=47) || (c >= 58 && c <= 64)  || (c >= 91 && c <= 96) || (c >= 123 && c <= 126) )
-				System.out.print((char)c + " ");
+				System.out.print((char)c + " ");	// Only print the special characters according to http://www.asciitable.com/
 		System.out.println("\n\tContain at least one upper case character");
 		System.out.println("\tContain at least one lower case character");
 		System.out.println("\tContain at least one number");
@@ -75,12 +66,12 @@ public class Lesson_07_For_Loop_Char_Password_Analyzer {
 			errorMessage += "ERROR: Password must be 7+ characters long\n";
 		
 		// Print out the string and it's indices for learning purposes
-//		System.out.print("index:\t");
-//		for (int i = 0; i < p1.length(); i++)
-//			System.out.print(i + "\t");
-//		System.out.print("\np1(i):\t");
-//		for (int i = 0; i < p1.length(); i++)
-//			System.out.print(p1.charAt(i) + "\t");
+		//System.out.print("index:\t");
+		//for (int i = 0; i < p1.length(); i++)
+		//	System.out.print(i + "\t");
+		//System.out.print("\np1(i):\t");
+		//for (int i = 0; i < p1.length(); i++)
+		//	System.out.print(p1.charAt(i) + "\t");
 			
 		// Init boolean variables
 		boolean containsUpper = false;
@@ -91,8 +82,10 @@ public class Lesson_07_For_Loop_Char_Password_Analyzer {
 		
 		// Cycle through each letter and check for special symbols
 		for (int i = 0; i < p1.length(); i++) {
+			// Get the character at index i
 			char c = p1.charAt(i);
 			
+			// Use the Character wrapper class to evaluate each character for requirements
 			if (Character.isUpperCase(c))
 				containsUpper = true;
 			if (Character.isLowerCase(c))
@@ -112,7 +105,7 @@ public class Lesson_07_For_Loop_Char_Password_Analyzer {
 			errorMessage += "ERROR: Password must contain an upper case letter\n";
 		if (!containsNumber)
 			errorMessage += "ERROR: Password must contain a number\n";
-		if (containsWhiteSpace)
+		if (containsWhiteSpace)		// Note we have NO ! symbol here
 			errorMessage += "ERROR: Password must NOT contain whitespace\n";
 		if (!containsSpecialCharacter)
 			errorMessage += "ERROR: Password must contain a special character\n";

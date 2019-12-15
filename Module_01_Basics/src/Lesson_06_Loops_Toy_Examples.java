@@ -33,9 +33,12 @@ public class Lesson_06_Loops_Toy_Examples {
 		///////////////////////////////////////////////////////////////////////
 		// FOR LOOP DEMOS
 		///////////////////////////////////////////////////////////////////////
+		System.out.println("\nFOR LOOP EXAMPLES");
+		System.out.println("===========================================================================");
+		
 		// Print all numbers in range [0, num)
-		System.out.println( "\nPrint all numbers in range [0, " + num + "):" );
-		for (int i = 0; i < num; i++)
+		System.out.println( "Print all numbers in range [0, " + num + "):" );
+		for (int i = 0; i < num; i++)		// for (initialization; looping condition; incrementer)
 			System.out.println(i);
 		
 		// Print all numbers in range [0, num]
@@ -57,10 +60,13 @@ public class Lesson_06_Loops_Toy_Examples {
 		///////////////////////////////////////////////////////////////////////
 		// WHILE LOOP DEMOS
 		///////////////////////////////////////////////////////////////////////
+		System.out.println("\nWHILE LOOP EXAMPLES");
+		System.out.println("===========================================================================");
+		
 		// Print MULTIPLES OF 3 in range [0, num)
-		System.out.println("\nPrint MULTIPLES OF 3 in range [0, " + num + "):");
+		System.out.println("Print MULTIPLES OF 3 in range [0, " + num + "):");
 		int i = 0;
-		while (i < num) {
+		while (i < num) {		// while (looping condition)
 			if (i % 3 == 0)
 				System.out.println(i);
 			i++;
@@ -72,17 +78,22 @@ public class Lesson_06_Loops_Toy_Examples {
 		int sum = 0;
 		int count = 0;
 		while (num >= 0) {
+			// Process the number
 			sum += num;
 			count++;
 			
+			// Prompt user to enter another number
 			System.out.print("Enter another number to sum (-1 to quit): ");
 			num = scan.nextInt();
 		}
-		System.out.println("Sum of " + count + " numbers = " + sum + "\n");
+		System.out.printf("Sum of %s numbers = %s\n\n", count, sum);
 		
 		///////////////////////////////////////////////////////////////////////
 		// DO WHILE LOOP DEMOS
 		///////////////////////////////////////////////////////////////////////
+		System.out.println("DO WHILE LOOP EXAMPLES");
+		System.out.println("===========================================================================");
+		
 		// Sum numbers until user enter -1
 		sum = 0;
 		count = 0;
@@ -95,7 +106,7 @@ public class Lesson_06_Loops_Toy_Examples {
 				count++;
 			}
 		} while(num >= 0);
-		System.out.println("Sum of " + count + " numbers = " + sum + "\n");
+		System.out.printf("Sum of %s numbers = %s\n\n", count, sum);
 		
 		// Sum numbers until user enter -1
 		sum = 0;
@@ -110,7 +121,7 @@ public class Lesson_06_Loops_Toy_Examples {
 			sum += num;
 			count++;
 		} while(num >= 0);
-		System.out.println("Sum of " + count + " numbers = " + sum + "\n");
+		System.out.printf("Sum of %s numbers = %s\n\n", count, sum);
 	}
 
 }
