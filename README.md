@@ -24,7 +24,7 @@ Module 1 covers the basics of programming, specifically with the Java programmin
 2. Primitive Data Types [(more details)](Module_01_Basics/src/Lesson_02_Primitives.java) [(video overview)](https://youtu.be/9cfD9Eruyk4)
 3. Strings and Parsing [(more details)](Module_01_Basics/src/Lesson_03_Strings_And_Parsing.java) [(video overview)](https://youtu.be/SRPayhD1QnE)
 4. Boolean Logic (relational operators, unary operators, conditional operators) [(more details)](Module_01_Basics/src/Lesson_04_Logic.java) [(video overview)](https://youtu.be/LllXEIbWtaA)
-5. Conditional Logic and Basic Math (math operators, short-hand operators, incrementors) [(more details)](Module_01_Basics/src/Lesson_05_Basic_Math.java) [(video overview)](https://youtu.be/eMtvpJmaef8)
+5. Conditional Logic and Basic Math (math operators, short-hand operators, incrementers) [(more details)](Module_01_Basics/src/Lesson_05_Basic_Math.java) [(video overview)](https://youtu.be/eMtvpJmaef8)
 6. Loops (for, while, do while) [(more details)](Module_01_Basics/src/Lesson_06_Loops_Toy_Examples.java) [(video overview)](https://youtu.be/3saWHF_YeHU)
 7. More Loop Practice (String and Character methods, ASCII) [(more details)](Module_01_Basics/src/Lesson_07_For_Loop_Char_Password_Analyzer.java) [(video overview)](https://youtu.be/ep6um0x-ZNQ)
 8. Basic Statistics (more loop practice, average, min, max, sum) [(more details)](Module_01_Basics/src/Lesson_08_Loops_Stats_Example.java) [(video overview)](https://youtu.be/mOBMZHNog5Y)
