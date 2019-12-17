@@ -15,6 +15,8 @@
 public class Lesson_05_1D_Array_Cards_Example {
 
 	// Constants
+	private static final String [] SUITS =  { "Spades", "Diamonds", "Clubs", "Hearts" };
+	private static final String [] VALUES = { "2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King", "Ace" };
 
 	///////////////////////////////////////////////////////////////
 	// MAIN - Entry point where code will begin execution for file
