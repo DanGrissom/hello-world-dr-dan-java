@@ -23,23 +23,24 @@ public class Lesson_04_2D_Array_Bills_Examples {
 		System.out.println("===========================================================================");
 
 		// Initialize Scanner to read in from user
-		
+
 		// Create a hard-coded 1D array
 
 		// Welcome user
-		
+
 		// Prompt user to enter names
-		
+
 		// Prompt user to enter months
-		
+
 		// Initialize a 2D array and collect data (months represent columns; names represent rows)
-		
+
 		// Print 2D array
 	}
-	
+
 	///////////////////////////////////////////////////////////////////////////////////////
-	// This method creates a new shuffled deck from a new deck.
-	// 		Parameters:
+	// This prints the array passed in via parameter. In addition, it shows the array
+	// row/column names and array "name" (also passed in as a parameter). It also sums each
+	// row and column.
 	//			arrayName - String representing name of array to print
 	//			array - array of ints to print
 	//			rowNames - array of Strings with names for each row
@@ -48,5 +49,5 @@ public class Lesson_04_2D_Array_Bills_Examples {
 	//		Returns:
 	//			void (nothing)
 	///////////////////////////////////////////////////////////////////////////////////////
-
+	
 }
