@@ -14,11 +14,6 @@
 //			d) Sorting arrays and comparators
 //			e) Nesting ArrayLists
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.Random;
-import java.util.Scanner;
 
 public class Lesson_07_ArrayList_Toy_Examples {
 
