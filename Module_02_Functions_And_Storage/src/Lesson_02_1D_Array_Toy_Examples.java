@@ -32,11 +32,20 @@ public class Lesson_02_1D_Array_Toy_Examples {
 		// Initialize random number generator
 		Random randy = new Random();
 		
+		//////////////////////////////////////////////////////////////////
+		// Hard-Coded Arrays
 		// Create a hard-coded 1D array
-		int [] arrHardCodedNums = { 1, 2, 3, 4, 5, 6};
-		printArray("Hard-Coded 1D Array", arrHardCodedNums);
-		//System.out.println( Arrays.toString(arrHardCodedNums));
+		int [] arrHardCodedNums = { 1, 5, 10, 5, 1, 20, 100 };
+		arrHardCodedNums[0] = 1000;
+		//System.out.println( Arrays.toString(arrHardCodedNums) );
+		printArray("Hard-Coded 1D Array (of numbers)", arrHardCodedNums);
+		int [] arrHardCodedNums2 = { 4, 5, 6, 7, 8 };
+		printArray("Second Hard-Coded 1D Array (of numbers)", arrHardCodedNums2);
+		//String [] arrHardCodedWords = { "Monday", "Tuesday", "Wednesday" };
+		//System.out.println( Arrays.toString(arrHardCodedWords) );	
 
+		//////////////////////////////////////////////////////////////////
+		// Variable-Sized Arrays
 		// Prompt user for a number of elements to store
 		System.out.print("\n\nEnter a number of random numbers to generate: ");
 		int numElements = scan.nextInt();
@@ -47,6 +56,8 @@ public class Lesson_02_1D_Array_Toy_Examples {
 			a[i] = randy.nextInt(200);
 		printArray("Randomly Generated 1D Array", a);
 		
+		//////////////////////////////////////////////////////////////////
+		// Array Modification & Search
 		// Prompt user to change the value at a particular index
 		System.out.print("\n\nEnter an index you'd like to overwrite: ");
 		int iNew = scan.nextInt();
@@ -78,11 +89,11 @@ public class Lesson_02_1D_Array_Toy_Examples {
 			printArray("Updated Randomly Generated 1D Array", a);
 		else
 			System.out.printf("\t%s not found in the array; array unchanged", findVal);
-	
 	}
 	
 	///////////////////////////////////////////////////////////////////////////////////////
-	// This method creates a new shuffled deck from a new deck.
+	// This prints the array passed in via parameter. In addition, it shows the array
+	// indices and array "name" (also passed in as a parameter).
 	// 		Parameters:
 	//			arrayName - String representing name of array to print
 	//			array - array of ints to print
@@ -92,7 +103,7 @@ public class Lesson_02_1D_Array_Toy_Examples {
 	///////////////////////////////////////////////////////////////////////////////////////
 	private static void printArray(String arrayName, int [] array) {
 		// Print header
-		System.out.printf("\nPrinting %s (size %s)\n", arrayName, array.length);
+		System.out.printf("\n\nPrinting %s (size %s)\n", arrayName, array.length);
 		System.out.println("=================================");
 		
 		// Print index numbers
@@ -109,5 +120,4 @@ public class Lesson_02_1D_Array_Toy_Examples {
 		for (int i = 0; i < array.length; i++)
 			System.out.printf("%s\t", array[i]);
 	}
-
 }

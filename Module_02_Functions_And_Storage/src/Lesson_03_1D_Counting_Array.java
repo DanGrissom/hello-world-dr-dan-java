@@ -40,7 +40,7 @@ public class Lesson_03_1D_Counting_Array {
 		// Create 1D array from initial size
 		int [] a = new int [numElements];
 		for (int i = 0; i < a.length; i++)
-			a[i] = randy.nextInt(100);
+			a[i] = randy.nextInt(100) + 1; // Generate a number in the range [1, 100]
 		int debt = printAndSumArray("Amount I Owe Several Individuals", a);
 
 		// Count the number of each bill		
@@ -56,16 +56,28 @@ public class Lesson_03_1D_Counting_Array {
 			billCounts[b] += numBillsFittingInDebt;
 			remDebt -= (billVal * numBillsFittingInDebt);
 		}
+		
+		// How you'd likely solve this problem without arrays
+		// int num1s = 0;
+		// int num5s = 0;
+		// int num10s = 0;
+		// num10s = remDebt / 10;
+		// remDebt -= num10s * 10;
+		// num5s = remDebt / 5;
+		// remDebt -= num5s * 5;
+		// num1s = remDebt / 1;
 
 		// Print out summary
-		System.out.printf("\n\nFewest bills required to pay off debt ($%s): \n", debt);
+		System.out.printf("\n\nFewest bills required to pay off consolidated debt ($%s): \n", debt);
 		for (int i = billCounts.length-1; i > 0; i--)
 			if (billCounts[i] > 0)
 				System.out.printf("\tNumber of $%s bills: %s\n", BILL_VALS[i], billCounts[i]);
 	}
 
 	///////////////////////////////////////////////////////////////////////////////////////
-	// This method creates a new shuffled deck from a new deck.
+	// This prints the array passed in via parameter. In addition, it shows the array
+	// indices and array "name" (also passed in as a parameter) and prints the sum of the
+	// elements of the array.
 	// 		Parameters:
 	//			arrayName - String representing name of array to print
 	//			array - array of ints to print
@@ -99,13 +111,4 @@ public class Lesson_03_1D_Counting_Array {
 		System.out.printf("= $%s (TOTAL)", total);
 		return total;
 	}
-
 }
-
-
-
-
-
-
-
-
