@@ -1,5 +1,3 @@
-// *****NOTE: Create createOrderedDeck() LAST so we can show pass by value when creating new shuffled deck
-
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Hello World with Dr. Dan - A Complete Introduction to Programming from Java to C++ (Code and Course © Dan Grissom)
 //
@@ -50,7 +48,7 @@ public class Lesson_08_2D_Arrays_And_ArrayList_Cards_Example {
 	}
 
 	///////////////////////////////////////////////////////////////////////////////////////
-	// This method creates a new shuffled deck from a new deck.
+	// This method creates a new unshuffled deck from scratch.
 	// 		Parameters:
 	//			NONE
 	//
