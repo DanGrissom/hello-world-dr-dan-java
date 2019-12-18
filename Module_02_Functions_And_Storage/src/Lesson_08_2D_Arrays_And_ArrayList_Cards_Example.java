@@ -1,5 +1,3 @@
-// *****NOTE: Create createOrderedDeck() LAST so we can show pass by value when creating new shuffled deck
-
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Hello World with Dr. Dan - A Complete Introduction to Programming from Java to C++ (Code and Course © Dan Grissom)
 //
@@ -49,7 +47,7 @@ public class Lesson_08_2D_Arrays_And_ArrayList_Cards_Example {
 		Scanner scan = new Scanner(System.in);
 		
 		// Generate a new deck of ordered cards and print
-		String [] newDeck = createOrderedDeck();
+		ArrayList<String> newDeck = createOrderedDeck();
 		printDeck("A new deck", newDeck);
 
 		// Prompt user how many hands they'd like to deal
@@ -58,72 +56,50 @@ public class Lesson_08_2D_Arrays_And_ArrayList_Cards_Example {
 		System.out.print("Enter the number of cards each player receives: ");
 		int numCards = scan.nextInt();
 		System.out.print("Enter the number of hands/rounds you'd like to deal/play: ");
-		int numHands = scan.nextInt();
-		
+		int numRounds = scan.nextInt();
+
 		// Create a new shuffle of cards and print
-		for (int i = 0; i < numHands; i++) {
+		for (int r = 0; r < numRounds; r++) {
 			// Get new shuffled deck
 			ArrayList<String> shuffledDeck = createShuffledDeck(newDeck);
-			//printDeck(String.format("Shuffled deck %s", (i+1)), shuffledDeck);
 			
-			// Populate the hands into a 2D array
-			// Each row will represent a different players hand
-			// Each column in a row will represent a card in the player's hand
-			String [][] game = new String[numPlayers][numCards];
+			// Populate the hands for this round into a 2D array
+			//		Each row will represent a different player's hand
+			//		Each column in a row will represent a card in that player's hand
+			String [][] hands = new String[numPlayers][numCards];
 			for (int p = 0; p < numPlayers; p++) {
-				for (int c = 0; c < numCards; c++) {
+				for (int cs = 0; cs < numCards; cs++) { // cs = card slot
+					
 					// If deck is empty, get new deck
 					if (shuffledDeck.isEmpty())
 						shuffledDeck = createShuffledDeck(newDeck);
 					
 					// Remove top/first card from shuffled deck and place in player's hand
-					game[p][c] = shuffledDeck.remove(0);
+					hands[p][cs] = shuffledDeck.remove(0);
 				}
 			}
 			
 			// Print out hands
-			System.out.printf("-------------------------ROUND #%s-------------------------\n", i);
+			System.out.printf( "---------------------------------ROUND %s---------------------------------\n", (r+1) );
 			for (int p = 0; p < numPlayers; p++)
-				printDeck(String.format("Player %s's hand", p), game[p]);
-			
+				printDeck(String.format("Player %s's hand", (p+1)), hands[p]);
 		}
 	}
 
 	///////////////////////////////////////////////////////////////////////////////////////
-	// This method creates a new shuffled deck from a new deck.
+	// This method creates a new unshuffled deck from scratch.
 	// 		Parameters:
 	//			NONE
 	//
 	//		Returns:
-	//			An array of Strings containing an ordered deck of cards
+	//			An ArrayList of Strings containing an ordered deck of cards
 	///////////////////////////////////////////////////////////////////////////////////////
-	private static String[] createOrderedDeck() {
-		// Print out Suits
-		System.out.print("Listing unique card suits: ");
-		for (int i = 0; i < SUITS.length; i++)
-			System.out.print(SUITS[i] + "   ");
-		System.out.println();
-		System.out.println();
-
-		// Print out Values
-		System.out.print("Listing unique card values: ");
-		for (int i = 0; i < VALUES.length; i++)
-			System.out.print(VALUES[i] + "   ");
-		System.out.println();
-		System.out.println();
-
+	private static ArrayList<String> createOrderedDeck() {
 		// Create a new deck of "unshuffled" cards from the unique suits and values
-		int numCardsInDeck = SUITS.length * VALUES.length;
-		String [] newDeck = new String[numCardsInDeck];
-		int cardCount = 0;
-		for (int s = 0; s < SUITS.length; s++) {
-			for (int v = 0; v < VALUES.length; v++) {
-				String newCard = VALUES[v] + " of " + SUITS[s];
-				newDeck[cardCount] = newCard;
-				cardCount++;
-				//newDeck[cardNumber++] = VALUES[v] + " of " + SUITS[s];
-			}
-		}
+		ArrayList<String> newDeck = new ArrayList<String>();
+		for (int s = 0; s < SUITS.length; s++)
+			for (int v = 0; v < VALUES.length; v++)
+				newDeck.add(VALUES[v] + " of " + SUITS[s]);
 		
 		// Return new deck of cards
 		return newDeck;
@@ -132,49 +108,72 @@ public class Lesson_08_2D_Arrays_And_ArrayList_Cards_Example {
 	///////////////////////////////////////////////////////////////////////////////////////
 	// This method prints out each card in the deck of cards passed in.
 	// 		Parameters:
-	//			deck - An array of Strings (cards)
+	//			deck - An ArrayList (array) of Strings (cards)
 	//
 	//		Returns:
 	//			void (nothing)
 	///////////////////////////////////////////////////////////////////////////////////////
-	private static void printDeck(String cardSetName, String[] deck) throws InterruptedException {
-		// Pause the thread to allow output to catch up
-		int threadSleepMillis = 150;
+	private static void printDeck(String cardSetName, ArrayList<String> deck) throws InterruptedException {
+		
+		// Print the header
+		System.out.printf("%s (%s cards) contains:\n", cardSetName, deck.size());
+		ensurePrintOrder();
 		
 		// Print the cards in the deck
-		System.out.printf(cardSetName + " of %s cards contains:\n", deck.length);
-		System.out.flush();
-		TimeUnit.MILLISECONDS.sleep(threadSleepMillis);
-		for (int i = 0; i < deck.length; i++) {
-			if (deck[i].toUpperCase().contains("SPADES") || deck[i].toUpperCase().contains("CLUBS"))
-				System.out.println("\t" + deck[i]);
-			else
-				System.err.println("\t" + deck[i]);
+		for (int i = 0; i < deck.size(); i++) {
+			String card = deck.get(i);
+			if (card.toUpperCase().contains("SPADES") || card.toUpperCase().contains("CLUBS")) {
+				System.out.println("\t" + card);
+				ensurePrintOrder();
+			}
+			else { // Diamonds or Hearts
+				System.err.println("\t" + card);
+				ensurePrintOrder();
+			}
 		}
 		
-		// Flush the output streams
+		// Print a new line after all the cards are printed
+		System.out.println();
+		ensurePrintOrder();
+	}
+	private static void printDeck(String cardSetName, String[] deck) throws InterruptedException {
+		ArrayList<String> deckCopy = new ArrayList<String>( Arrays.asList(deck) );
+		printDeck(cardSetName, deckCopy);
+		
+	}
+	
+	///////////////////////////////////////////////////////////////////////////////////////
+	// This method flushes the output and error streams and then pauses the code execution
+	// for a few seconds to give time for the output/error streams to print to screen in
+	// an effort to ensure that the output and error streams are in sync with one another.
+	// 		Parameters:
+	//			N/A
+	//
+	//		Returns:
+	//			void (nothing)
+	///////////////////////////////////////////////////////////////////////////////////////
+	private static void ensurePrintOrder() throws InterruptedException {
+		// Pause the thread to allow output to catch up
 		System.out.flush();
 		System.err.flush();
-		TimeUnit.MILLISECONDS.sleep(threadSleepMillis);
-		System.out.println();
-		System.out.flush();
-		TimeUnit.MILLISECONDS.sleep(threadSleepMillis);
+		TimeUnit.MILLISECONDS.sleep(1);
 	}
 
 	///////////////////////////////////////////////////////////////////////////////////////
-	// This method creates a new shuffled deck from a new deck.
+	// This method creates a new shuffled deck from a new/stock deck.
 	// 		Parameters:
-	//			newDeck - An array of Strings (cards) in order
+	//			newDeck - An ArrayList of Strings (cards) in order
 	//
 	//		Returns:
-	//			An array of Strings containing a randomly shuffled deck of cards
+	//			An ArrayList of Strings containing a randomly shuffled deck of cards
 	///////////////////////////////////////////////////////////////////////////////////////
-	private static ArrayList<String> createShuffledDeck(String[] originDeck) {
-		// Create a copy of the deck (for temporary usage) and init a shuffled deck (to return)
-		ArrayList<String> deckCopy = new ArrayList<String>(Arrays.asList(originDeck));
-		ArrayList<String> shuffledDeck = new ArrayList<String>();
+	private static ArrayList<String> createShuffledDeck(ArrayList<String> originDeck) {
+		// Make a copy of the originDeck, making sure we never change the originDeck
+		// so we can always use it again to generate a new deck
+		ArrayList<String> deckCopy = new ArrayList<String>(originDeck);
+		ArrayList<String> shuffledDeck = new ArrayList<String>(); // Create empty deck of proper size
 		
-		// While the temporary deck copy is not empty, keep pulling cards randomly and add them to the shuffled deck
+		// While the temporary deck copy is NOT empty, keep pulling cards randomly and add them to the shuffled deck
 		while (!deckCopy.isEmpty()) {
 			int pullIndex = randy.nextInt(deckCopy.size());
 			String pulledCard = deckCopy.get(pullIndex);
