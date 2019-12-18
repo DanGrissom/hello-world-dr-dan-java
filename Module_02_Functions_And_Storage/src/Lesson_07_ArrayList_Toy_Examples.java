@@ -1,5 +1,5 @@
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-// Hello World with Dr. Dan - A Complete Introduction to Programming from Java to C++ (Code and Course © Dan Grissom)
+// Hello World with Dr. Dan - A Complete Introduction to Programming from Java to C++ (Code and Course Â© Dan Grissom)
 //
 // Additional Lesson Resources from Dr. Dan:
 // 		High-Quality Video Tutorials: www.helloDrDan.com
@@ -9,7 +9,7 @@
 //		1) The ArrayList class
 //			a) Declaring ArrayLists
 //			b) ArrayList methods
-//				i) length(), get(), add(), contains(), isEmpty()
+//				i) size(), get(), add(), contains(), isEmpty()
 //			c) Iterating through and printing ArrayList contents
 //			d) Sorting arrays and comparators
 //			e) Nesting ArrayLists
