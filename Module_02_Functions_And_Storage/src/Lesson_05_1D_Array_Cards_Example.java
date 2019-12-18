@@ -70,10 +70,8 @@ public class Lesson_05_1D_Array_Cards_Example {
 		// Create empty deck of proper size
 		String [] shuffledDeck = new String [numCardsInDeck];
 		
-		// Copy cards over, one at a time
+		// Copy cards over, one at a time (in random order)
 		for (int i = 0; i < numCardsInDeck; i++) {
-			// Randomly pull card from new deck...
-			//String pulledCard = newDeck[i];
 			String pulledCard = null;
 
 			// Check a random card slot to see if it has not already been pulled

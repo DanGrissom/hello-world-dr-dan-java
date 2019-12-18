@@ -1,5 +1,3 @@
-// *****NOTE: Create createOrderedDeck() LAST so we can show pass by value when creating new shuffled deck
-
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Hello World with Dr. Dan - A Complete Introduction to Programming from Java to C++ (Code and Course © Dan Grissom)
 //
@@ -40,10 +38,10 @@ public class Lesson_06_Functions_Pass_By_Reference_Cards_Example {
 		String [] newDeck = createOrderedDeck();
 		printDeck("A new deck", newDeck);
 
-		// Create a new shuffle of cards and print
+		// Repeatedly create a new shuffle of cards and print
 		for (int i = 0; i < 5; i++) {
 			String [] shuffledDeck = createShuffledDeck(newDeck);
-			printDeck(String.format("Shuffled deck %s", (i+1)), shuffledDeck);
+			printDeck( String.format("Shuffled deck %s", i+1), shuffledDeck );
 		}
 	}
 
@@ -56,20 +54,6 @@ public class Lesson_06_Functions_Pass_By_Reference_Cards_Example {
 	//			An array of Strings containing an ordered deck of cards
 	///////////////////////////////////////////////////////////////////////////////////////
 	private static String[] createOrderedDeck() {
-		// Print out Suits
-		System.out.print("Listing unique card suits: ");
-		for (int i = 0; i < SUITS.length; i++)
-			System.out.print(SUITS[i] + "   ");
-		System.out.println();
-		System.out.println();
-
-		// Print out Values
-		System.out.print("Listing unique card values: ");
-		for (int i = 0; i < VALUES.length; i++)
-			System.out.print(VALUES[i] + "   ");
-		System.out.println();
-		System.out.println();
-
 		// Create a new deck of "unshuffled" cards from the unique suits and values
 		int numCardsInDeck = SUITS.length * VALUES.length;
 		String [] newDeck = new String[numCardsInDeck];
@@ -79,7 +63,6 @@ public class Lesson_06_Functions_Pass_By_Reference_Cards_Example {
 				String newCard = VALUES[v] + " of " + SUITS[s];
 				newDeck[cardCount] = newCard;
 				cardCount++;
-				//newDeck[cardNumber++] = VALUES[v] + " of " + SUITS[s];
 			}
 		}
 		
@@ -90,6 +73,7 @@ public class Lesson_06_Functions_Pass_By_Reference_Cards_Example {
 	///////////////////////////////////////////////////////////////////////////////////////
 	// This method prints out each card in the deck of cards passed in.
 	// 		Parameters:
+	//			cardSetName - A string representing the name of the deck
 	//			deck - An array of Strings (cards)
 	//
 	//		Returns:
@@ -105,13 +89,12 @@ public class Lesson_06_Functions_Pass_By_Reference_Cards_Example {
 	///////////////////////////////////////////////////////////////////////////////////////
 	// This method creates a new shuffled deck from a new deck.
 	// 		Parameters:
-	//			newDeck - An array of Strings (cards) in order
+	//			originDeck - An array of Strings (cards) in order
 	//
 	//		Returns:
-	//			An array of Strings containing a randomly shuffled deck of cards
+	//			An new array of Strings (deck of cards) containing a randomly shuffled deck of cards
 	///////////////////////////////////////////////////////////////////////////////////////
 	private static String[] createShuffledDeck(String[] originDeck) {
-		
 		// Make a copy of the originDeck, making sure we never change the origin deck
 		// so we can always use it again to generate a new deck
 		String[] deckCopy = Arrays.copyOf(originDeck, originDeck.length);
@@ -155,12 +138,17 @@ public class Lesson_06_Functions_Pass_By_Reference_Cards_Example {
 				}
 
 			}
+			
+			// If we were NOT able to find an unpulled, we did not init the deck properly
+			if (pulledCard == null) {
+				System.err.print("The new deck passed in was not initialized properly. Exiting program...");
+				System.exit(0);
+			}
 
-			// ...and place pulled card into shuffledCards
+			// If make it here, we do have a pulled card; place pulled card into shuffled deck
 			shuffledDeck[i] = pulledCard;
 		}
 
 		return shuffledDeck;
 	}
-
 }

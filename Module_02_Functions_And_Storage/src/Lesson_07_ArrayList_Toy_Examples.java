@@ -9,7 +9,7 @@
 //		1) The ArrayList class
 //			a) Declaring ArrayLists
 //			b) ArrayList methods
-//				i) length(), get(), add(), contains(), isEmpty()
+//				i) size(), get(), add(), contains(), isEmpty()
 //			c) Iterating through and printing ArrayList contents
 //			d) Sorting arrays and comparators
 //			e) Nesting ArrayLists
@@ -36,10 +36,12 @@ public class Lesson_07_ArrayList_Toy_Examples {
 		// Initialize random number generator
 		Random randy = new Random();
 
+		///////////////////////////////////////////////////////////////////////////
+		// ARRAYLIST DECLARATION & BUILDING
 		// Declare and init arraylist of places
 		ArrayList<String> favPlaces = new ArrayList<String>();
 
-		// Declare and init arraylist
+		// Prompt user to keep adding new places to store in arraylist
 		boolean morePlaces = true;
 		do {
 			System.out.print("Please enter a favorite place (Type Done when done): ");
@@ -57,6 +59,7 @@ public class Lesson_07_ArrayList_Toy_Examples {
 		printArrayList("Favorite Places (in order as provided)", favPlaces);
 
 		///////////////////////////////////////////////////////////////////////////
+		// ARRAYLIST SORTING
 		// Sort alphabetically and print again
 		Collections.sort(favPlaces);
 		printArrayList("Favorite Places (sorted alphabetically)", favPlaces);
@@ -77,6 +80,8 @@ public class Lesson_07_ArrayList_Toy_Examples {
 		});
 		printArrayList("Favorite Places (shortest to longest)", favPlaces);
 		
+		///////////////////////////////////////////////////////////////////////////
+		// ARRAYLIST MANIPULATION
 		// Prompt user for index of value to remove
 		System.out.print("\nPlease enter an INDEX to remove: ");
 		int iRemove = scan.nextInt();
@@ -107,15 +112,15 @@ public class Lesson_07_ArrayList_Toy_Examples {
 		// Print out contents of arraylist (similar to 2D array)
 		System.out.printf("\nRandomly generated a %s x %s matrix (rows x cols):\n", numRows, numCols);
 		for (int r = 0; r < nestedList.size(); r++) {
+			//System.out.println(nestedList.get(r));
 			for (int c = 0; c < nestedList.get(r).size(); c++)
-				System.out.print(nestedList.get(r).get(c) + "\t");
+				System.out.print(nestedList.get(r).get(c) + "\t"); // Same as array2d[r][c] for 2D array
 			System.out.println();
 		}
-		
 	}
 
 	///////////////////////////////////////////////////////////////////////////////////////
-	// This method creates a new shuffled deck from a new deck.
+	// This method prints the name and contents of the ArrayList.
 	// 		Parameters:
 	//			aListName - String representing name of array to print
 	//			aList - ArrayList of Strings to print
@@ -128,9 +133,10 @@ public class Lesson_07_ArrayList_Toy_Examples {
 		System.out.printf("\nPrinting %s (size %s)\n", aListName, aList.size());
 		System.out.println("=================================");
 
+		// If Arraylist is empty, print message saying so
 		if (aList.isEmpty())
 			System.out.println("\t***ArrayList empty");
-		else {
+		else { // If ArrayList DOES have elements
 			// Print array values
 			for (int i = 0; i < aList.size(); i++)
 				System.out.printf("\t%s\t(index %s)\n", aList.get(i), i);
