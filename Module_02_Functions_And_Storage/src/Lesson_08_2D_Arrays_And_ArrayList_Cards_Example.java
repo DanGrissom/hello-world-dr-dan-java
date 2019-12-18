@@ -1,5 +1,5 @@
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-// Hello World with Dr. Dan - A Complete Introduction to Programming from Java to C++ (Code and Course © Dan Grissom)
+// Hello World with Dr. Dan - A Complete Introduction to Programming from Java to C++ (Code and Course Â© Dan Grissom)
 //
 // Additional Lesson Resources from Dr. Dan:
 // 		High-Quality Video Tutorials: www.helloDrDan.com
@@ -66,7 +66,7 @@ public class Lesson_08_2D_Arrays_And_ArrayList_Cards_Example {
 	///////////////////////////////////////////////////////////////////////////////////////
 
 	///////////////////////////////////////////////////////////////////////////////////////
-	// This method creates a new shuffled deck from a new deck.
+	// This method creates a new shuffled deck from a new/stock deck.
 	// 		Parameters:
 	//			newDeck - An ArrayList of Strings (cards) in order
 	//
