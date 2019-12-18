@@ -22,12 +22,6 @@
 //			b) Flushing System.out and System.err to force output
 //			c) Using the .sleep method to pause your program
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Random;
-import java.util.Scanner;
-import java.util.concurrent.TimeUnit;
-
 public class Lesson_08_2D_Arrays_And_ArrayList_Cards_Example {
 
 	// Constants
