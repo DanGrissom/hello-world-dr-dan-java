@@ -20,8 +20,6 @@
 //				i) All variables are public static final, whether you declare them that way or not
 //				ii) All methods are abstract (cannot define method body)
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-import java.util.ArrayList;
-
 public class Lesson_02_StarWarsUniverseClient_Advanced_OOP {
 
 	///////////////////////////////////////////////////////////////
@@ -33,34 +31,12 @@ public class Lesson_02_StarWarsUniverseClient_Advanced_OOP {
 		System.out.println("===========================================================================");
 		
 		// There are many happy people in our universe...
-		Humanoid luca = new Humanoid("Luca Skyscraper", "Compton", "Rock-Paper-Scissors", "Shield Block");
-		Humanoid tim = new Humanoid("Obi-wan Canoli", "Endor", "Ultimate Punch", "Sike - Ultimate Punch");
-		Sith kylo = new Sith("Kylo Ren", "Sololand", "Force Lightning", "Saber Fury Block", 10);
-		Humanoid nick = new Humanoid("Windu", "Xi", "Sword Swing", "Run!!");
-		Jedi rey = new Jedi("Rey", "Jakku", "Saber Throw", "Saber Block", 4);
-		Humanoid konobe = new Humanoid("KonobeBryant", "LaLa Land", "Slam Dunk Yo' Head", "Block");
-		Jedi yoda = new Jedi("Master Yoda", "Dagobah", "Force Push", "Baby Yoda Disguise", 10);
 		
 		// ...until Vader enters the scene...
-		Sith vader = new Sith("Darth Vader", "Tatooine", "Force Choke", "Saber Block", 10);
 		
 		// ...and orders everyone into his line of doom
-		ArrayList<Humanoid> vadersLineOfDoom = new ArrayList<Humanoid>();
-		vadersLineOfDoom.add(luca);
-		vadersLineOfDoom.add(tim);
-		vadersLineOfDoom.add(kylo);
-		vadersLineOfDoom.add(nick);
-		vadersLineOfDoom.add(rey);
-		vadersLineOfDoom.add(konobe);
-		vadersLineOfDoom.add(yoda);
 		
 		// Vader processes everyone through his line of doom, and
 		// naturally decides to fight them all
-		System.out.println("Welcome to Vader's Line of DOOOOOOOM: ");
-		for (Humanoid unluckyFoe : vadersLineOfDoom) {
-			System.out.printf("%s VS. %s\n", vader.getName(), unluckyFoe.getName());
-			System.out.println(vader.attack(unluckyFoe));
-			System.out.println();
-		}
 	}
 }
