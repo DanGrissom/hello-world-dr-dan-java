@@ -54,7 +54,7 @@ public class Lesson_02_StarWarsUniverseClient_Advanced_OOP {
 		vadersLineOfDoom.add(luca);
 		vadersLineOfDoom.add(obiWan);
 		vadersLineOfDoom.add(kylo);
-		vadersLineOfDoom.add(nick);
+		vadersLineOfDoom.add(mace);
 		vadersLineOfDoom.add(rey);
 		vadersLineOfDoom.add(konobe);
 		vadersLineOfDoom.add(yoda);

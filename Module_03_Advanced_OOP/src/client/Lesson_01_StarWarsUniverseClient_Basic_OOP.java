@@ -16,7 +16,7 @@
 //				iv) Getters/Setters
 //				v) Overriding methods
 //					a) toString() method
-//					b) equals() method
+//					b) equals() method (equals vs. ==)
 //				vi) Custom/Class methods
 //			b) Class creation using from Eclipse helpers
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -24,7 +24,7 @@ package client;
 import java.util.ArrayList;
 import java.util.Random;
 import models.Humanoid;
-import models.Robot;
+import models.Droid;
 
 public class Lesson_01_StarWarsUniverseClient_Basic_OOP {
 
@@ -40,11 +40,11 @@ public class Lesson_01_StarWarsUniverseClient_Basic_OOP {
 		Humanoid luca = new Humanoid("Luca Skyscraper", "Tatooine", "Rock-Paper-Scissors", "Force Projection");
 		Humanoid babyYoda = new Humanoid("Baby Yoda", "Dagobah", "Force Choke", "Cuteness");
 		Humanoid mace = new Humanoid("Mace Windu", "Xi", "Purple Saber Slash", "Run!!");
-		Humanoid konobe = new Humanoid("Konobe Bryant", "LaLa Land", "Slam Dunk Yo' Head", "Smack Down Block", new Robot("C-3P0", 3045, 6));
+		Humanoid konobe = new Humanoid("Konobe Bryant", "LaLa Land", "Slam Dunk Yo' Head", "Smack Down Block", new Droid("C-3P0", 3045, 6));
 		
-		// Create a new robot and add it to 
-		Robot r2d2 = new Robot("R2-D2", 3088, 1);
-		babyYoda.setRobot(r2d2);
+		// Create a new droid and add it to 
+		Droid r2d2 = new Droid("R2-D2", 3088, 1);
+		babyYoda.setDroid(r2d2);
 		
 		// Add each person to an ArrayList to be processed
 		ArrayList<Humanoid> empireDMV = new ArrayList<Humanoid>();
@@ -87,15 +87,15 @@ public class Lesson_01_StarWarsUniverseClient_Basic_OOP {
 		System.out.printf("\tCustomer %s Interaction:\n", placeInLine);
 		System.out.println("\t\tDMV: Please identify yourself.");
 		System.out.printf("\t\t\t%s: %s\n", h.getName(), h);
-		System.out.println("\t\tDMV: Please identify the robot you wish to register to drive your landspeeder.");
+		System.out.println("\t\tDMV: Please identify the droid you wish to register to drive your landspeeder.");
 		
-		// Print end of interaction based on if humanoid has a robot
-		if (h.getRobot() != null) {
-			System.out.printf("\t\t\t%s: %s, please identify yourself.\n", h.getName(), h.getRobot().getName());
-			System.out.printf("\t\t\t\t%s: %s\n", h.getRobot().getName(), h.getRobot());
-			System.out.printf("\t\tDMV: Registration for %s DENIED due to insufficient documentation.\n", h.getRobot().getName());
+		// Print end of interaction based on if humanoid has a droid
+		if (h.getDroid() != null) {
+			System.out.printf("\t\t\t%s: %s, please identify yourself.\n", h.getName(), h.getDroid().getName());
+			System.out.printf("\t\t\t\t%s: %s\n", h.getDroid().getName(), h.getDroid());
+			System.out.printf("\t\tDMV: Registration for %s DENIED due to insufficient documentation.\n", h.getDroid().getName());
 		} else {
-			System.out.printf("\t\t\t%s: What?!? I need a robot to be here?!?\n", h.getName());
+			System.out.printf("\t\t\t%s: What?!? I need a droid to be here?!?\n", h.getName());
 			System.out.println("\t\tDMV: Goodbye.");
 		}
 		System.out.println();

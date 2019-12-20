@@ -7,7 +7,7 @@
 //
 // Lesson Note:
 // 		This class is consumed by Lesson_01_StarWarsUniverseClient_Basic_OOP & Lesson_02_StarWarsUniverseClient_Advanced_OOP.
-//		This class encapsulates the Robot, which describes basic robot properties; it also inherits methods/variables
+//		This class encapsulates the Droid, which describes basic droid properties; it also inherits methods/variables
 // 		from the GalacticID class.
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 package models;
@@ -15,7 +15,7 @@ package models;
 import java.text.DecimalFormat;
 import java.util.Random;
 
-public class Robot {
+public class Droid {
 	
 	///////////////////////////////////////////////////////////////
 	// Instance variables
@@ -29,9 +29,9 @@ public class Robot {
 	//		Parameters:
 	//			NONE
 	///////////////////////////////////////////////////////////////
-	public Robot() {
+	public Droid() {
 		//super();
-		name = "Basic Robot";
+		name = "Basic Droid";
 		mfgYear = 0;
 		mfgMonth = 0;
 	}
@@ -39,11 +39,11 @@ public class Robot {
 	///////////////////////////////////////////////////////////////
 	// Overloaded Constructor
 	//		Parameters:
-	//			pName - A String representing the robot's name
-	//			mfgYear - An int representing the robot's manufacturing year
-	//			mfgMonth - An int representing the robot's manufacturing year
+	//			pName - A String representing the droid's name
+	//			mfgYear - An int representing the droid's manufacturing year
+	//			mfgMonth - An int representing the droid's manufacturing year
 	///////////////////////////////////////////////////////////////
-	public Robot(String pName, int pMfgYear, int pMfgMonth) {
+	public Droid(String pName, int pMfgYear, int pMfgMonth) {
 		//super();
 		name = pName;
 		mfgYear = pMfgYear;
@@ -69,7 +69,7 @@ public class Robot {
 	//		Parameters:
 	//			NONE
 	//		Returns:
-	//			A String representing the object's (Robot's) properties
+	//			A String representing the object's (Droid's) properties
 	///////////////////////////////////////////////////////////////
 	public String toString() {
 		String ret = String.format("My human-supplied name is %s (%s); I was manufactured in %s/%s.",
@@ -86,16 +86,16 @@ public class Robot {
 	//			have the same values/properties as Object o
 	///////////////////////////////////////////////////////////////
 	public boolean equals(Object o) {
-		// If object o is NOT a robot, then not equal
-		if (!(o instanceof Robot))
+		// If object o is NOT a droid, then not equal
+		if (!(o instanceof Droid))
 			return false;
 		
-		// If THIS object has properties that do NOT match with other robot's properties, then not equal
-		Robot otherRobot = (Robot)o;
-		if (!name.equals(otherRobot.name) || mfgYear != otherRobot.mfgYear || mfgMonth != otherRobot.mfgMonth)
+		// If THIS object has properties that do NOT match with other droid's properties, then not equal
+		Droid otherDroid = (Droid)o;
+		if (!name.equals(otherDroid.name) || mfgYear != otherDroid.mfgYear || mfgMonth != otherDroid.mfgMonth)
 			return false;
 		
-		// If we made it thus far, THIS robot's properties all match the other robot's properties, so they are equal
+		// If we made it thus far, THIS droid's properties all match the other droid's properties, so they are equal
 		return true;
 	}
 	

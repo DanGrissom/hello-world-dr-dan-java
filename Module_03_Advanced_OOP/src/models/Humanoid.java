@@ -24,7 +24,7 @@ public class Humanoid {
 	private String homeWorld;
 	private String attack;
 	private String defense;
-	private Robot robot;
+	private Droid droid;
 	
 	///////////////////////////////////////////////////////////////
 	// Default Constructor
@@ -33,11 +33,11 @@ public class Humanoid {
 	///////////////////////////////////////////////////////////////
 	public Humanoid() {
 		//super();
-		name = "Ben Notsure";
-		homeWorld = "Tatooine";
-		attack = "Rock Throw";
-		defense = "Block";
-		robot = null;
+		name = "No Name";
+		homeWorld = "Earth";
+		attack = "Arm Swing";
+		defense = "Cry";
+		droid = null;
 	}
 	
 	///////////////////////////////////////////////////////////////
@@ -47,16 +47,16 @@ public class Humanoid {
 	//			pHomeWorld - A String representing the humanoid's homeworld
 	//			pAttack - A String representing the humanoid's default attack
 	//			pDefense - A String representing the humanoid's default defense
-	//			pRobot - A Robot that the humanoid owns
+	//			pDroid - A Droid that the humanoid owns
 	///////////////////////////////////////////////////////////////
 	public Humanoid(String pName, String pHomeWorld,
-			String pAttack, String pDefense, Robot pRobot) {
+			String pAttack, String pDefense, Droid pDroid) {
 		//super();
 		name = pName;
 		homeWorld = pHomeWorld;
 		attack = pAttack;
 		defense = pDefense;
-		robot = pRobot;
+		droid = pDroid;
 	}
 	public Humanoid(String pName, String pHomeWorld,
 			String pAttack, String pDefense) {
@@ -64,7 +64,7 @@ public class Humanoid {
 		homeWorld = pHomeWorld;
 		attack = pAttack;
 		defense = pDefense;
-		robot = null;
+		droid = null;
 	}
 
 	///////////////////////////////////////////////////////////////
@@ -74,7 +74,7 @@ public class Humanoid {
 	public String getHomeWorld() { return homeWorld; }
 	public String getAttack() { return attack; }
 	public String getDefense() { return defense; }
-	public Robot getRobot() { return robot; }
+	public Droid getDroid() { return droid; }
 
 	///////////////////////////////////////////////////////////////
 	// Setters
@@ -83,7 +83,7 @@ public class Humanoid {
 	public void setHomeWorld(String pHomeWorld) { homeWorld = pHomeWorld; }
 	public void setAttack(String pAttack) { attack = pAttack; }
 	public void setDefense(String pDefense) { defense = pDefense; }
-	public void setRobot(Robot pRobot) { robot = pRobot; }
+	public void setDroid(Droid pDroid) { droid = pDroid; }
 
 	///////////////////////////////////////////////////////////////
 	// Override the toString method (from the object class)
@@ -93,9 +93,9 @@ public class Humanoid {
 	//			A String representing the object's (Humanoid's) properties
 	///////////////////////////////////////////////////////////////
 	public String toString() {
-		String robotStr = robot == null ? "" : String.format("owns a robot (%s), ", robot.getName());
+		String droidStr = droid == null ? "" : String.format("owns a droid (%s), ", droid.getName());
 		String ret = String.format("%s (%s), from %s, %shas an attack of %s and a defense of %s.",
-				getName(), getFormattedEmpireIdStr(), homeWorld.toUpperCase(), robotStr, attack.toUpperCase(), defense.toUpperCase());
+				getName(), getFormattedEmpireIdStr(), homeWorld.toUpperCase(), droidStr, attack.toUpperCase(), defense.toUpperCase());
 		return ret;				
 	}
 	
