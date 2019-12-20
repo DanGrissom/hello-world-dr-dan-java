@@ -13,7 +13,9 @@ package models;
 
 public interface ForceActions {
 
+	///////////////////////////////////////////////////////////////
 	// Variables (all interface variables are public static final)
+	///////////////////////////////////////////////////////////////
 	public static final int maxForceLevel = 10;
 	public static final int maxForceHealth = 100;
 	

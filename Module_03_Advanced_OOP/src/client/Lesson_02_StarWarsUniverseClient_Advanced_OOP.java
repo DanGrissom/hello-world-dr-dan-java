@@ -33,17 +33,17 @@ public class Lesson_02_StarWarsUniverseClient_Advanced_OOP {
 	// MAIN - Entry point where code will begin execution for file
 	///////////////////////////////////////////////////////////////
 	public static void main(String[] args) {
-		// Welcome user to our program
-		System.out.println("Welcome to the Star Wars Galaxy!!");
-		System.out.println("---------------------------------\n");
+		// Simple welcome statements printed to screen
+		System.out.println("Program Objective: Learn advanced object oriented programming concepts.");
+		System.out.println("===========================================================================");
 		
 		// There are many happy people in our universe...
-		Humanoid luca = new Humanoid("Luca Skyscraper", "Compton", "Rock-Paper-Scissors", "Shield Block");
-		Humanoid tim = new Humanoid("Obi-wan Canoli", "Endor", "Ultimate Punch", "Sike - Ultimate Punch");
+		Humanoid luca = new Humanoid("Luca Skyscraper", "Tatooine", "Rock-Paper-Scissors", "Shield Block");
+		Humanoid obiWan = new Humanoid("Obi-wan Canoli", "Endor", "Ultimate Punch", "Sike - Ultimate Punch");
 		Sith kylo = new Sith("Kylo Ren", "Sololand", "Force Lightning", "Saber Fury Block", 10);
-		Humanoid nick = new Humanoid("Windu", "Xi", "Sword Swing", "Run!!");
+		Humanoid mace = new Humanoid("Mace Windu", "Xi", "Purple Saber Slash", "Run!!");
 		Jedi rey = new Jedi("Rey", "Jakku", "Saber Throw", "Saber Block", 4);
-		Humanoid konobe = new Humanoid("KonobeBryant", "LaLa Land", "Slam Dunk Yo' Head", "Block");
+		Humanoid konobe = new Humanoid("Konobe Bryant", "LaLa Land", "Slam Dunk Yo' Head", "Block");
 		Jedi yoda = new Jedi("Master Yoda", "Dagobah", "Force Push", "Baby Yoda Disguise", 10);
 		
 		// ...until Vader enters the scene...
@@ -52,7 +52,7 @@ public class Lesson_02_StarWarsUniverseClient_Advanced_OOP {
 		// ...and orders everyone into his line of doom
 		ArrayList<Humanoid> vadersLineOfDoom = new ArrayList<Humanoid>();
 		vadersLineOfDoom.add(luca);
-		vadersLineOfDoom.add(tim);
+		vadersLineOfDoom.add(obiWan);
 		vadersLineOfDoom.add(kylo);
 		vadersLineOfDoom.add(nick);
 		vadersLineOfDoom.add(rey);

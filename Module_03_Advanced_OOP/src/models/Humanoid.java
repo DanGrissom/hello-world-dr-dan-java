@@ -15,13 +15,16 @@ package models;
 import java.text.DecimalFormat;
 import java.util.Random;
 
-public class Humanoid extends GalacticID {
+public class Humanoid {
 
+	///////////////////////////////////////////////////////////////
 	// Instance variables
+	///////////////////////////////////////////////////////////////
 	private String name;
 	private String homeWorld;
 	private String attack;
 	private String defense;
+	private Robot robot;
 	
 	///////////////////////////////////////////////////////////////
 	// Default Constructor
@@ -34,6 +37,7 @@ public class Humanoid extends GalacticID {
 		homeWorld = "Tatooine";
 		attack = "Rock Throw";
 		defense = "Block";
+		robot = null;
 	}
 	
 	///////////////////////////////////////////////////////////////
@@ -43,14 +47,24 @@ public class Humanoid extends GalacticID {
 	//			pHomeWorld - A String representing the humanoid's homeworld
 	//			pAttack - A String representing the humanoid's default attack
 	//			pDefense - A String representing the humanoid's default defense
+	//			pRobot - A Robot that the humanoid owns
 	///////////////////////////////////////////////////////////////
 	public Humanoid(String pName, String pHomeWorld,
-			String pAttack, String pDefense) {
+			String pAttack, String pDefense, Robot pRobot) {
 		//super();
 		name = pName;
 		homeWorld = pHomeWorld;
 		attack = pAttack;
 		defense = pDefense;
+		robot = pRobot;
+	}
+	public Humanoid(String pName, String pHomeWorld,
+			String pAttack, String pDefense) {
+		name = pName;
+		homeWorld = pHomeWorld;
+		attack = pAttack;
+		defense = pDefense;
+		robot = null;
 	}
 
 	///////////////////////////////////////////////////////////////
@@ -60,6 +74,7 @@ public class Humanoid extends GalacticID {
 	public String getHomeWorld() { return homeWorld; }
 	public String getAttack() { return attack; }
 	public String getDefense() { return defense; }
+	public Robot getRobot() { return robot; }
 
 	///////////////////////////////////////////////////////////////
 	// Setters
@@ -68,6 +83,7 @@ public class Humanoid extends GalacticID {
 	public void setHomeWorld(String pHomeWorld) { homeWorld = pHomeWorld; }
 	public void setAttack(String pAttack) { attack = pAttack; }
 	public void setDefense(String pDefense) { defense = pDefense; }
+	public void setRobot(Robot pRobot) { robot = pRobot; }
 
 	///////////////////////////////////////////////////////////////
 	// Override the toString method (from the object class)
@@ -77,33 +93,35 @@ public class Humanoid extends GalacticID {
 	//			A String representing the object's (Humanoid's) properties
 	///////////////////////////////////////////////////////////////
 	public String toString() {
-		String ret = String.format("%s (%s), from %s, has an attack of %s and a defense of %s.",
-				getName(), getFormattedEmpireIdStr(), homeWorld.toUpperCase(), attack.toUpperCase(), defense.toUpperCase());
+		String robotStr = robot == null ? "" : String.format("owns a robot (%s), ", robot.getName());
+		String ret = String.format("%s (%s), from %s, %shas an attack of %s and a defense of %s.",
+				getName(), getFormattedEmpireIdStr(), homeWorld.toUpperCase(), robotStr, attack.toUpperCase(), defense.toUpperCase());
 		return ret;				
 	}
-
-	///////////////////////////////////////////////////////////////
-	// This method provides an implementation for the abstract
-	// method it is overriding. It provides an empire id based
-	// on the homeworld and galactic id
-	//		Parameters:
-	//			NONE
-	//		Returns:
-	//			A String representing a formatted empire id
-	///////////////////////////////////////////////////////////////
-	public String getFormattedEmpireIdStr() {
-		// Create formatter
-		DecimalFormat df = new DecimalFormat("00000000");
-		
-		// Compose empire id from its parts
-		int hwLen = Math.min(homeWorld.length(), 3);
-		String hw = homeWorld.substring(0, hwLen).toUpperCase();
-		String eid = String.format("%s-%s", hw, df.format(getIdNum()));
-		
-		// Return empire id
-		return eid;
-	}
 	
+	///////////////////////////////////////////////////////////////
+	// Override the equals method (from the object class)
+	//		Parameters:
+	//			An object to compare with THIS object
+	//		Returns:
+	//			A boolean that is true if this object's variables
+	//			have the same values/properties as Object o
+	///////////////////////////////////////////////////////////////
+	public boolean equals(Object o) {
+		// If object o is NOT a humanoid, then not equal
+		if (!(o instanceof Humanoid))
+			return false;
+		
+		// If THIS object has properties that do NOT match with other humanoid's properties, then not equal
+		Humanoid otherHumanoid = (Humanoid)o;
+		if (!name.equals(otherHumanoid.name) || !homeWorld.equals(otherHumanoid.homeWorld) ||
+			!homeWorld.equals(otherHumanoid.attack) || !homeWorld.equals(otherHumanoid.defense))
+			return false;
+		
+		// If we made it thus far, THIS humanoid's properties all match the other humanoid's properties, so they are equal
+		return true;
+	}
+
 	///////////////////////////////////////////////////////////////
 	// This method describes the attack, generates a random outcome
 	// and then describes the result (who won).
@@ -130,5 +148,40 @@ public class Humanoid extends GalacticID {
 		String finalSummary = String.format("\tRESULT: %s %s\n", getName(), iWin ? "WINS" : "LOSES");
 		finalSummary += String.format("\tSUMMARY: %s", story);
 		return finalSummary;
+	}
+	
+	///////////////////////////////////////////////////////////////
+	// This method provides an implementation for the abstract
+	// method it is overriding. It provides an empire id based
+	// on the homeworld and galactic id
+	//		Parameters:
+	//			NONE
+	//		Returns:
+	//			A String representing a formatted empire id
+	///////////////////////////////////////////////////////////////
+	public String getFormattedEmpireIdStr() {
+		// Create formatter
+		DecimalFormat df = new DecimalFormat("00000000");
+		Random randy = new Random();
+		
+		// Compose empire id from its parts
+		int hwLen = Math.min(homeWorld.length(), 3);
+		String hw = homeWorld.substring(0, hwLen).toUpperCase();
+		String eid = String.format("%s-%s", hw, df.format(randy.nextInt(100000000)));
+		
+		// Return empire id
+		return eid;
+		
+		
+//		// Create formatter
+//		DecimalFormat df = new DecimalFormat("00000000");
+//		
+//		// Compose empire id from its parts
+//		int hwLen = Math.min(homeWorld.length(), 3);
+//		String hw = homeWorld.substring(0, hwLen).toUpperCase();
+//		String eid = String.format("%s-%s", hw, df.format(getIdNum()));
+//		
+//		// Return empire id
+//		return eid;
 	}
 }
