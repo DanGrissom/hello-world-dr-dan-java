@@ -11,7 +11,7 @@
 // 		Humanoid class (which it inherits methods/variables from), but that are applicable to any of ForceUser's
 // 		sub-classes (Jedi and Sith). This class also implements the ForceActions interface.	
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-public  class ForceUser {
+public class ForceUser {
 
 	///////////////////////////////////////////////////////////////
 	// Instance variables
@@ -30,6 +30,7 @@ public  class ForceUser {
 	//			pHomeWorld - A String representing the force user's homeworld
 	//			pAttack - A String representing the force user's default attack
 	//			pDefense - A String representing the force user's default defense
+	//			pForceHealth - An int representing the force user's health (for battle) 
 	///////////////////////////////////////////////////////////////
 
 	///////////////////////////////////////////////////////////////
