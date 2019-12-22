@@ -30,6 +30,7 @@ public class ForceUser {
 	//			pHomeWorld - A String representing the force user's homeworld
 	//			pAttack - A String representing the force user's default attack
 	//			pDefense - A String representing the force user's default defense
+	//			pDroid - A droid that the humanoid owns
 	//			pForceHealth - An int representing the force user's health (for battle) 
 	///////////////////////////////////////////////////////////////
 
