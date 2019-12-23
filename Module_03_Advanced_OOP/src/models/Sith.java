@@ -35,13 +35,21 @@ public class Sith extends ForceUser {
 	//			pHomeWorld - A String representing the Sith's homeworld
 	//			pAttack - A String representing the Sith's default attack
 	//			pDefense - A String representing the Sith's default defense
+	//			pDroid - A droid that the humanoid owns
+	//			pForceHealth - An int representing the force user's health (for battle) 
 	//			pForceRageRank - An int representing the Sith's rage rank
 	///////////////////////////////////////////////////////////////
-	public Sith(String pName, String pHomeWorld,
-			String pAttack, String pDefense, int pForceRageRank) {
-		// Pass parameters to super constructor (Force User)
-		super(pName, pHomeWorld, pAttack, pDefense);
-		setForceLevel(pForceRageRank);	
+	public Sith(String pName, String pHomeWorld, String pAttack, String pDefense, Droid pDroid, int pForceHealth, int pForceRageRank) {
+		super(pName, pHomeWorld, pAttack, pDefense, pDroid, pForceHealth); // Pass parameters to super constructor (ForceUser)
+		setForceLevel(pForceRageRank);
+	}
+	public Sith(String pName, String pHomeWorld, String pAttack, String pDefense, int pForceHealth, int pForceRageRank) {
+		super(pName, pHomeWorld, pAttack, pDefense, pForceHealth); // Pass parameters to super constructor (ForceUser)
+		setForceLevel(pForceRageRank);
+	}
+	public Sith(String pName, String pHomeWorld, String pAttack, String pDefense, int pForceRageRank) {
+		super(pName, pHomeWorld, pAttack, pDefense); // Pass parameters to super constructor (ForceUser)
+		setForceLevel(pForceRageRank);
 	}
 
 	///////////////////////////////////////////////////////////////
@@ -67,33 +75,34 @@ public class Sith extends ForceUser {
 	///////////////////////////////////////////////////////////////
 	public String forceAttack(Humanoid enemy) {
 		// Generate attack
-		String story = String.format("%s attacks %s with a %s attack", getName(), enemy.getName(), getAttack());
-		
+		String story = "";
+
 		// Determine result and story, depending on who enemy is
-		boolean iWin;
+		boolean iWin = false;
 		if (enemy instanceof Jedi) {
 			// Determine if I (the Sith) won
 			Jedi jediEnemy = (Jedi)enemy;
 			iWin = simulateForceBattle(jediEnemy);
-
+			
+			// Generate attack
+			story = String.format("%s attacks %s with a %s attack", getName(), enemy.getName(), getAttack());
+			
 			// Finish fight story
 			if (iWin)
 				story += String.format(" and it was too great for %s's %s defense.", enemy.getName(), enemy.getDefense());
 			else
-				story += String.format(" but it was not strong enough to overpower %s's %s defense.", enemy.getName(), enemy.getDefense());
-
-		
+				story += String.format(" but it was not strong enough to overpower %s's %s defense.", enemy.getName(), enemy.getDefense());	
 		} else if (enemy instanceof Sith) {
-			story += String.format(" but decides not to attack in case %s is the secret emperor.", enemy.getName());
+			story += String.format("%s thinks about attacking, but decides not to attack in case %s is the secret emperor.", getName(), enemy.getName());
 			iWin = true;
 		} else if (enemy instanceof Humanoid) {
-			story += String.format(" and then realizes this enemy is a mere humanoid and strikes down %s with no mercy.", enemy.getName());
+			story += String.format("%s realizes this enemy is a mere humanoid and strikes down %s with no mercy.", getName(), enemy.getName());
 			iWin = true;
 		} else {
-			story += " but....what even are you?!?";
+			story += "%s looks at enemy and wonders...what even are you?!?";
 			iWin = true;
 		}
-
+		
 		// Generate and return a final summary
 		String finalSummary = String.format("\tRESULT: %s %s\n", getName(), iWin ? "WINS" : "LOSES");
 		finalSummary += String.format("\tSUMMARY: %s", story);

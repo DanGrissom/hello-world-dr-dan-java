@@ -39,11 +39,19 @@ public abstract class ForceUser extends Humanoid implements ForceActions {
 	//			pHomeWorld - A String representing the force user's homeworld
 	//			pAttack - A String representing the force user's default attack
 	//			pDefense - A String representing the force user's default defense
+	//			pForceHealth - An int representing the force user's health (for battle) 
 	///////////////////////////////////////////////////////////////
-	public ForceUser(String pName, String pHomeWorld,
-			String pAttack, String pDefense) {
-		// Pass parameters to super constructor (Humanoid)
-		super(pName, pHomeWorld, pAttack, pDefense);
+	public ForceUser(String pName, String pHomeWorld, String pAttack, String pDefense, Droid pDroid, int pForceHealth) {
+		super(pName, pHomeWorld, pAttack, pDefense, pDroid); // Pass parameters to super constructor (Humanoid)
+		forceHealth = pForceHealth;
+	}
+	public ForceUser(String pName, String pHomeWorld, String pAttack, String pDefense, int pForceHealth) {
+		super(pName, pHomeWorld, pAttack, pDefense); // Pass parameters to super constructor (Humanoid)
+		forceHealth = pForceHealth;
+	}
+	public ForceUser(String pName, String pHomeWorld, String pAttack, String pDefense) {
+		super(pName, pHomeWorld, pAttack, pDefense); // Pass parameters to super constructor (Humanoid)
+		forceHealth = maxForceHealth;
 	}
 
 	///////////////////////////////////////////////////////////////
@@ -72,6 +80,17 @@ public abstract class ForceUser extends Humanoid implements ForceActions {
 	}
 	
 	///////////////////////////////////////////////////////////////
+	// This method determines if the force user is still alive
+	//		Parameters:
+	//			NONE
+	//		Returns:
+	//			A boolean that is true if still alive, false if dead
+	///////////////////////////////////////////////////////////////
+	private boolean isAlive() {
+		return forceHealth > 0;
+	}
+	
+	///////////////////////////////////////////////////////////////
 	// This method overrides the Humanoid's attack to ensure that
 	// a ForceUser always uses their Force-attack
 	//		Parameters:
@@ -95,11 +114,10 @@ public abstract class ForceUser extends Humanoid implements ForceActions {
 	//						false if this force user lost to the enemy
 	///////////////////////////////////////////////////////////////
 	public boolean simulateForceBattle(ForceUser enemy) {
-
-		// Initialize variables
+		// Initialize variable
 		Random randy = new Random();
 		int round = 1;
-
+		
 		// Initialize attacker/defender and recharge health for battle
 		ForceUser attacker = this;
 		ForceUser defender = enemy;
@@ -107,40 +125,38 @@ public abstract class ForceUser extends Humanoid implements ForceActions {
 		defender.rechargeHealth();
 		
 		// Simulate rounds of battle until a winner emerges
-		while (attacker.forceHealth > 0 && defender.forceHealth > 0) {				
-				// Formulate attack/defense based on random nature
-				int attackPower = attacker.getForceLevel() * randy.nextInt(10);
-				int defensePower = defender.getForceLevel() * randy.nextInt(10);
-				int powerLoss = Math.abs(attackPower - defensePower);
-				System.out.printf("\tR%s) %s attacks (%s) & %s defends (%s)\n", round++, attacker.getName(), attackPower, defender.getName(), defensePower);
-				
-				// Decrease power from this round's loser
-				if (attackPower > defensePower) {
-					defender.getsHurt(powerLoss);
-					System.out.printf("\t\t%s -%s health\n", defender.getName(), powerLoss);
-				}
-				else if (attackPower < defensePower) {
-					attacker.getsHurt(powerLoss);
-					System.out.printf("\t\t%s -%s health\n", attacker.getName(), powerLoss);
-				}
-				else
-					System.out.printf("\t\tDRAW!\n", getName(), powerLoss);
-				
-				// Print out current standing
-				System.out.printf("\t\tHealth Remaining: %s (%s) - %s (%s)\n", attacker.getName(), attacker.forceHealth, defender.getName(), defender.forceHealth);
-
-				// Alternate attacker and defender
-				ForceUser swap = attacker;
-				attacker = defender;
-				defender = swap;
+		while (attacker.isAlive() && defender.isAlive()) {
+			// Formulate attack/defense based on random nature
+			int attackPower = attacker.getForceLevel() * randy.nextInt(11);
+			int defensePower = defender.getForceLevel() * randy.nextInt(11);
+			int powerLoss = Math.abs(attackPower - defensePower);
+			System.out.printf("\tR%s) %s attacks (%s) & %s defends (%s)\n", round++, attacker.getName(), attackPower, defender.getName(), defensePower);
+		
+			// Decrease power from this round's loser
+			if (attackPower > defensePower) {
+				defender.getsHurt(powerLoss);
+				System.out.printf("\t\t%s -%s health\n", defender.getName(), powerLoss);
+			} else if (attackPower < defensePower) {
+				attacker.getsHurt(powerLoss);
+				System.out.printf("\t\t%s -%s health\n", attacker.getName(), powerLoss);
+			} else
+				System.out.println("\t\tDRAW!");
+		
+			// Print out current standing
+			System.out.printf("\t\tHealth Remaining: %s (%s) - %s (%s)\n", attacker.getName(), attacker.forceHealth, defender.getName(), defender.forceHealth);
+		
+			// Alternate attacker and defender
+			ForceUser swap = attacker;
+			attacker = defender;
+			defender = swap;
 		}
 		
 		// Determine who won and return result
-		if (attacker.forceHealth > 0) {
-			if (attacker == this)
-				return true;
-		} else if (defender == this)
+		if (attacker.isAlive() && attacker == this)
 			return true;
-		return false;
+		else if (defender.isAlive() && defender == this)
+			return true;
+		else
+			return false;
 	}
 }
