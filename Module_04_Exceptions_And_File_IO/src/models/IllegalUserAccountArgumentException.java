@@ -10,14 +10,10 @@
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 package models;
 
-public class IllegalUserAccountArgumentException extends IllegalArgumentException {
-
+public class IllegalUserAccountArgumentException {
 	///////////////////////////////////////////////////////////////////
 	// Must implement this overloaded constructor
 	//		Parameters: A String with the message to pass down to the 
 	//					exception engine
 	///////////////////////////////////////////////////////////////////
-	public IllegalUserAccountArgumentException (String message) {
-		super(message); // Must call super and pass in message
-	}
 }
