@@ -12,6 +12,7 @@
 //			a) Creating own password exception class
 //			b) Throwing exceptions
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+package clients;
 import java.util.Scanner;
 import models.IllegalUserAccountArgumentException;
 import models.UserAccount;

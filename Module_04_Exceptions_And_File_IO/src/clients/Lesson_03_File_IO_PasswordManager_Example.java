@@ -14,6 +14,7 @@
 //			a) Serialized Text I/O
 //				i) FileInputStream, FileOutputStream, ObjectInputStream, ObjectOutputStream, EOFException, Serializable
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+package clients;
 import java.util.ArrayList;
 import java.util.Scanner;
 import models.IllegalUserAccountArgumentException;
