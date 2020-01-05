@@ -1,5 +1,3 @@
-//*****Start with code from: Lesson_02_Custom_Exceptions_Password_Manager_Example
-
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Hello World with Dr. Dan - A Complete Introduction to Programming from Java to C++ (Code and Course © Dan Grissom)
 //
@@ -15,12 +13,8 @@
 //				i) FileInputStream, FileOutputStream, ObjectInputStream, ObjectOutputStream, EOFException, Serializable
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 package clients;
-import java.util.ArrayList;
 import java.util.Scanner;
-import models.IllegalUserAccountArgumentException;
 import models.UserAccount;
-import util.FileIoPlainText;
-import util.FileIoSerialized;
 
 public class Lesson_03_File_IO_PasswordManager_Example {
 	
@@ -45,50 +39,12 @@ public class Lesson_03_File_IO_PasswordManager_Example {
 		System.out.println("---------------------------------------------------------\n");
 
 		// Prompt user for file IO type
-		System.out.println("Would you like to print using plain text (P) or serialized (S)?");
-		boolean plainTextChosen = scan.nextLine().toUpperCase().charAt(0) == 'P';
 
 		// Create arraylist of accounts, read order into arraylist and print accounts
-		ArrayList<UserAccount> accounts = new ArrayList<UserAccount>();
-		readOrder(accounts, plainTextChosen);
-		printAccounts("Existing Accounts", accounts);
 		
 		// Prompt user to add more accounts and collect info
-		System.out.println("\n-------Add New Accounts-------");
-		boolean moreAccounts = true;
-		do {
-			try {
-				// Prompt user for password and ask to repeat
-				System.out.print("Please enter a website: ");
-				String website = scan.nextLine();
-				System.out.print("Please enter a username: ");
-				String username = scan.nextLine();
-				System.out.print("Please enter a password: ");
-				String p1 = scan.nextLine();
-				System.out.print("Please enter your password again: ");
-				String p2 = scan.nextLine();
-
-				// Attempt to create a new password object
-				UserAccount account = new UserAccount(website, username, p1, p2);
-				accounts.add(account);
-
-				// Ask if user wants to add more accounts
-				System.out.print("Would you like to add another account (Y/N): ");
-				moreAccounts = scan.nextLine().toUpperCase().charAt(0) == 'Y';	
-			} catch (IllegalUserAccountArgumentException e) {
-				System.out.println(e.getMessage());
-				System.out.println("Please try again...");
-			} catch (Exception e) {
-				System.out.println("ERROR: An unkown error occurred: " + e.getMessage());
-				System.out.println("Please try again...");
-			} finally {
-				System.out.println();
-			}
-		} while (moreAccounts);
 
 		// Print out all existing accounts and write to file
-		printAccounts("Updated Accounts", accounts);
-		writeOrder(accounts, plainTextChosen);
 	}
 	
 	////////////////////////////////////////////////////////////////////////////////
@@ -101,37 +57,24 @@ public class Lesson_03_File_IO_PasswordManager_Example {
 	//		Returns:
 	//			void (nothing) - But DOES update the accounts ArrayList
 	////////////////////////////////////////////////////////////////////////////////
-	public static void readOrder(ArrayList<UserAccount> accounts, boolean plainText) {
-		if (plainText)
-			FileIoPlainText.readAccounts(filenamePT, accounts);
-		else
-			FileIoSerialized.readAccounts(filenameSer, accounts);
-	}
 	
 	////////////////////////////////////////////////////////////////////////////////
 	// This method writes out the accounts passed in via the ArrayList to file
 	// using the file output method specified in the plainText parameter
 	//		Parameters:
-	//			accounts - An ArrayList of accounts to write read to file
+	//			accounts - An ArrayList of accounts to write to file
 	//			plainText - A boolean telling whether to write as plain text (true)
 	//						or serialized (false) output
 	//		Returns:
 	//			void (nothing)
 	////////////////////////////////////////////////////////////////////////////////
-	public static void writeOrder(ArrayList<UserAccount> accounts, boolean plainText) {
-		if (plainText)
-			FileIoPlainText.writeAccounts(filenamePT, accounts);
-		else
-			FileIoSerialized.writeAccounts(filenameSer, accounts);
-	}
 	
-	public static void printAccounts(String printHeader, ArrayList<UserAccount> accounts) {
-		System.out.printf("-------%s-------\n", printHeader);
-		if (accounts.size() > 0) {
-		for (int i = 0; i < accounts.size(); i++)
-			System.out.println((i + 1) + ": " + accounts.get(i).toString());
-		} else
-			System.out.println("No accounts exist yet");
-	}
-
+	////////////////////////////////////////////////////////////////////////////////
+	// This method prints all accounts passed in via the array list.
+	//		Parameters:
+	//			printHeader - A String to print as a header
+	//			accounts - An ArrayList of accounts print
+	//		Returns:
+	//			void (nothing)
+	////////////////////////////////////////////////////////////////////////////////
 }
