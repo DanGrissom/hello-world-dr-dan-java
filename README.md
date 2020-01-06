@@ -31,25 +31,25 @@ Module 1 covers the basics of programming, specifically with the Java programmin
 
 ## Module 2 - Functions and Storage
 Module 2 covers the intermediate topics of programming (in Java), specifically focusing on functions (methods) and storage (arrays and ArrayLists). The content in this section is almost always taught in a "101"-style intro programming course, although ArrayLists are sometimes taught at the beginning of a "102"-style intro programming course. A wide variety of concepts are covered, but the high-level topics and goals of this module are broken down into the following lessons:
-1. Functions (pass by value and static functions) [(more details)](Module_02_Functions_And_Storage/src/Lesson_01_Functions_Pass_By_Value_And_Static.java)
-2. Single-Dimension (1D) Arrays and the Random Class (declaring, initializing and iterating) [(more details)](Module_02_Functions_And_Storage/src/Lesson_02_1D_Array_Toy_Examples.java)
-3. Counting Arrays [(more details)](Module_02_Functions_And_Storage/src/Lesson_03_1D_Counting_Array.java)
-4. 2D Arrays (declaring, initializing, iterating and processing) [(more details)](Module_02_Functions_And_Storage/src/Lesson_04_2D_Array_Bills_Examples.java)
-5. More Array Practice (cards shuffling example) [(more details)](Module_02_Functions_And_Storage/src/Lesson_05_1D_Array_Cards_Example.java)
-6. Functions (pass by reference) [(more details)](Module_02_Functions_And_Storage/src/Lesson_06_Functions_Pass_By_Reference_Cards_Example.java)
-7. ArrayLists (declaring, methods, iterating, sorting, nesting) [(more details)](Module_02_Functions_And_Storage/src/Lesson_07_ArrayList_Toy_Examples.java)
-8. More 2D-Array and ArrayList Practice (cards shuffling example) [(more details)](Module_02_Functions_And_Storage/src/Lesson_08_2D_Arrays_And_ArrayList_Cards_Example.java)
+1. Functions (pass by value and static functions) [(more details)](Module_02_Functions_And_Storage/src/Lesson_01_Functions_Pass_By_Value_And_Static.java) [(video overview)](https://youtu.be/X28iyIeV2P0)
+2. Single-Dimension (1D) Arrays and the Random Class (declaring, initializing and iterating) [(more details)](Module_02_Functions_And_Storage/src/Lesson_02_1D_Array_Toy_Examples.java) [(video overview)](https://youtu.be/IJVEFw5eTdg)
+3. Counting Arrays [(more details)](Module_02_Functions_And_Storage/src/Lesson_03_1D_Counting_Array.java) [(video overview)](https://youtu.be/H6RQY4gSw8c)
+4. 2D Arrays (declaring, initializing, iterating and processing) [(more details)](Module_02_Functions_And_Storage/src/Lesson_04_2D_Array_Bills_Examples.java) [(video overview)](https://youtu.be/Tf-HNlU0iBU)
+5. More Array Practice (cards shuffling example) [(more details)](Module_02_Functions_And_Storage/src/Lesson_05_1D_Array_Cards_Example.java) [(video overview)](https://youtu.be/QoDW6Hjejf4)
+6. Functions (pass by reference) [(more details)](Module_02_Functions_And_Storage/src/Lesson_06_Functions_Pass_By_Reference_Cards_Example.java) [(video overview)](https://youtu.be/QVyowdKUFCE)
+7. ArrayLists (declaring, methods, iterating, sorting, nesting) [(more details)](Module_02_Functions_And_Storage/src/Lesson_07_ArrayList_Toy_Examples.java) [(video overview)](https://youtu.be/ovghUdzkY9E)
+8. More 2D-Array and ArrayList Practice (cards shuffling example) [(more details)](Module_02_Functions_And_Storage/src/Lesson_08_2D_Arrays_And_ArrayList_Cards_Example.java) [(video overview)](https://youtu.be/bwsauDipX8A)
 
 ## Module 3 - Object-Oriented Programming
 Module 3 covers the beginner, intermediate and advanced topics of programming (in Java), specifically focusing on object oriented programming. The portion of this module covering basic classes, is typically taught in a "101"-style intro programming course, while the rest is usually taught in a "102"-style intro programming course. A wide variety of concepts are covered, but the high-level topics and goals of this module are broken down in one monolithic lesson/program:
-1. Basic Object Oriented Programming [(more details)](Module_03_Advanced_OOP/src/client/Lesson_01_StarWarsUniverseClient_Basic_OOP.java)
+1. Basic Object Oriented Programming [(more details)](Module_03_Advanced_OOP/src/client/Lesson_01_StarWarsUniverseClient_Basic_OOP.java) [(video overview)](https://youtu.be/yLsSYAGK0-A)
    - Custom Classes
      - Instance Variables
      - Constructors
      - Getters/Setters
      - Method Overriding (toString(), equals())
      - Class Methods
-2. Advanced Object Oriented Programming [(more details)](Module_03_Advanced_OOP/src/client/Lesson_02_StarWarsUniverseClient_Advanced_OOP.java)
+2. Advanced Object Oriented Programming [(more details)](Module_03_Advanced_OOP/src/client/Lesson_02_StarWarsUniverseClient_Advanced_OOP.java) [(video overview)](https://youtu.be/267awAp5xCY)
    - Inheritance
    - Polymorphism
    - Abstract Methods and Classes
@@ -57,9 +57,9 @@ Module 3 covers the beginner, intermediate and advanced topics of programming (i
 
 ## Module 4 - Exceptions and File Input/Output (I/O)
 Module 4 covers intermediate to advanced topics of programming (in Java), specifically focusing on exceptions and file I/O. The content in this section is almost always taught in a "102"-style intro programming course, if it is covered at all. A wide variety of concepts are covered, but the high-level topics and goals of this module are broken down into the following lessons:
-1. Basic Exception Handling (exceptions, try/catch/finally) [(more details)](Module_04_Exceptions_And_File_IO/src/Lesson_01_Exception_Handling_Toy_Example.java)
-2. User Defined Exceptions (creating own exceptions, throws) [(more details)](Module_04_Exceptions_And_File_IO/src/Lesson_02_Custom_Exceptions_Password_Manager_Example.java)
-3. File Input/Output (plain-text, serialized) [(more details)](Module_04_Exceptions_And_File_IO/src/Lesson_03_File_IO_PasswordManager_Example.java)
+1. Basic Exception Handling (exceptions, try/catch/finally) [(more details)](Module_04_Exceptions_And_File_IO/src/clients/Lesson_01_Exception_Handling_Toy_Example.java)
+2. User Defined Exceptions (creating own exceptions, throws) [(more details)](Module_04_Exceptions_And_File_IO/src/clients/Lesson_02_Custom_Exceptions_Password_Manager_Example.java)
+3. File Input/Output (plain-text, serialized) [(more details)](Module_04_Exceptions_And_File_IO/src/clients/Lesson_03_File_IO_PasswordManager_Example.java)
 
 ## Module 5 - Memory Organization, Lambda Expressions and Basic Data Structures
 Module 5 covers advanced topics of programming (in Java), specifically focusing on memory organization, lambda expressions and an intro to basic data structures. While memory organization may be taught in a "102"-style intro programming course, most of these topics are not covered at all in a "101" or "102"-level course. Topics in this course are taught to **expose** students to advanced topics so that they are more prepared for a course like Data Structures (typically comes after a "102"-style course). A number of high-quality slides are provided with this module since the concepts covered are more conceptual than previous content. A wide variety of concepts are covered, but the high-level topics and goals of this module are broken down into the following lessons:
