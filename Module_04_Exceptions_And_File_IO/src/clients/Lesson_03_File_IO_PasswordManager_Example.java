@@ -14,6 +14,7 @@
 //		2) Checked vs. unchecked exceptions
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 package clients;
+
 import java.util.ArrayList;
 import java.util.Scanner;
 import models.IllegalUserAccountArgumentException;

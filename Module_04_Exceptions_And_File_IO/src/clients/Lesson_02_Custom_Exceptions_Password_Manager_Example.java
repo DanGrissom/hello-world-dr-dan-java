@@ -1,6 +1,3 @@
-package clients;
-//*****Start with code from: Lesson_07_For_Loop_Char_Password_Analyzer
-
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Hello World with Dr. Dan - A Complete Introduction to Programming from Java to C++ (Code and Course © Dan Grissom)
 //
@@ -15,6 +12,8 @@ package clients;
 //		2) Calendar Class
 //			a) Get today's date and date pieces
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+package clients;
+
 import java.util.Scanner;
 import models.IllegalUserAccountArgumentException;
 import models.UserAccount;
