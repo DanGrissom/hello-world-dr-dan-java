@@ -29,7 +29,6 @@ public class FileIoPlainText {
 	//			void (nothing) - But DOES update the accounts ArrayList
 	////////////////////////////////////////////////////////////////////////////////
 	public static void readAccounts(String filename, ArrayList<UserAccount> accounts) {
-
 		// Create input objects/classes
 		FileInputStream fis = null;
 		Scanner fScan = null;
@@ -37,7 +36,7 @@ public class FileIoPlainText {
 		try {
 			// Init input objects/classes
 			fis = new FileInputStream(filename);
-			fScan = new Scanner(fis);			
+			fScan = new Scanner(fis);
 
 			// Read data in from file
 			while (fScan.hasNextLine()) {
@@ -53,25 +52,23 @@ public class FileIoPlainText {
 				int month = Integer.parseInt(lScan.next().trim());
 				int year = Integer.parseInt(lScan.next().trim());
 				UserAccount account = new UserAccount(website, username, password, password, month, year);
-				
-				// Add account from file/line into accounts
-				accounts.add(account);
+
+				// Add account from file/line into order
+				accounts.add(account);				
 			}
 
 		} catch (FileNotFoundException e) {
-			System.out.println(filename + " not found, but will be created as a new file.");
+			System.out.println("ERROR: File not found: " + filename);
 		} catch (Exception e) {
-			System.out.println("ERROR: An unknown error occurred.");
+			System.out.println("ERROR: An unknown error occurred: " + e.getMessage());
 			e.printStackTrace();
 		} finally {
-
 			try {
-				// Close input objects
+				// Close file input objects
 				if (fScan != null) fScan.close();
 				if (fis != null) fis.close();
 			} catch (Exception e) {
-				System.out.println("ERROR: Problem occured while closing " + filename);
-				e.printStackTrace();
+				System.out.println("ERROR: A problem occurred closing " + filename);
 			}
 		}
 	}
@@ -85,31 +82,25 @@ public class FileIoPlainText {
 	//			void (nothing) - But DOES update the accounts ArrayList
 	////////////////////////////////////////////////////////////////////////////////
 	public static void writeAccounts(String filename, ArrayList<UserAccount> accounts) {
-
 		// Create file output class objects
 		FileOutputStream fos = null;
 		PrintWriter pw = null;
-		
+
 		try {
 			// Init file output class objects
-			fos = new FileOutputStream(filename);
+			fos = new FileOutputStream(filename, false);
 			pw = new PrintWriter(fos);
 
-			// Write data to the file
-			for (UserAccount account : accounts) {
-				pw.print(account.getWebsite() + ", ");
-				pw.print(account.getUsername() + ", ");
-				pw.print(account.getPassword() + ", ");
-				pw.print(account.getMonthCreated() + ", ");
-				pw.println(account.getYearCreated());
-			}
-
+			// Write data to the file		
+			for (UserAccount a : accounts)
+				pw.printf("%s, %s, %s, %s, %s\n", a.getWebsite(), a.getUsername(), a.getPassword(), a.getMonthCreated(), a.getYearCreated());
+		} catch (FileNotFoundException e) {
+			System.out.println("ERROR: File not found: " + filename);
 		} catch (Exception e) {
-			System.out.println("ERROR: An unknown error occurred.");
-			e.printStackTrace();
+			System.out.println("ERROR: An unknown error occurred: " + e.getMessage());
 		} finally {
 			try {
-				// Close file input objects
+				// Close file output objects
 				if (pw != null) pw.close();
 				if (fos != null) fos.close();
 			} catch (Exception e) {
