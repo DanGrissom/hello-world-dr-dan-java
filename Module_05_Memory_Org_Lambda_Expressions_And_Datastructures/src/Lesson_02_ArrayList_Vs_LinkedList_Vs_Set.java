@@ -13,7 +13,7 @@
 //				ii) Adding elements to beginning of data structure
 //				iii) Setting/replacing a value in middle of data structure
 //				iv) Searching for an element not in the data structure
-//		2) How to use System.currentTimeMillis() to time how long your code takes to do something
+//		2) How to use System.currentTimeMillis() to time how long your code takes to do something (code profiling)
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 public class Lesson_02_ArrayList_Vs_LinkedList_Vs_Set {
