@@ -6,7 +6,9 @@
 //		Free Commented Code: https://github.com/DanGrissom/hello-world-dr-dan-java
 //
 // In this lesson you will learn:
-//		1) How the Stack and Heap are used to store variables and data
+//		1) Memory Hierarchy & Computer Organization
+//		2) Memory Structure and Storing Data (binary, decimal, hexadecimal)
+//		3) How the Stack and Heap are used to store variables and data
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 import java.util.ArrayList;
 
