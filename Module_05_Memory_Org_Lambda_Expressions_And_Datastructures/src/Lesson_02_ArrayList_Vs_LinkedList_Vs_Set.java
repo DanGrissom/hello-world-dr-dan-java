@@ -6,138 +6,134 @@
 //		Free Commented Code: https://github.com/DanGrissom/hello-world-dr-dan-java
 //
 // In this lesson you will learn:
-//		1) How the Stack and Heap are used to store variables and data
-//		2) How to use System.currentTimeMillis() to time how long your code takes to do something
+//		1) How ArrayLists, LinkedLists and Sets differ:
+//			a) Functionally
+//			b) In Efficiency, when 
+//				i) Adding elements to end of data structure
+//				ii) Adding elements to beginning of data structure
+//				iii) Setting/replacing a value in middle of data structure
+//				iv) Searching for an element not in the data structure
+//		2) How to use System.currentTimeMillis() to time how long your code takes to do something (code profiling)
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.Set;
 
 public class Lesson_02_ArrayList_Vs_LinkedList_Vs_Set {
-
+	
 	// Timing/size variables
 	private static int numElements = 100000;
 	private static long start = 0;
-	private static long stop = 0;
-	
+
 	///////////////////////////////////////////////////////////////
 	// MAIN - Entry point where code will start execution for file
 	///////////////////////////////////////////////////////////////
 	public static void main(String[] args) {
-		
+
 		// Simple welcome statements printed to screen
 		System.out.println("Program Objective: Learn performance characteristics of the ArrayList, LinkedList and Set.");
 		System.out.println("===========================================================================");
 
-		// Decimal Formatter
-		DecimalFormat dfTh = new DecimalFormat("#,###");
-		
 		// Initialize data structures and variables
 		ArrayList<Integer> al = new ArrayList<Integer>();
 		LinkedList<Integer> ll = new LinkedList<Integer>();
 		Set<Integer> s = new HashSet<Integer>();
 
-		System.out.println("\nTIME TO ADD " + dfTh.format(numElements) + " ELEMENTS AT END OF DATA STRUCTURE");
+		System.out.printf("\nTIME TO ADD %,d ELEMENTS AT END OF DATA STRUCTURE\n", numElements);
 		System.out.println("--------------------------------------------");
-
 		// Add bunch of elements to end of ArrayList
 		startTimer();
 		for (int i = 0; i < numElements; i++)
 			al.add(i);
-		stopTimerAndPrintElapsedSeconds("\tArrayList:\t");
+		stopTimerAndPrintElapsedSeconds("ArrayList:\t");
 
 		// Add bunch of elements to end of LinkedList 
 		startTimer();
 		for (int i = 0; i < numElements; i++)
 			ll.add(i);
-		stopTimerAndPrintElapsedSeconds("\tLinkedList:\t");
+		stopTimerAndPrintElapsedSeconds("LinkedList:\t");
 
-		// Add bunch of elements to the Set (no such thing as beginning in a set)
+		// Add bunch of elements to the Set (no such thing as end in a set)
 		startTimer();
 		for (int i = 0; i < numElements; i++)
 			s.add(i);
-		stopTimerAndPrintElapsedSeconds("\tSet:\t\t");
-		
-		
-		System.out.println("\nTIME TO ADD " + dfTh.format(numElements) + " ELEMENTS AT BEGINNING OF DATA STRUCTURE");
+		stopTimerAndPrintElapsedSeconds("Set:\t\t");
+
+		System.out.printf("\nTIME TO ADD %,d ELEMENTS AT BEGINNING OF DATA STRUCTURE\n", numElements);
 		System.out.println("--------------------------------------------");
-		
 		// Clear the data structures of all data for fair comparison
 		al.clear();
 		ll.clear();
 		s.clear();
 		
-		// Add at startning of ArrayList (causes shifts)
+		// Add at beginning of ArrayList (causes shifts)
 		startTimer();
 		for (int i = 0; i < numElements; i++)
 			al.add(0, i);
-		stopTimerAndPrintElapsedSeconds("\tArrayList:\t");
+		stopTimerAndPrintElapsedSeconds("ArrayList:\t");
 		
-		// Add at startning of LinkedList (pointer changes)
+		// Add at beginning of LinkedList (pointer changes)
 		startTimer();
 		for (int i = 0; i < numElements; i++)
 			ll.add(0, i);
-		stopTimerAndPrintElapsedSeconds("\tLinkedList:\t");
+		stopTimerAndPrintElapsedSeconds("LinkedList:\t");
 		
 		// Add bunch of elements to the Set (no such thing as beginning in a set)
 		startTimer();
 		for (int i = 0; i < numElements; i++)
 			s.add(i);
-		stopTimerAndPrintElapsedSeconds("\tSet:\t\t");
+		stopTimerAndPrintElapsedSeconds("Set:\t\t");
 
-		System.out.println("\nTIME TO SET/REPLACE VALUE IN MIDDLE OF " + dfTh.format(al.size()) + " ELEMENTS, " + dfTh.format(numElements) + " TIMES");
+		System.out.printf("\nTIME TO SET/REPLACE VALUE IN MIDDLE OF %,d ELEMENTS, %,d TIMES\n", al.size(), numElements);
 		System.out.println("--------------------------------------------");
-
 		// Set an item in the middle of the ArrayList 
 		startTimer();
 		for (int i = 0; i < numElements; i++)
-			al.set(numElements/2, i);
-		stopTimerAndPrintElapsedSeconds("\tArrayList:\t");
-
+			al.set(al.size() / 2, i);
+		stopTimerAndPrintElapsedSeconds("ArrayList:\t");
+		
 		// Set an item in the middle of the LinkedList 
 		startTimer();
 		for (int i = 0; i < numElements; i++)
-			ll.set(numElements/2, i);
-		stopTimerAndPrintElapsedSeconds("\tLinkedList:\t");
-
+			ll.set(ll.size() / 2, i);
+		stopTimerAndPrintElapsedSeconds("LinkedList:\t");
+		
 		// Set an item in the middle of the Set (no such thing as middle of a set) 
 		startTimer();
 		for (int i = 0; i < numElements; i++) {
-			s.remove(numElements/2);
+			s.remove(i);
 			s.add(i);
 		}
-		stopTimerAndPrintElapsedSeconds("\tSet:\t\t");
-		
-		System.out.println("\nTIME TO SEARCH FOR AN ELEMENT NOT IN A DATA STRUCTURE CONTAINING " + dfTh.format(al.size()) + " ELEMENTS, " + dfTh.format(numElements) + " TIMES");
+		stopTimerAndPrintElapsedSeconds("Set:\t\t");
+
+		System.out.printf("\nTIME TO SEARCH FOR AN ELEMENT NOT IN A DATA STRUCTURE CONTAINING %,d ELEMENTS, %,d TIMES\n", al.size(), numElements);
 		System.out.println("--------------------------------------------");
-		
 		// The key is the item we want to search for (and is definitely not in the data structures)
 		int searchKey = -1;
-
-		// Search for an item not in ArrayList 
+		
+		// Search for an item not in ArrayList
 		startTimer();
 		for (int i = 0; i < numElements; i++)
 			if (al.contains(searchKey))
 				System.out.println("Found " + searchKey + " in ArrayList.");
-		stopTimerAndPrintElapsedSeconds("\tArrayList:\t");
-
+		stopTimerAndPrintElapsedSeconds("ArrayList:\t");
+		
 		// Search for an item not in LinkedList 
 		startTimer();
 		for (int i = 0; i < numElements; i++)
 			if (ll.contains(searchKey))
 				System.out.println("Found " + searchKey + " in LinkedList.");
-		stopTimerAndPrintElapsedSeconds("\tLinkedList:\t");
-
-		// Search for an item not in LinkedList 
+		stopTimerAndPrintElapsedSeconds("LinkedList:\t");
+		
+		// Search for an item not in Set 
 		startTimer();
 		for (int i = 0; i < numElements; i++)
 			if (s.contains(searchKey))
 				System.out.println("Found " + searchKey + " in Set.");
-		stopTimerAndPrintElapsedSeconds("\tSet:\t\t");
+		stopTimerAndPrintElapsedSeconds("Set:\t\t");
 	}
-	
+
 	////////////////////////////////////////////////////////////////////////////////
 	// This method starts a timer by recording the current time in milliseconds.
 	//		Parameters:
@@ -145,28 +141,22 @@ public class Lesson_02_ArrayList_Vs_LinkedList_Vs_Set {
 	//		Returns:
 	//			void (nothing)
 	////////////////////////////////////////////////////////////////////////////////
-	public static void startTimer() {
+	private static void startTimer() {
 		start = System.currentTimeMillis();
 	}
-	
+
 	////////////////////////////////////////////////////////////////////////////////
-	// This method starts a timer by recording the current time in milliseconds. It 
-	// also computes the elapsed time between the global start and stop variables
+	// This method records the current time in milliseconds and saves as the stop time. 
+	// It also computes the elapsed time between the global start and stop variables
 	// and prints it as a formatted string: 0.0000s
 	//		Parameters:
 	//			header - A string to print before the time
 	//		Returns:
 	//			void (nothing)
 	////////////////////////////////////////////////////////////////////////////////
-	public static void stopTimerAndPrintElapsedSeconds(String header) {
-		// Stop timer
-		stop = System.currentTimeMillis();
-		
-		// Compute elapsed time
-		double seconds = (stop - start) / 1000.0;
-		
-		// Print header and time
-		DecimalFormat df = new DecimalFormat("0.0000s");
-		System.out.println(header + df.format(seconds));
+	private static void stopTimerAndPrintElapsedSeconds(String header) {
+		long stop = System.currentTimeMillis();						// Stop timer
+		double elapsedTimeSeconds = (stop - start) / 1000.0;		// Compute elapsed time
+		System.out.printf("\t%s%.04fs\n", header, elapsedTimeSeconds);	// Print header and time
 	}
 }
