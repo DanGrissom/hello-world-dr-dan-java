@@ -47,8 +47,8 @@ public class Lesson_03_Lambda_Expressions {
 
 	
 	////////////////////////////////////////////////////////////////////////////////
-	// This method starts a timer by recording the current time in milliseconds. It 
-	// also computes the elapsed time between the global start and stop variables
+	// This method records the current time in milliseconds and saves as the stop time. 
+	// It also computes the elapsed time between the global start and stop variables
 	// and prints it as a formatted string: 0.0000s
 	//		Parameters:
 	//			header - A string to print before the time
