@@ -232,9 +232,7 @@ public class Lesson_07_Maps_Table_Contents_Word_Count_Example {
 		// pair (that is, the word-count pair).
 
 		// Once we have the ArrayList of WordCountPairs, we must use a custom Comparator. This is 
-		// a VERY VALUABLE thing to learn as it allows for more interesting/complex sortings. You
-		// can find a solution that points you in the right direction here (THE TOP ANSWER):
-		// SOURCE: http://stackoverflow.com/questions/29920027/how-can-i-sort-a-list-of-pairstring-integer
+		// a VERY VALUABLE thing to learn as it allows for more interesting/complex sortings.
 		//
 		// NOTE: We are sorting sortedWordCount (not words), which contains WordCountPair objects (not
 		// Pair<String, Integer> objects.
