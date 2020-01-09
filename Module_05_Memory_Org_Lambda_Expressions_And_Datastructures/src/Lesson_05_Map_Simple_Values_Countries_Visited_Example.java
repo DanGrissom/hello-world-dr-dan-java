@@ -29,7 +29,7 @@ public class Lesson_05_Map_Simple_Values_Countries_Visited_Example {
 		Scanner scan = new Scanner(System.in);
 
 		// Initialize data structures and variables
-		Map<String, Integer> mapCountryToVisitorCount = new HashMap<String, Integer>();
+		Map<String, Integer> mCountryToVisitorCount = new HashMap<String, Integer>();
 		String country;
 
 		// Add new countries to our set of visited countries until user says "Done"
@@ -37,23 +37,19 @@ public class Lesson_05_Map_Simple_Values_Countries_Visited_Example {
 			// Prompt user for country to visit
 			System.out.print("Please enter a country you have visited (enter \"Done\" to stop): ");
 			country = scan.nextLine().toUpperCase();
-
-			// If the map already contains the country, increment the count
-			if (mapCountryToVisitorCount.containsKey(country)) {
-				int value = mapCountryToVisitorCount.get(country);
-				value++;
-				mapCountryToVisitorCount.put(country, value);
-			}
-			else // Otherwise, set the count to 1 for this country
-				mapCountryToVisitorCount.put(country, 1);
 			
-		} while(!country.equals("DONE"));
-		mapCountryToVisitorCount.remove("DONE");	// Remove the "DONE" from the set since it does not belong
+			// If the map already contains the country, increment the count (the value associated with the country/key)
+			if (mCountryToVisitorCount.containsKey(country))
+				mCountryToVisitorCount.put(country, mCountryToVisitorCount.get(country)+1);
+			else // Otherwise, set the count to 1 for this country
+				mCountryToVisitorCount.put(country, 1);
+		} while (!country.equals("DONE"));
+		mCountryToVisitorCount.remove("DONE");
 
 		// Iterate through each unique value in the set (will print in no specific order)
-		System.out.println("Your classmates have visited " + mapCountryToVisitorCount.size() + " unique countries, listed below:");
-		for (String c : mapCountryToVisitorCount.keySet())
-			System.out.println("\t" + c + " had " + mapCountryToVisitorCount.get(c) + " unique visitor(s)");	
+		System.out.println("Your group has visited " + mCountryToVisitorCount.size() + " unique countries, listed below:");
+		for (String c : mCountryToVisitorCount.keySet())
+			System.out.printf("\t%s had %s unique visitor(s)\n", c, mCountryToVisitorCount.get(c));
 	}
 
 }

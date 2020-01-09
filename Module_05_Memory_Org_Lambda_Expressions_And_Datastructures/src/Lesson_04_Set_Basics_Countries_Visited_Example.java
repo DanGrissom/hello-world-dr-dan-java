@@ -27,22 +27,21 @@ public class Lesson_04_Set_Basics_Countries_Visited_Example {
 		Scanner scan = new Scanner(System.in);
 		
 		// Initialize data structures and variables
-		Set<String> countriesVisited = new HashSet<String>();
+		Set<String> sCountriesVisited = new HashSet<String>();
 		String country;
 
 		// Add new countries to our set of visited countries until user says "Done"
 		do {
 			// Prompt the user for country visited and add to set
 			System.out.print("Please enter a country you have visited (enter \"Done\" to stop): ");
-			country = scan.nextLine().toUpperCase();	// Uppercase for consistency
-			countriesVisited.add(country); 	// Will not add duplicate countries
+			country = scan.nextLine().toUpperCase();	// Uppercase for consistency in the set
+			sCountriesVisited.add(country);				// Will not add duplicate countries
 		} while(!country.equals("DONE"));
-		countriesVisited.remove("DONE");	// Remove the "DONE" from the set since it does not belong
-
+		sCountriesVisited.remove("DONE"); 				// Remove the "DONE" from the set since it does not belong
 
 		// Iterate through each unique value in the set (will print in no specific order)
-		System.out.println("Your classmates have visited " + countriesVisited.size() + " unique countries, listed below:");
-		for (String c : countriesVisited)
-			System.out.println("\t" + c);		
+		System.out.println("Your group has visited " + sCountriesVisited.size() + " unique countries, listed below:");
+		for (String c : sCountriesVisited)
+			System.out.println("\t" + c);
 	}
 }

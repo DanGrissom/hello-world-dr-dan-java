@@ -57,7 +57,7 @@ public class Lesson_07_Maps_Table_Contents_Word_Count_Example {
 			Map<String, Integer> wordCount = getWordCount(fileName);
 
 			// Ask the user how many of the most frequent words they'd like to print and print them
-			System.out.println("How many words would you like to print from the most frequent words?");
+			System.out.print("How many words would you like to print from the most frequent words? ");
 			int numWords = scan.nextInt();
 			printTopWordCounts(numWords, wordCount);
 		}
@@ -77,7 +77,7 @@ public class Lesson_07_Maps_Table_Contents_Word_Count_Example {
 		// Keep track of the current page while search through the file
 		int currentPg = 0;
 
-		// TODO 1: Create the Map that you will eventually return and call it toc (for Table of Contents)
+		// Create the Map that you will eventually return and call it toc (for Table of Contents)
 		Map<String, ArrayList<Integer>> toc = new HashMap<String, ArrayList<Integer>>();
 
 		// Init file input objects
@@ -92,34 +92,27 @@ public class Lesson_07_Maps_Table_Contents_Word_Count_Example {
 			// Keep reading words from file...
 			while (scan.hasNext())
 			{
-				// TODO 2: Read in next word and update it so that we ignore the following
-				// symbols: . , ; : ( ) ! ? (HINT: Replace these symbols with "", i.e., NOTHING!)
+				// Read in next word and update it so that we ignore the following
+				// symbols: . , ; : ( ) ! ? $ (HINT: Replace these symbols with "", i.e., NOTHING!)
 				// We do this b/c "today." is the same word as "today" to a table of contents
 				// Also, force all words to lowercase ("The" is same as "the")
-				String word = scan.next().replaceAll("[.,;:()!?]", "").toLowerCase();
-
-				// If we find the sequence of characters denoting the page number
-				if (word.equals("%%%%"))
-				{
-					// TODO 3: Read in pg number and clear off the closing "%%%%" sequence
+				String word = scan.next().replaceAll("[.,;:()!?$]", "").toLowerCase();
+				
+				// If we find the sequence of characters denoting the page number ("%%%%")
+				if (word.equals("%%%%")) {
+					// Read in pg number and clear off the closing "%%%%" sequence
 					currentPg = scan.nextInt();
 					scan.next(); // flush the closing %%%%
-				}
-				else if (Character.isAlphabetic(word.charAt(0)))  // Make sure to only print words that begin with a letter
-				{	
-					// TODO 4: If the word is found in the toc map (replace "true" with your logic)
-					if(toc.containsKey(word))
-					{
-						// TODO 5: Get the current list of pages for this word and
-						// add the current page IF NOT ALREADY in the ArrayList
+				} else if (Character.isAlphabetic(word.charAt(0))) {	// Else make sure to only print words that begin with a letter
+					// If the word is found in the toc map
+					if (toc.containsKey(word)) {
+						// Get the current list of pages for this word and add the current page IF NOT ALREADY in the ArrayList
 						ArrayList<Integer> pages = toc.get(word);
 						if (!pages.contains(currentPg))
 							pages.add(currentPg);
-					}
-					else // ...if word not already in toc map...
-					{
-						// TODO 6: Create a new list, add the current page to your list, and PUT
-						// the list in the toc map with the key as the word
+						
+					} else {	// ...if word not already in toc map...
+						// Create a new list, add the current page to your list, and PUT the list in the toc map with the key as the word
 						ArrayList<Integer> pages = new ArrayList<Integer>();
 						pages.add(currentPg);
 						toc.put(word, pages);
@@ -146,6 +139,7 @@ public class Lesson_07_Maps_Table_Contents_Word_Count_Example {
 
 		}
 
+		// Return the table of contents
 		return toc;
 	}
 
@@ -160,29 +154,33 @@ public class Lesson_07_Maps_Table_Contents_Word_Count_Example {
 	////////////////////////////////////////////////////////////////////////////////
 	private static void printOrderedTableOfContents(Map<String, ArrayList<Integer>> toc)
 	{
-		// TODO 7: Get Unique words in a Set (get the key set) and call the set uniqueWords
+		// Get Unique words in a Set (get the key set) and call the set uniqueWords
 		Set<String> uniqueWords = toc.keySet();
 
 		// It is not easy to sort a map (it wasn't designed for this). We really just need to sort
 		// the keys. Once the keys are sorted, we can then iterate through the sorted keys and
 		// use the map to obtain the value associated with the key.
 
-		// TODO 8: Create a new ArrayList called orderedWords and add all
-		// of the words from the map to it. Then, sort it using 
-		// the Collections.sort() method.
+		// Create a new ArrayList called orderedWords and add all of the words from the map to it.
+		// Then, sort it using the Collections.sort() method.
 		ArrayList<String> orderedWords = new ArrayList<String>(uniqueWords);
 		Collections.sort(orderedWords);
 
-
-		// TODO 9: Now that the words (keys) from the maps are sorted alphabetically within
+		// Now that the words (keys) from the maps are sorted alphabetically within
 		// orderedWords, cycle through each word and obtain the matching value from
 		// the map (an ArrayList of ints). Print out each word and page numbers like:
 		//		topology:	2, 3, 5, 8,
 		for (String word : orderedWords) {
-			System.out.print(word + ": ");
-			for (int pg : toc.get(word))
-				System.out.print(pg + ", ");
-			System.out.println();
+			// Format the toc line by adding the word...
+			String tocLine = word + ": ";
+			
+			// ...each page number from the list of pages
+			for (int page : toc.get(word))
+				tocLine += page + ", ";
+			
+			// ...and then remove the last comma and space and print
+			tocLine = tocLine.substring(0, tocLine.length() - 2);
+			System.out.println(tocLine);
 		}
 	}
 
@@ -196,7 +194,7 @@ public class Lesson_07_Maps_Table_Contents_Word_Count_Example {
 	////////////////////////////////////////////////////////////////////////////////
 	private static Map<String, Integer> getWordCount(String filename)
 	{
-		// TODO 10: Create the Map that you will eventually return and call it wordCount
+		// Create the Map that you will eventually return and call it wordCount
 		Map<String, Integer> wordCount = new HashMap<String, Integer>();
 		int currentPg = 0;
 
@@ -212,33 +210,25 @@ public class Lesson_07_Maps_Table_Contents_Word_Count_Example {
 			// Keep reading words from file...
 			while (scan.hasNext())
 			{
-				// TODO 11 (Same as TODO 2): Read in next word and update it so that we ignore the following
-				// symbols: . , ; : ( ) ! ?  (HINT: Replace these symbols with "", i.e., NOTHING!)
+				// Read in next word and update it so that we ignore the following
+				// symbols: . , ; : ( ) ! ? $  (HINT: Replace these symbols with "", i.e., NOTHING!)
 				// We do this b/c "today." is the same word as "today" to a table of contents
 				// Also, force all words to lowercase ("The" is same as "the")
-				String word = scan.next().replaceAll("[.,;:()!?]", "").toLowerCase();
+				String word = scan.next().replaceAll("[.,;:()!?$]", "").toLowerCase();
 
-				// If we find the sequence of characters denoting the page number
-				if (word.equals("%%%%"))
-				{
-					// TODO 12 (Same as TODO 3): Read in pg number and clear off the closing "%%%%" sequence
+				// If we find the sequence of characters denoting the page number ("%%%%")
+				if (word.equals("%%%%")) {
+					// Read in pg number and clear off the closing "%%%%" sequence
 					currentPg = scan.nextInt();
-					scan.next();
-				}
-				else if (Character.isAlphabetic(word.charAt(0))) // Make sure to only print words that begin with a letter
-				{	
-					// TODO 13 (Similar to TODO 4): If the word is found in the wordCount map (replace "true" with your logic)
-					if(wordCount.containsKey(word))
-					{
-						// TODO 14: Get the current word count for this word and
-						// increment it
+					scan.next(); // flush the closing %%%%
+				} else if (Character.isAlphabetic(word.charAt(0))) {	// Else make sure to only print words that begin with a letter
+					// If the word is found in the wordCount map
+					if (wordCount.containsKey(word)) {
+						// Get the current word count for this word and increment it
 						int count = wordCount.get(word) + 1;
 						wordCount.put(word, count);
-					}
-					else // ...if word not already in the wordCount map
-					{
-						// TODO 15: PUT the word in the wordCount map with a count (value) of 1 (first appearance)
-						wordCount.put(word, 1);
+					} else {	// ...if word not already in wordCount map...
+						wordCount.put(word, 1); // PUT the word in the wordCount map with a count (value) of 1 (first appearance)
 					}
 				}
 			}
@@ -261,6 +251,7 @@ public class Lesson_07_Maps_Table_Contents_Word_Count_Example {
 			}
 		}
 
+		// Return the wordCount
 		return wordCount;
 	}
 
@@ -272,50 +263,42 @@ public class Lesson_07_Maps_Table_Contents_Word_Count_Example {
 	//		Returns:
 	//			void (nothing)
 	////////////////////////////////////////////////////////////////////////////////
-	
 	private static void printTopWordCounts(int numWords, Map<String, Integer> wordCount)
 	{
 		// Like earlier, it is hard to sort things in a map. We want to sort based on the
 		// values, which is even harder (because we cannot easily re-associate values with
 		// the key b/c the values can be repeated in the map; for example, there may be 
 		// numerous words that appear exactly 5 times).
-
-		// TODO 15: Create an ArrayList of WordCountPairs* called sortedWordCount. For every word in the
+		//
+		// Create an ArrayList of WordCountPairs* called sortedWordCountPairs. For every word in the
 		// map, you should create a new WordCountPair object with the word and count and add
-		// it to the sortedWordCount ArrayList.
+		// it to the sortedWordCountPairs ArrayList.
 		//
 		// *NOTE: WordCountPair is a custom class we created to encapsulate the entire key-value
 		// pair (that is, the word-count pair).
-		ArrayList<WordCountPair> sortedWordCount = new ArrayList<WordCountPair>();
+		ArrayList<WordCountPair> sortedWordCountPairs = new ArrayList<WordCountPair>();
 		for (String word : wordCount.keySet())
-			sortedWordCount.add( new WordCountPair(word, wordCount.get(word)) );
+			sortedWordCountPairs.add(new WordCountPair(word, wordCount.get(word)));
 
-		// TODO 16: Once we have the ArrayList of WordCountPairs, we must use a custom Comparator. This is 
-		// a VERY VALUABLE thing to learn as it allows for more interesting/complex sortings. You
-		// can find a solution that points you in the right direction here (THE TOP ANSWER):
-		// SOURCE: http://stackoverflow.com/questions/29920027/how-can-i-sort-a-list-of-pairstring-integer
+		// Once we have the ArrayList of WordCountPairs, we must use a custom Comparator. This is 
+		// a VERY VALUABLE thing to learn as it allows for more interesting/complex sortings.
 		//
-		// NOTE: We are sorting sortedWordCount (not words), which contains WordCountPair objects (not
-		// Pair<String, Integer> objects.
-		//
-		// NOTE2: Inside the compare method, you'll need some code that compares the word counts of each
-		// WordCountPair object and returns an integer (think about String method compareTo() which we saw
-		// earlier this school year).
-		Collections.sort(sortedWordCount, new Comparator<WordCountPair>() {
+		// Inside the compare method, you'll need some code that compares the word counts of each
+		// WordCountPair object and returns an integer.
+		Collections.sort(sortedWordCountPairs, new Comparator<WordCountPair>() {
 			public int compare(WordCountPair wcp1, WordCountPair wcp2) {
 				return wcp2.getCount() - wcp1.getCount();
 			}
 		});
 
-
-		// TODO 17: Now, using the numWords parameter, print out word counts for the numWords most-frequent
+		// Now, using the numWords parameter, print out word counts for the numWords most-frequent
 		// words HINT: You are just iterating through the first numWords words in sortedWordCount
 		// and printing in the following format:
 		// 		pcb: 76 times
-		int wordsToPrint = Math.min(numWords, sortedWordCount.size());
+		int wordsToPrint = Math.min(numWords, sortedWordCountPairs.size());
 		for (int i = 0; i < wordsToPrint; i++) {
-			WordCountPair wcp = sortedWordCount.get(i);
-			System.out.println(wcp.getWord() + ": " + wcp.getCount() + " times");
+			WordCountPair wcp = sortedWordCountPairs.get(i);
+			System.out.printf("%s: %s times\n", wcp.getWord(), wcp.getCount());
 		}
 	}
 }
