@@ -52,7 +52,7 @@ public class Lesson_07_Maps_Table_Contents_Word_Count_Example {
 			Map<String, Integer> wordCount = getWordCount(fileName);
 
 			// Ask the user how many of the most frequent words they'd like to print and print them
-			System.out.println("How many words would you like to print from the most frequent words?");
+			System.out.print("How many words would you like to print from the most frequent words? ");
 			int numWords = scan.nextInt();
 			printTopWordCounts(numWords, wordCount);
 		}
@@ -86,14 +86,14 @@ public class Lesson_07_Maps_Table_Contents_Word_Count_Example {
 			while (scan.hasNext())
 			{
 				// Read in next word and update it so that we ignore the following
-				// symbols: . , ; : ( ) ! ? (HINT: Replace these symbols with "", i.e., NOTHING!)
+				// symbols: . , ; : ( ) ! ? $ (HINT: Replace these symbols with "", i.e., NOTHING!)
 				// We do this b/c "today." is the same word as "today" to a table of contents
 				// Also, force all words to lowercase ("The" is same as "the")
-
+				
 				// If we find the sequence of characters denoting the page number ("%%%%")
 					// Read in pg number and clear off the closing "%%%%" sequence
 				// Else make sure to only print words that begin with a letter
-					// If the word is found in the toc map (replace "true" with your logic)
+					// If the word is found in the toc map
 						// Get the current list of pages for this word and add the current page IF NOT ALREADY in the ArrayList
 					// ...if word not already in toc map...
 						// Create a new list, add the current page to your list, and PUT the list in the toc map with the key as the word
@@ -145,7 +145,7 @@ public class Lesson_07_Maps_Table_Contents_Word_Count_Example {
 		// Now that the words (keys) from the maps are sorted alphabetically within
 		// orderedWords, cycle through each word and obtain the matching value from
 		// the map (an ArrayList of ints). Print out each word and page numbers like:
-		//		topology:	2, 3, 5, 8,
+		//		topology:	2, 3, 5, 8
 	}
 
 	////////////////////////////////////////////////////////////////////////////////
@@ -173,17 +173,16 @@ public class Lesson_07_Maps_Table_Contents_Word_Count_Example {
 			while (scan.hasNext())
 			{
 				// Read in next word and update it so that we ignore the following
-				// symbols: . , ; : ( ) ! ?  (HINT: Replace these symbols with "", i.e., NOTHING!)
+				// symbols: . , ; : ( ) ! ? $  (HINT: Replace these symbols with "", i.e., NOTHING!)
 				// We do this b/c "today." is the same word as "today" to a table of contents
 				// Also, force all words to lowercase ("The" is same as "the")
 
-				// If we find the sequence of characters denoting the page number
+				// If we find the sequence of characters denoting the page number ("%%%%")
 					// Read in pg number and clear off the closing "%%%%" sequence
-				// Make sure to only print words that begin with a letter
-					// If the word is found in the wordCount map (replace "true" with your logic)
-						// Get the current word count for this word and
-						// increment it
-					// ...if word not already in the wordCount map
+				// Else make sure to only print words that begin with a letter
+					// If the word is found in the wordCount map
+						// Get the current word count for this word and increment it
+					// ...if word not already in wordCount map...
 						// PUT the word in the wordCount map with a count (value) of 1 (first appearance)
 			}
 		}
@@ -223,10 +222,10 @@ public class Lesson_07_Maps_Table_Contents_Word_Count_Example {
 		// values, which is even harder (because we cannot easily re-associate values with
 		// the key b/c the values can be repeated in the map; for example, there may be 
 		// numerous words that appear exactly 5 times).
-
-		// Create an ArrayList of WordCountPairs* called sortedWordCount. For every word in the
+		//
+		// Create an ArrayList of WordCountPairs* called sortedWordCountPairs. For every word in the
 		// map, you should create a new WordCountPair object with the word and count and add
-		// it to the sortedWordCount ArrayList.
+		// it to the sortedWordCountPairs ArrayList.
 		//
 		// *NOTE: WordCountPair is a custom class we created to encapsulate the entire key-value
 		// pair (that is, the word-count pair).
@@ -234,12 +233,8 @@ public class Lesson_07_Maps_Table_Contents_Word_Count_Example {
 		// Once we have the ArrayList of WordCountPairs, we must use a custom Comparator. This is 
 		// a VERY VALUABLE thing to learn as it allows for more interesting/complex sortings.
 		//
-		// NOTE: We are sorting sortedWordCount (not words), which contains WordCountPair objects (not
-		// Pair<String, Integer> objects.
-		//
-		// NOTE2: Inside the compare method, you'll need some code that compares the word counts of each
-		// WordCountPair object and returns an integer (think about String method compareTo() which we saw
-		// earlier this school year).
+		// Inside the compare method, you'll need some code that compares the word counts of each
+		// WordCountPair object and returns an integer.
 
 		// Now, using the numWords parameter, print out word counts for the numWords most-frequent
 		// words HINT: You are just iterating through the first numWords words in sortedWordCount
