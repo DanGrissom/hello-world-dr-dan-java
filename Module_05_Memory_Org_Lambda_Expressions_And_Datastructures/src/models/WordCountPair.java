@@ -14,22 +14,28 @@ package models;
 
 public class WordCountPair
 {
+	////////////////////////////////////////////////////////////////////////////////
 	// Instance variables
-	private String word = "";
-	private int count = 0;
+	////////////////////////////////////////////////////////////////////////////////
+	private String word;
+	private int count;
 	
-	// Overloaded constructor
-	public WordCountPair(String wordStr, int wordCount)
+	////////////////////////////////////////////////////////////////////////////////
+	// Constructor
+	//		Parameters:
+	//			pWord - A String representing the word (map key)
+	//			pCount - An integer representing word count (map value)
+	////////////////////////////////////////////////////////////////////////////////
+	public WordCountPair(String pWord, int pCount)
 	{
-		word = wordStr;
-		count = wordCount;
+		word = pWord;
+		count = pCount;
 	}
 	
-	// Getters
+	////////////////////////////////////////////////////////////////////////////////
+	// Getters/Setters
 	public String getWord() { return word; }
 	public int getCount() { return count; }
-	
-	// Setters
-	public void setWord(String wordStr) { word = wordStr; }
-	public void setCount(int wordCount) { count = wordCount; }
+	public void setWord(String pWord) { word = pWord; }
+	public void setCount(int pCount) { count = pCount; }
 }
