@@ -10,10 +10,6 @@
 //			a) How to generate and execute new threads 
 //			b) Scoping of variables used in thread (e.g., static, final, etc.)
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-import java.text.DecimalFormat;
-import java.util.LinkedList;
-import java.util.Scanner;
-
 public class Lesson_01_Threads {
 
 	// Init list-related variables
