@@ -9,12 +9,13 @@
 //		1) Threads
 //			a) How to generate and execute new threads 
 //			b) Scoping of variables used in thread (e.g., static, final, etc.)
+//			c) How to synchronize existing threads
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 public class Lesson_01_Threads {
 
 	// Init list-related variables
 	
-	// Init thread-related variables	
+	// Init thread-related variables
 	
 	// Init timer-related variables
 	
