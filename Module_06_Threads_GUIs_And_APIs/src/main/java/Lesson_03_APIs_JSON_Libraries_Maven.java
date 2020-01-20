@@ -19,13 +19,6 @@
 //	***NOTE: Before you begin this project, you must complete the steps in the READ_ME: 
 //				https://github.com/DanGrissom/hello-world-dr-dan-java/blob/master/Module_06_Threads_GUIs_And_APIs/READ_ME.txt
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-import java.util.Scanner;
-import org.json.JSONArray;
-import org.json.JSONObject;
-import com.mashape.unirest.http.Unirest;
-import com.mashape.unirest.http.exceptions.UnirestException;
-import com.mashape.unirest.request.HttpRequest;
-
 public class Lesson_03_APIs_JSON_Libraries_Maven
 {
 	// Base address for yelp business search API
@@ -45,24 +38,12 @@ public class Lesson_03_APIs_JSON_Libraries_Maven
 		System.out.println("===========================================================================");
 		
 		// Initialize Scanner to read in from user
-		Scanner scan = new Scanner(System.in);
 		
 		// Prompt the user for the search query
-		System.out.print("Enter the search location (e.g., City, Address, etc.): ");
-		String location = scan.nextLine();
-		System.out.print("Enter the type of food or restaurant you are hungry for: ");
-		String query = scan.nextLine();
-		System.out.print("Enter the number of miles you are willing to travel: ");
-		double miles = scan.nextDouble();
-		int meters = (int)(miles * 1609.34);
 
 		// Generate request URL
-		HttpRequest request = generateRequestUrl(location, query, meters);
-		//System.out.println("URL: ");
-		//System.out.println("\t" + request.getUrl());
 
 		// Get response (from request), parse JSON response and print each result
-		getAndParseResponseAndPrintResults(request);
 	}
 
 	////////////////////////////////////////////////////////////////////////////////
@@ -75,22 +56,6 @@ public class Lesson_03_APIs_JSON_Libraries_Maven
 	//		Returns:
 	//			An HttpRequest which contains the fully-specified URL
 	////////////////////////////////////////////////////////////////////////////////
-	public static HttpRequest generateRequestUrl(String location, String query, int meters)
-	{
-		// Start with the business_search end-point
-		HttpRequest request = Unirest.get(baseUrl);
-		
-		// Add parameters
-		request = request.queryString("location", location);
-		request = request.queryString("term", query);
-		request = request.queryString("radius", meters);
-		
-		// Add authorization in header
-		request = request.header("Authorization", "Bearer " + apiKey);
-		
-		// Return request/URL
-		return request;
-	}
 
 	////////////////////////////////////////////////////////////////////////////////
 	// Uses JSON external library to make HTTP request, parse JSON objects/
@@ -103,48 +68,4 @@ public class Lesson_03_APIs_JSON_Libraries_Maven
 	//		Returns:
 	//			void (nothing)
 	////////////////////////////////////////////////////////////////////////////////
-	private static void getAndParseResponseAndPrintResults(HttpRequest request)
-	{
-		try {
-			// Get the main response
-			JSONObject objResponse = request.asJson().getBody().getObject();
-
-			// First, check if there is an error
-			if (objResponse.has("error")) {
-				String shortDescription = objResponse.getJSONObject("error").getString("code");
-				String longDescription = objResponse.getJSONObject("error").getString("description");
-				System.out.println("ERROR: " + shortDescription + ": ");
-				System.out.println("\t" + longDescription);
-				return;
-			}			
-
-			// Get the businesses array in the response
-			JSONArray arrBusinesses = objResponse.getJSONArray("businesses");
-
-			// Iterate through each JSON object (business) in the results array
-			System.out.println("\nYelp Search Results:");
-			for (int i = 0; i < arrBusinesses.length(); i++) {
-				// Get the next business
-				JSONObject objBusiness = arrBusinesses.getJSONObject(i);
-
-				// Pull the name from the business
-				String name = objBusiness.getString("name");
-
-				// Pull address info from the business
-				JSONObject objLocation = objBusiness.getJSONObject("location");
-				String address = objLocation.getString("address1");
-				address += ", " + objLocation.getString("city") + ", " + objLocation.getString("state") + " (" + objLocation.getString("country") + ")";
-
-				// Pull the rating from the business
-				double rating = objBusiness.getDouble("rating");
-
-				// Print result
-				System.out.printf("\t%s) %s - %s (%s/5.0)\n", (i+1), name, address, rating);
-			}
-		} catch (UnirestException e) {
-			System.out.println("API ERROR: " + e.getMessage());
-		}  catch (Exception e) {
-			System.out.println("ERROR: " + e.getMessage());
-		}
-	}
 }
