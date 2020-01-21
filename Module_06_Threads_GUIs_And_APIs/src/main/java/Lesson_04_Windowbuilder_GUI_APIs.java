@@ -29,6 +29,7 @@ public class Lesson_04_Windowbuilder_GUI_APIs extends JFrame {
 	///////////////////////////////////////////////////////////////////
 	private final static String baseUrl = "https://api.yelp.com/v3/businesses/";
 
+	// API key for Yelp (get yours here: https://www.yelp.com/developers/v3/manage_app)
 	// Once you obtain a key, include it here instead of "YOUR_KEY_HERE":
 	private final static String apiKey = "YOUR_KEY_HERE"; // Yelp API key
 
@@ -66,7 +67,7 @@ public class Lesson_04_Windowbuilder_GUI_APIs extends JFrame {
 	////////////////////////////////////////////////////////////////////////////////
 	private void createEvents() {
 		///////////////////////////////////////////////////////////////
-		// btnSearch Handler - Calls Yelp Fusion API to return a list of
+		// btnFoodSearch/txtFoodSearch Handler - Calls Yelp Fusion API to return a list of
 		// places with the search radius and search term from the starting
 		// address
 
@@ -78,6 +79,15 @@ public class Lesson_04_Windowbuilder_GUI_APIs extends JFrame {
 		// btnReviews Handler - Calls Yelp Fusion API to get the reviews
 		// for a particular business
 	}
+
+	////////////////////////////////////////////////////////////////////////////////
+	// Get the parameters from the text boxes and make a call to the Yelp api
+	// to get business results
+	//		Parameters:
+	//			(NONE)
+	//		Returns:
+	//			void (nothing)
+	////////////////////////////////////////////////////////////////////////////////
 
 	////////////////////////////////////////////////////////////////////////////////
 	// Generates a URL request for the Yelp Fusion API according to the following
@@ -101,7 +111,7 @@ public class Lesson_04_Windowbuilder_GUI_APIs extends JFrame {
 	//		Returns:
 	//			An ArrayList containing all the businesses
 	////////////////////////////////////////////////////////////////////////////////
-	
+
 	////////////////////////////////////////////////////////////////////////////////
 	// Generates a URL request for the Yelp Fusion API according to the following
 	// web-page: https://www.yelp.com/developers/documentation/v3/business
@@ -139,7 +149,7 @@ public class Lesson_04_Windowbuilder_GUI_APIs extends JFrame {
 	//		Returns:
 	//			A String representing AM/PM 12-hour time (e.g., 12:30 AM, 12:00 PM, 5:00 PM)
 	////////////////////////////////////////////////////////////////////////////////
-		
+	
 	////////////////////////////////////////////////////////////////////////////////
 	// Generates a URL request for the Yelp Fusion API according to the following
 	// web-page: https://www.yelp.com/developers/documentation/v3/business_reviews
@@ -148,7 +158,7 @@ public class Lesson_04_Windowbuilder_GUI_APIs extends JFrame {
 	//		Returns:
 	//			An HttpRequest which contains the fully-specified URL
 	////////////////////////////////////////////////////////////////////////////////
-	
+
 	////////////////////////////////////////////////////////////////////////////////
 	// Uses JSON external library to make HTTP request, parse JSON objects/
 	// arrays/values. Specifically parses out the reviews and returns in a formatted
