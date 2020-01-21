@@ -82,7 +82,7 @@ public class Lesson_02_Handcoded_GUI_Self_Destructing extends JFrame {
 		Container c = getContentPane();
 		c.setLayout(new FlowLayout());
 
-		//Iinit components
+		//Init components
 		c.setBackground(ucrGray);
 		b1.setBackground(ucrBlue);
 		b1.setForeground(Color.WHITE);
@@ -140,11 +140,11 @@ public class Lesson_02_Handcoded_GUI_Self_Destructing extends JFrame {
 			}
 		});
 
-		/////////////////////////////////////////////////////////////////////////////
-		// Event handler for the b2 button (You better not press....)
+		//////////////////////////////////////////////////////////
+		// Event handler for the b2 button (You better not press...)
 		b2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				// Display a countdown pop-ups
+				// Display countdown pop-ups
 				JOptionPane.showMessageDialog(null, "Uh oh, you didn't follow directions. This GUI will self-destruct in 5...", "Warning", JOptionPane.WARNING_MESSAGE);
 				randomizeComponentColors();
 				JOptionPane.showMessageDialog(null, "4...", "Warning", JOptionPane.WARNING_MESSAGE);
@@ -159,42 +159,45 @@ public class Lesson_02_Handcoded_GUI_Self_Destructing extends JFrame {
 				// The process to draw the GUI is currently running in the same thread as this code.
 				// Thus, if we cause this code to slow down by putting huge sleep commands in it,
 				// the thread will not be able to draw the GUI b/c it will be busy in the FOR loop.
-				// So, we create a new thread so that the code in this new thread 
+				// So, we create a new thread so that the code in this new thread can run concurrently
+				// with the GUI painting/drawing thread.
 				new Thread() {
 					public void run() {
 						try {
 							// Get the container that has all the buttons
 							Container c = getContentPane();
 							int numComponents = c.getComponentCount();
-							
+
 							// Init variables for how often to update the display
-							int numFlashesPerButtonDis = 10; 	// How many times to flash a color change before making a button disappear
-							int millisBetweenButtonDis = 100;	// Number of milliseconds between each each button disappearing
+							int numColorChangesPerButtonDis = 10;	// How many times to change the color before making a button disappear
+							int millisBetweenButtonDis = 200; 		// Number of milliseconds between each button disappearing
 
-							// Iterate for each flash
-							for (int i = 0; i < numFlashesPerButtonDis * numComponents; i++) {
-								// Randomize colors (flash) each iteration and sleep (long enough for us to redraw and see change)
+							// Iterate through each flash (random color change)
+							for (int i = 0; i < numComponents * numColorChangesPerButtonDis; i++) {
 								randomizeComponentColors();
-								Thread.sleep(millisBetweenButtonDis / numFlashesPerButtonDis);
+								Thread.sleep(millisBetweenButtonDis / numColorChangesPerButtonDis);
 
-								// Every numFlashesPerButtonDis of flashes means it's time for a button to disappear
-								if (i % numFlashesPerButtonDis == 0) {
+								// Every numColorChangesPerButtonDis of flashes means it's time for a button to disappear
+								if (i % numColorChangesPerButtonDis == 0) {							
 									// Grab a random component and remove it
 									Component comp = c.getComponent(randy.nextInt(c.getComponentCount()));
 									c.remove(comp);
-									
-									// When remove a button, also change the background color
+
+									// When a button is removed, also change the background color
 									c.setBackground(new Color(randy.nextInt(256), randy.nextInt(256), randy.nextInt(256)));
 								}
+
 							}
-							
+
 							// Once all buttons have been removed, close the GUI/program
-							System.exit(0);
+							System.exit(0);							
+
 						} catch (Exception exp) {
 							// Do nothing
 						}
 					}
 				}.start();
+
 			}
 		});
 
@@ -231,5 +234,4 @@ public class Lesson_02_Handcoded_GUI_Self_Destructing extends JFrame {
 		// Repaint the GUI so it draws the style changes
 		repaint();
 	}
-
 }

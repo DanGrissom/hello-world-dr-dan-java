@@ -16,31 +16,27 @@ public class Business {
 	private String name;
 	private double rating;
 	private String address;
-	private String businessId;
+	private String yelpId;
 	
 	//////////////////////////////////////////////
 	// Overloaded constructor
-	public Business(String placeName, double placeRating, String placeAddress, String placeId) {
-		super();
-		name = placeName;
-		rating = placeRating;
-		address = placeAddress;
-		businessId = placeId;
+	public Business(String pName, double pRating, String pAddress, String pYelpId) {
+		name = pName;
+		rating = pRating;
+		address = pAddress;
+		yelpId = pYelpId;
 	}
 
 	//////////////////////////////////////////////
 	// Getters
-	public String getName() { return name; }
-	public double getRating() { return rating; }
-	public String getAddress() { return address; }
-	public String getBusinessId() { return businessId; }
+	public String getYelpId() { return yelpId; }
 
 	//////////////////////////////////////////////
 	// toString override
 	public String toString() {
 		if (rating > 0)
-			return name + " (" + rating + "/5.0)";
+			return String.format("%s (%s/5.0)", name, rating);
 		else
-			return name + " (NO RATINGS)";
+			return String.format("%s (NO RATINGS)", name);
 	}
 }

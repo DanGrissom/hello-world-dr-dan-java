@@ -9,8 +9,8 @@
 //		1) Threads
 //			a) How to generate and execute new threads 
 //			b) Scoping of variables used in thread (e.g., static, final, etc.)
+//			c) How to synchronize existing threads
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-import java.text.DecimalFormat;
 import java.util.LinkedList;
 import java.util.Scanner;
 
@@ -18,17 +18,17 @@ public class Lesson_01_Threads {
 
 	// Init list-related variables
 	private static LinkedList<Integer> ll = new LinkedList<Integer>();
-	private final static int numItems = 200000;
+	private final static int numItems = 20000000;
 	
-	// Init thread-related variables	
+	// Init thread-related variables
 	private static int numThreads;
 	private static int itemsPerThread;
 	private static int nextThreadNum = 0;
 	private static int threadsCompleted = 0;
+	private static boolean keyFound = false;
 	
 	// Init timer-related variables
 	private static long start;
-	private static DecimalFormat df = new DecimalFormat("0,000");
 	
 	///////////////////////////////////////////////////////////////
 	// MAIN - Entry point where code will start execution for file
@@ -46,6 +46,7 @@ public class Lesson_01_Threads {
 		System.out.print("How many threads would you like to use: ");
 		numThreads = scan.nextInt();
 		itemsPerThread = numItems / numThreads;
+		//System.out.printf("%s threads each search %,d items\n", numThreads, itemsPerThread);
 		
 		// Populate a linked list with a lot of items
 		for (int i = 0; i < numItems; i++)
@@ -57,6 +58,12 @@ public class Lesson_01_Threads {
 		
 		// Launch a bunch of threads that each search through a sub-portion of the list
 		for (int i = 0; i < numThreads; i++) {
+			
+			// Thread sync - If any other thread already found the key, don't generate more search threads
+			if (keyFound)
+				break;
+			
+			// Otherwise, key has not been found, keep generating new threads to search new sub-portions of the list
 			new Thread() {
 				public void run() {
 					
@@ -64,21 +71,20 @@ public class Lesson_01_Threads {
 					int threadNum = nextThreadNum++;
 					int beg = threadNum * itemsPerThread;
 					int end = (threadNum+1) * itemsPerThread - 1;
-					if (threadNum == numThreads-1)
-						end = ll.size()-1;
-					//System.out.println(beg + " - " + end);
-
-					// Begin search sub-process
-					System.out.printf("Starting Thread %s (i = [%s, %s])...\n", threadNum, beg, end);
-					searchList(ll, beg, end, -1);
 					
-					// Search is done! Print current timestamp
+					// Begin search sub-process
+					final int key = 50000; 
+					System.out.printf("Starting Thread %s (i = [%,d - %,d])...\n", ++threadNum, beg, end);
+					searchList(ll, beg, end, key);
+					
+					// Search is done! Print current elapsed time
 					long elapsedTime = System.currentTimeMillis() - start;
-					System.out.printf("Ending thread %s at %sms\n", threadNum, df.format(elapsedTime));
+					System.out.printf("Ending thread %s at %,d ms\n", threadNum, elapsedTime);
 					
 					// Check if last thread
-					if (++threadsCompleted == numThreads)
-						System.out.printf("\n\nLast thread complete at %sms\n", df.format(elapsedTime));
+					threadsCompleted++;
+					if (threadsCompleted == numThreads)
+						System.out.printf("\n\nLast thread (#%s) complete at %,d ms\n", threadNum, elapsedTime);
 				}
 			}.start();
 		}
@@ -95,9 +101,17 @@ public class Lesson_01_Threads {
 	//		Returns:
 	//			void (nothing)
 	////////////////////////////////////////////////////////////////////////////////
-	public static void searchList(LinkedList<Integer> ll, int startIndex, int endIndex, int key) {
-		for (int i = startIndex; i <= endIndex; i++)
-			if (ll.get(i) == key)
+	private static void searchList(LinkedList<Integer> ll, int startIndex, int endIndex, int key) {
+		for (int i = startIndex; i <= endIndex; i++) {
+			if (ll.get(i) == key) {
 				System.out.printf("FOUND %s at index %s!\n", key, i);
+				keyFound = true;	// Alert other threads that the key has been found
+				break;
+			}
+			
+			// Thread sync - If any other thread already found the key, quit searching my indices
+			if (keyFound)
+				break;
+		}
 	}
 }

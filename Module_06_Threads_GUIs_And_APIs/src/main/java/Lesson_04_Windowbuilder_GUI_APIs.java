@@ -15,60 +15,64 @@
 //				https://github.com/DanGrissom/hello-world-dr-dan-java/blob/master/Module_06_Threads_GUIs_And_APIs/READ_ME.txt
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.GroupLayout;
+import javax.swing.GroupLayout.Alignment;
+import javax.swing.JTextField;
+import javax.swing.LayoutStyle.ComponentPlacement;
 import org.json.JSONArray;
 import org.json.JSONObject;
+import javax.swing.JButton;
+import javax.swing.JList;
+import javax.swing.DefaultListModel;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
+import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
 import com.mashape.unirest.http.Unirest;
 import com.mashape.unirest.http.exceptions.UnirestException;
 import com.mashape.unirest.request.HttpRequest;
 import models.Business;
-import javax.swing.DefaultListModel;
-import javax.swing.GroupLayout;
-import javax.swing.GroupLayout.Alignment;
-import javax.swing.JLabel;
-import javax.swing.JTextField;
-import javax.swing.LayoutStyle.ComponentPlacement;
-import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.awt.event.ActionEvent;
-import javax.swing.JList;
-import javax.swing.JScrollPane;
-import javax.swing.JTextArea;
 
 public class Lesson_04_Windowbuilder_GUI_APIs extends JFrame {
 
 	///////////////////////////////////////////////////////////////////
 	// Instance variables/components
-	private JTextField txtStartAddress;
-	private JTextField txtRadius;
-	private JTextField txtFoodSearch;
-	private JButton btnSearch;
-	private JList lstResults;
-	private JButton btnHours;
-	private JButton btnReviews;
+	private JTextField txtStartAddress = new JTextField();
+	private JTextField txtFoodSearch = new JTextField();
+	private JTextField txtRadius = new JTextField();
+	private JList<Business> lstResults;
 	private JTextArea txtDetails;
+	private JButton btnReviews;
+	private JButton btnSearch;
+	private JButton btnHours;
 
 	///////////////////////////////////////////////////////////////////
 	// DefaultListModel is bound to lstResults
-	private DefaultListModel<Business> dlmResult = new DefaultListModel<Business>();
+	private DefaultListModel<Business> dlmResults = new DefaultListModel<Business>();
 
 	///////////////////////////////////////////////////////////////////
 	// APIs SECTION
 	///////////////////////////////////////////////////////////////////
 	private final static String baseUrl = "https://api.yelp.com/v3/businesses/";
 
+	// API key for Yelp (get yours here: https://www.yelp.com/developers/v3/manage_app)
 	// Once you obtain a key, include it here instead of "YOUR_KEY_HERE":
 	private final static String apiKey = "YOUR_KEY_HERE"; // Yelp API key
 
 	///////////////////////////////////////////////////////////////
 	// MAIN - Entry point where code will start execution for file
 	///////////////////////////////////////////////////////////////
-	public static void main(String[] args) {
+	public static void main(String[] args) throws ClassNotFoundException, InstantiationException, IllegalAccessException, UnsupportedLookAndFeelException {
 		// Simple welcome statements printed to screen
 		System.out.println("Program Objective: Learn to use WindowBuilder to create a GUI and make more API calls.");
 		System.out.println("===========================================================================");
 
 		// Launch GUI by instantiating an object of this class
+		UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());	// Checked exception...throws above exceptions
 		Lesson_04_Windowbuilder_GUI_APIs frame = new Lesson_04_Windowbuilder_GUI_APIs();
 		frame.setVisible(true);
 	}
@@ -77,6 +81,7 @@ public class Lesson_04_Windowbuilder_GUI_APIs extends JFrame {
 	// Constructor - calls initComponents and createEvents
 	////////////////////////////////////////////////////////////////////////////////
 	public Lesson_04_Windowbuilder_GUI_APIs() {
+		setTitle("Dr. Dan's Yelp API & WindowBuilder Demo");
 		initComponents();
 		createEvents();
 	}
@@ -86,103 +91,92 @@ public class Lesson_04_Windowbuilder_GUI_APIs extends JFrame {
 	////////////////////////////////////////////////////////////////////////////////
 	private void initComponents() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 1160, 664);
-
+		setBounds(1050, 200, 700, 465);
+		
 		JLabel lblStartAddress = new JLabel("Start Address:");
-
-		txtStartAddress = new JTextField();
 		txtStartAddress.setColumns(10);
-
 		JLabel lblRadius = new JLabel("Radius (miles):");
-
-		txtRadius = new JTextField();
 		txtRadius.setColumns(10);
-
 		JLabel lblFoodSearch = new JLabel("Food Search:");
-
-		txtFoodSearch = new JTextField();
 		txtFoodSearch.setColumns(10);
-
 		btnSearch = new JButton("Search");
-
 		JLabel lblResults = new JLabel("Results:");
-
 		JScrollPane scrResults = new JScrollPane();
-
 		btnHours = new JButton("Hours >");
-
 		btnReviews = new JButton("Reviews >");
-
-		JLabel lblHoursReviews = new JLabel("Hours/Reviews:");
-
 		JScrollPane scrDetails = new JScrollPane();
+		
+		JLabel lblDetails = new JLabel("Hours/Reviews:");
 		GroupLayout groupLayout = new GroupLayout(getContentPane());
 		groupLayout.setHorizontalGroup(
-				groupLayout.createParallelGroup(Alignment.LEADING)
+			groupLayout.createParallelGroup(Alignment.LEADING)
 				.addGroup(groupLayout.createSequentialGroup()
-						.addContainerGap()
-						.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING)
-								.addComponent(btnSearch)
-								.addGroup(groupLayout.createSequentialGroup()
-										.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING)
-												.addComponent(lblFoodSearch)
-												.addComponent(lblRadius)
-												.addComponent(lblStartAddress)
-												.addComponent(lblResults))
-										.addPreferredGap(ComponentPlacement.RELATED)
-										.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-												.addComponent(scrResults, GroupLayout.PREFERRED_SIZE, 344, GroupLayout.PREFERRED_SIZE)
-												.addGroup(groupLayout.createParallelGroup(Alignment.LEADING, false)
-														.addComponent(txtFoodSearch)
-														.addComponent(txtRadius)
-														.addComponent(txtStartAddress, GroupLayout.DEFAULT_SIZE, 344, Short.MAX_VALUE)))))
-						.addGap(18)
-						.addGroup(groupLayout.createParallelGroup(Alignment.LEADING, false)
-								.addComponent(btnHours, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-								.addComponent(btnReviews, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-						.addGap(18)
-						.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-								.addComponent(scrDetails, GroupLayout.DEFAULT_SIZE, 579, Short.MAX_VALUE)
-								.addComponent(lblHoursReviews))
-						.addContainerGap())
-				);
-		groupLayout.setVerticalGroup(
-				groupLayout.createParallelGroup(Alignment.LEADING)
-				.addGroup(groupLayout.createSequentialGroup()
-						.addContainerGap()
-						.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
+					.addContainerGap()
+					.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING)
+						.addComponent(btnSearch)
+						.addGroup(groupLayout.createSequentialGroup()
+							.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING)
+								.addComponent(lblFoodSearch)
+								.addComponent(lblRadius)
 								.addComponent(lblStartAddress)
-								.addComponent(txtStartAddress, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-								.addComponent(lblHoursReviews))
-						.addPreferredGap(ComponentPlacement.RELATED)
-						.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-								.addGroup(groupLayout.createSequentialGroup()
-										.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
-												.addComponent(lblRadius)
-												.addComponent(txtRadius, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-										.addPreferredGap(ComponentPlacement.RELATED)
-										.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
-												.addComponent(lblFoodSearch)
-												.addComponent(txtFoodSearch, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-										.addPreferredGap(ComponentPlacement.RELATED)
-										.addComponent(btnSearch)
-										.addPreferredGap(ComponentPlacement.RELATED)
-										.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-												.addGroup(groupLayout.createSequentialGroup()
-														.addComponent(btnHours)
-														.addPreferredGap(ComponentPlacement.RELATED)
-														.addComponent(btnReviews))
-												.addComponent(lblResults)
-												.addComponent(scrResults, GroupLayout.DEFAULT_SIZE, 496, Short.MAX_VALUE)))
-								.addComponent(scrDetails, GroupLayout.DEFAULT_SIZE, 577, Short.MAX_VALUE))
-						.addContainerGap())
-				);
-
+								.addComponent(lblResults))
+							.addPreferredGap(ComponentPlacement.RELATED)
+							.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+								.addComponent(scrResults, GroupLayout.PREFERRED_SIZE, 240, GroupLayout.PREFERRED_SIZE)
+								.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING, false)
+									.addComponent(txtRadius, Alignment.LEADING)
+									.addComponent(txtStartAddress, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
+									.addComponent(txtFoodSearch, Alignment.LEADING, GroupLayout.PREFERRED_SIZE, 240, GroupLayout.PREFERRED_SIZE)))))
+					.addPreferredGap(ComponentPlacement.RELATED)
+					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING, false)
+						.addComponent(btnHours, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+						.addComponent(btnReviews, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+					.addPreferredGap(ComponentPlacement.RELATED)
+					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+						.addComponent(scrDetails, GroupLayout.DEFAULT_SIZE, 291, Short.MAX_VALUE)
+						.addComponent(lblDetails))
+					.addContainerGap())
+		);
+		groupLayout.setVerticalGroup(
+			groupLayout.createParallelGroup(Alignment.LEADING)
+				.addGroup(groupLayout.createSequentialGroup()
+					.addContainerGap()
+					.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING)
+						.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
+							.addComponent(lblStartAddress)
+							.addComponent(txtStartAddress, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+						.addComponent(lblDetails))
+					.addPreferredGap(ComponentPlacement.RELATED)
+					.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING)
+						.addGroup(groupLayout.createSequentialGroup()
+							.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
+								.addComponent(lblRadius)
+								.addComponent(txtRadius, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+							.addPreferredGap(ComponentPlacement.RELATED)
+							.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
+								.addComponent(lblFoodSearch)
+								.addComponent(txtFoodSearch, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+							.addPreferredGap(ComponentPlacement.RELATED)
+							.addComponent(btnSearch)
+							.addPreferredGap(ComponentPlacement.RELATED)
+							.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+								.addComponent(lblResults)
+								.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
+									.addComponent(scrResults, GroupLayout.DEFAULT_SIZE, 297, Short.MAX_VALUE)
+									.addGroup(groupLayout.createSequentialGroup()
+										.addComponent(btnHours)
+										.addGap(7)
+										.addComponent(btnReviews)
+										.addGap(0, 244, Short.MAX_VALUE)))))
+						.addComponent(scrDetails, GroupLayout.DEFAULT_SIZE, 378, Short.MAX_VALUE))
+					.addContainerGap())
+		);
+		
 		txtDetails = new JTextArea();
 		txtDetails.setEditable(false);
 		scrDetails.setViewportView(txtDetails);
-
-		lstResults = new JList(dlmResult);
+		
+		lstResults = new JList<Business>(dlmResults);
 		scrResults.setViewportView(lstResults);
 		getContentPane().setLayout(groupLayout);
 	}
@@ -192,57 +186,77 @@ public class Lesson_04_Windowbuilder_GUI_APIs extends JFrame {
 	////////////////////////////////////////////////////////////////////////////////
 	private void createEvents() {
 		///////////////////////////////////////////////////////////////
-		// Calls Yelp Fusion API to return a list of places with the
-		// search radius and search term from the starting address
+		// btnFoodSearch/txtFoodSearch Handler - Calls Yelp Fusion API to return a list of
+		// places with the search radius and search term from the starting
+		// address
 		btnSearch.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-
-				// Get info from text boxes
-				String address = txtStartAddress.getText();
-				double meters = Double.parseDouble(txtRadius.getText()) * 1609.34;
-				String query = txtFoodSearch.getText();
-
-				// Generate request URL and get response
-				HttpRequest busSearchRequest = generateBusinessSearchRequestUrl(address, query, (int)meters);
-				ArrayList<Business> businesses = getBusinessSearchResults(busSearchRequest);
-
-				// Populate JList with our results
-				dlmResult.clear();
-				for (Business p : businesses)
-					dlmResult.addElement(p);
+			public void actionPerformed(ActionEvent e) {
+				businessSearch();
+			}
+		});
+		txtFoodSearch.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				businessSearch();
 			}
 		});
 
-
 		///////////////////////////////////////////////////////////////
-		// Calls Yelp Fusion API to get the hours for a particular 
-		// business
+		// btnHours Handler - Calls Yelp Fusion API to get the hours for
+		// a particular business
 		btnHours.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-
+			public void actionPerformed(ActionEvent e) {
 				// Generate request URL and get response
 				Business selectedBusiness = (Business)lstResults.getSelectedValue();
-				HttpRequest busByIdRequest = generateBusinessByIdUrl(selectedBusiness.getBusinessId());
-				String formattedHours = getHoursFromBusinessByIdResponse(busByIdRequest);
+				HttpRequest request = generateBusinessByIdRequestUrl(selectedBusiness.getYelpId());
+				String formattedHours = getHoursFromBusinessByIdResponse(request);
 				txtDetails.setText(formattedHours);
+				txtDetails.setLineWrap(false);
 			}
 		});
-
+		
 
 		///////////////////////////////////////////////////////////////
-		// Calls Yelp Fusion API to get the reviews for a particular 
-		// business
+		// btnReviews Handler - Calls Yelp Fusion API to get the reviews
+		// for a particular business
 		btnReviews.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-
+			public void actionPerformed(ActionEvent e) {
 				// Generate request URL and get response
 				Business selectedBusiness = (Business)lstResults.getSelectedValue();
-				HttpRequest busReviewsRequest = generateBusinessReviewsUrl(selectedBusiness.getBusinessId());
-				String formattedReviews = getReviewsFromBusinessResponse(busReviewsRequest);
+				HttpRequest request = generateBusinessReviewsRequestUrl(selectedBusiness.getYelpId());
+				String formattedReviews = getReviewsFromBusinessResponse(request);
 				txtDetails.setText(formattedReviews);
+				txtDetails.setLineWrap(true);
 			}
 		});
 	}
+
+	////////////////////////////////////////////////////////////////////////////////
+	// Get the parameters from the text boxes and make a call to the Yelp api
+	// to get business results
+	//		Parameters:
+	//			(NONE)
+	//		Returns:
+	//			void (NONE)
+	////////////////////////////////////////////////////////////////////////////////
+	private void businessSearch() {
+		// Get info from text boxes
+		String address = txtStartAddress.getText();
+		int meters = (int)(Double.parseDouble( txtRadius.getText() ) * 1609.34);
+		String query = txtFoodSearch.getText();
+		
+		// Generate request URL and get response as list of businesses
+		HttpRequest request = generateBusinessSearchRequestUrl(address, query, meters);
+		//System.out.println(request.getUrl());
+		ArrayList<Business> businesses = getBusinessSearchResults(request);
+		
+		// Populate JList with our results
+		dlmResults.clear();
+		for (Business b : businesses)
+			dlmResults.addElement(b);
+		if (dlmResults.size() > 0)
+			lstResults.setSelectedIndex(0);
+	}
+	
 
 	////////////////////////////////////////////////////////////////////////////////
 	// Generates a URL request for the Yelp Fusion API according to the following
@@ -254,19 +268,18 @@ public class Lesson_04_Windowbuilder_GUI_APIs extends JFrame {
 	//		Returns:
 	//			An HttpRequest which contains the fully-specified URL
 	////////////////////////////////////////////////////////////////////////////////
-	public static HttpRequest generateBusinessSearchRequestUrl(String location, String query, int meters)
-	{
+	private HttpRequest generateBusinessSearchRequestUrl(String location, String query, int meters) {
 		// Start with the business_search end-point
 		HttpRequest request = Unirest.get(baseUrl + "search");
-
+		
 		// Add parameters
 		request = request.queryString("location", location);
 		request = request.queryString("term", query);
 		request = request.queryString("radius", meters);
-
+				
 		// Add authorization in header
 		request = request.header("Authorization", "Bearer " + apiKey);
-
+		
 		// Return request/URL
 		return request;
 	}
@@ -282,57 +295,60 @@ public class Lesson_04_Windowbuilder_GUI_APIs extends JFrame {
 	//		Returns:
 	//			An ArrayList containing all the businesses
 	////////////////////////////////////////////////////////////////////////////////
-	private static ArrayList<Business> getBusinessSearchResults(HttpRequest request)
-	{
-		// Create new arraylist of businesses
+	private ArrayList<Business> getBusinessSearchResults(HttpRequest request) {
+		
+		// Create new ArrayList of businesses
 		ArrayList<Business> businesses = new ArrayList<Business>();
-
+		
 		try {
 			// Get the main response
 			JSONObject objResponse = request.asJson().getBody().getObject();
-
+			//System.out.println("RESPONSE OBJECT: " + objResponse);
+			
 			// First, check if there is an error
 			if (objResponse.has("error")) {
 				String shortDescription = objResponse.getJSONObject("error").getString("code");
 				String longDescription = objResponse.getJSONObject("error").getString("description");
-				System.out.println("ERROR: " + shortDescription + ": ");
-				System.out.println("\t" + longDescription);
-				return null;
-			}			
-
+				System.out.printf("%s: %s\n", shortDescription, longDescription);
+				return businesses;
+			}
+			
 			// Get the businesses array in the response
 			JSONArray arrBusinesses = objResponse.getJSONArray("businesses");
-
-			// Iterate through each JSON object (business) in the results array
+			//System.out.println("BUSINESSES ARRAY: " + arrBusinesses);
+			
+			// Iterate through each JSON object (business) in the results (businesses) array
 			for (int i = 0; i < arrBusinesses.length(); i++) {
 				// Get the next business
 				JSONObject objBusiness = arrBusinesses.getJSONObject(i);
-
+				//System.out.println("BUSINESS: " + objBusiness);
+				
 				// Pull the name from the business
 				String name = objBusiness.getString("name");
-
-				// Pull address info from the business
+				
+				// Pull the address info from the business
 				JSONObject objLocation = objBusiness.getJSONObject("location");
-				String address = objLocation.getString("address1");
-				address += ", " + objLocation.getString("city") + ", " + objLocation.getString("state") + " (" + objLocation.getString("country") + ")";
-
-				// Pull the rating and id from the business
+				String address = String.format("%s, %s, %s (%s)",
+						objLocation.getString("address1"), objLocation.getString("city"), objLocation.getString("state"), objLocation.getString("country"));
+				
+				// Pull the rating from the business
 				double rating = objBusiness.getDouble("rating");
-				String id = objBusiness.getString("id");
-
-				// Add business to arraylist
-				businesses.add(new Business(name, rating, address, id));
+				
+				// Pull the id from the business
+				String yelpId = objBusiness.getString("id");
+				
+				// Add business to businesses ArrayList
+				businesses.add(new Business(name, rating, address, yelpId));
 			}
 		} catch (UnirestException e) {
 			System.out.println("API ERROR: " + e.getMessage());
-		}  catch (Exception e) {
+		} catch (Exception e) {
 			System.out.println("ERROR: " + e.getMessage());
 		}
-
-		// Return the results
+		
+		// Return the businesses ArrayList
 		return businesses;
 	}
-
 
 	////////////////////////////////////////////////////////////////////////////////
 	// Generates a URL request for the Yelp Fusion API according to the following
@@ -342,14 +358,13 @@ public class Lesson_04_Windowbuilder_GUI_APIs extends JFrame {
 	//		Returns:
 	//			An HttpRequest which contains the fully-specified URL
 	////////////////////////////////////////////////////////////////////////////////
-	public static HttpRequest generateBusinessByIdUrl(String businessId)
-	{
-		// Start with the business search by id end-point
+	protected HttpRequest generateBusinessByIdRequestUrl(String businessId) {
+		// Start with the business_search end-point
 		HttpRequest request = Unirest.get(baseUrl + businessId);
-
+		
 		// Add authorization in header
 		request = request.header("Authorization", "Bearer " + apiKey);
-
+		
 		// Return request/URL
 		return request;
 	}
@@ -365,51 +380,53 @@ public class Lesson_04_Windowbuilder_GUI_APIs extends JFrame {
 	//		Returns:
 	//			A formatted String representing the hours
 	////////////////////////////////////////////////////////////////////////////////
-	private static String getHoursFromBusinessByIdResponse(HttpRequest request)
-	{
-		// Init a formatted string
+	protected String getHoursFromBusinessByIdResponse(HttpRequest request) {
+		
+		// Init a formatted string for hours
 		String strHours = "";
-
+		
 		try {
 			// Get the main response
 			JSONObject objResponse = request.asJson().getBody().getObject();
-
+			//System.out.println("RESPONSE OBJECT: " + objResponse);
+			
 			// First, check if there is an error
 			if (objResponse.has("error")) {
 				String shortDescription = objResponse.getJSONObject("error").getString("code");
 				String longDescription = objResponse.getJSONObject("error").getString("description");
-				System.out.println("ERROR: " + shortDescription + ": ");
-				System.out.println("\t" + longDescription);
-				return null;
-			}	
+				System.out.printf("%s: %s\n", shortDescription, longDescription);
+				return strHours;
+			}
 			
 			// Make sure hours exist
 			if (!objResponse.has("hours")) {
-				strHours += "No hours listed";
+				strHours += "No hours listed.";
 				return strHours;
 			}
-
+			
 			// Get hours array
 			JSONObject objHours = objResponse.getJSONArray("hours").getJSONObject(0);
-
+			
 			// Get current status and add to hours string
 			boolean isOpen = objHours.getBoolean("is_open_now");
-			strHours += isOpen ? "OPEN NOW:\n    YES\n\n" : "OPEN NOW:\n    NO\n\n";
-
+			strHours += isOpen ? "OPEN NOW:\n   YES\n\n" : "OPEN NOW:\n   NO\n\n";
+			
 			// Get daily hours
 			strHours += "DAILY HOURS:\n";
 			JSONArray arrDays = objHours.getJSONArray("open");
 			for (int i = 0; i < arrDays.length(); i++) {
 				JSONObject objDay = arrDays.getJSONObject(i);
-				strHours += String.format("    %s\n", getDailyHoursString(objDay));
+				strHours += String.format("   %s\n", getDailyHoursString(objDay));
 			}
+			
+			
 		} catch (UnirestException e) {
 			System.out.println("API ERROR: " + e.getMessage());
-		}  catch (Exception e) {
+		} catch (Exception e) {
 			System.out.println("ERROR: " + e.getMessage());
 		}
-
-		// Return the formatted hours
+		
+		// Return the hours
 		return strHours;
 	}
 
@@ -421,18 +438,17 @@ public class Lesson_04_Windowbuilder_GUI_APIs extends JFrame {
 	//		Returns:
 	//			A String representing the day and open hours
 	////////////////////////////////////////////////////////////////////////////////
-	private static String getDailyHoursString(JSONObject objDay) {
-
+	private Object getDailyHoursString(JSONObject objDay) {
 		// Convert the integer day value to a String
 		String [] days = { "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday" };
 		String day = days[objDay.getInt("day")];
-
+		
 		// Get the opening and closing times
-		String openingTime = objDay.getString("start");
-		String closingTime = objDay.getString("end");
-
+		String openingTime = get12HourTime(objDay.getString("start"));
+		String closingTime = get12HourTime(objDay.getString("end"));
+		
 		// Return formatted string
-		return String.format("%s: %s - %s", day, get12HourTime(openingTime), get12HourTime(closingTime));
+		return String.format("%s: %s - %s", day, openingTime, closingTime);
 	}
 
 	////////////////////////////////////////////////////////////////////////////////
@@ -442,31 +458,29 @@ public class Lesson_04_Windowbuilder_GUI_APIs extends JFrame {
 	//		Returns:
 	//			A String representing AM/PM 12-hour time (e.g., 12:30 AM, 12:00 PM, 5:00 PM)
 	////////////////////////////////////////////////////////////////////////////////
-	private static String get12HourTime(String time24Hour) {
-		
+	private String get12HourTime(String time24Hour) {
 		// Pull off the hours and minutes
 		String hour = time24Hour.substring(0, 2);
-		String minute = time24Hour.substring(2, 4);
+		String minutes = time24Hour.substring(2, 4);
 		String ampm = "";
-
-		// If 00, then midnight
-		if (hour.equals("00")) {
+		
+		// Format string as 12 hour time
+		if (hour.equals("00")) { 					// Midnight
 			hour = "12";
 			ampm = "AM";
-		} else if (hour.equals("12")) { // If 12, then noon
+		} else if (hour.equals("12")) {				// Noon
 			ampm = "PM";
-		} else if (Integer.parseInt(hour) < 12) { // If < 12, then AM
-			hour = Integer.toString(Integer.parseInt(hour));
+		} else if (Integer.parseInt(hour) < 12) {	// AM hours
+			hour = Integer.toString( Integer.parseInt(hour) );
 			ampm = "AM";
-		} else { // If > 12, then PM
-			hour = Integer.toString(Integer.parseInt(hour) - 12);
+		} else {									// PM hours
+			hour = Integer.toString( Integer.parseInt(hour) - 12 );
 			ampm = "PM";
 		}
-
+		
 		// Return formatted string
-		return String.format("%s:%s %s", hour, minute, ampm);
+		return String.format("%s:%s %s", hour, minutes, ampm);
 	}
-
 	
 	////////////////////////////////////////////////////////////////////////////////
 	// Generates a URL request for the Yelp Fusion API according to the following
@@ -476,14 +490,13 @@ public class Lesson_04_Windowbuilder_GUI_APIs extends JFrame {
 	//		Returns:
 	//			An HttpRequest which contains the fully-specified URL
 	////////////////////////////////////////////////////////////////////////////////
-	public static HttpRequest generateBusinessReviewsUrl(String businessId)
-	{
-		// Start with the business reviews end-point
+	protected HttpRequest generateBusinessReviewsRequestUrl(String businessId) {
+		// Start with the business_search end-point
 		HttpRequest request = Unirest.get(baseUrl + businessId + "/reviews");
-
+		
 		// Add authorization in header
 		request = request.header("Authorization", "Bearer " + apiKey);
-
+		
 		// Return request/URL
 		return request;
 	}
@@ -499,31 +512,30 @@ public class Lesson_04_Windowbuilder_GUI_APIs extends JFrame {
 	//		Returns:
 	//			A formatted String representing the reviews
 	////////////////////////////////////////////////////////////////////////////////
-	private static String getReviewsFromBusinessResponse(HttpRequest request)
-	{
-		// Init a formatted string
-		String strReviews = "REVIEWS:\n";
-
+	protected String getReviewsFromBusinessResponse(HttpRequest request) {
+		// Init a formatted string for hours
+		String strReviews = "";
+		
 		try {
 			// Get the main response
 			JSONObject objResponse = request.asJson().getBody().getObject();
-
+			//System.out.println("RESPONSE OBJECT: " + objResponse);
+			
 			// First, check if there is an error
 			if (objResponse.has("error")) {
 				String shortDescription = objResponse.getJSONObject("error").getString("code");
 				String longDescription = objResponse.getJSONObject("error").getString("description");
-				System.out.println("ERROR: " + shortDescription + ": ");
-				System.out.println("\t" + longDescription);
-				return null;
-			}	
-			
-			// Make sure hours exist
-			if (!objResponse.has("reviews")) {
-				strReviews += "No reviews listed";
+				System.out.printf("%s: %s\n", shortDescription, longDescription);
 				return strReviews;
 			}
-
-			// Get reviews array and iterate through each array
+			
+			// Make sure reviews exist
+			if (!objResponse.has("reviews")) {
+				strReviews += "No reviews posted.";
+				return strReviews;
+			}
+			
+			// Get reviews array and iterate through each review
 			JSONArray arrReviews = objResponse.getJSONArray("reviews");
 			for (int i = 0; i < arrReviews.length(); i++) {
 				// Get the individual review
@@ -531,21 +543,26 @@ public class Lesson_04_Windowbuilder_GUI_APIs extends JFrame {
 				
 				// Pull off specific details
 				String name = objReview.getJSONObject("user").getString("name");
+				double rating = objReview.getDouble("rating");
 				String time = objReview.getString("time_created");
 				String review = objReview.getString("text");
+				String url = objReview.getString("url");
 				
 				// Format details
-				strReviews += String.format("%s - %s\n", name, time);
+				strReviews += String.format("%s (%s/5.0) - %s\n", name, rating, time);
 				strReviews += String.format("%s\n\n", review);
-				strReviews += "----------------------------------------------\n";
+				strReviews += String.format("For full review:\n%s\n\n", url);
+				strReviews += "------------------------------------------------------------\n";
 			}
+			
+			
 		} catch (UnirestException e) {
 			System.out.println("API ERROR: " + e.getMessage());
-		}  catch (Exception e) {
+		} catch (Exception e) {
 			System.out.println("ERROR: " + e.getMessage());
 		}
-
-		// Return the formatted hours
+		
+		// Return the hours
 		return strReviews;
 	}
 }

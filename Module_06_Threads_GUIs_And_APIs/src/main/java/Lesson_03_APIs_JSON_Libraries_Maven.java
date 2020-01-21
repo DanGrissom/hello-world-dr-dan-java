@@ -58,8 +58,7 @@ public class Lesson_03_APIs_JSON_Libraries_Maven
 
 		// Generate request URL
 		HttpRequest request = generateRequestUrl(location, query, meters);
-		//System.out.println("URL: ");
-		//System.out.println("\t" + request.getUrl());
+		//System.out.println("URL: " + request.getUrl());
 
 		// Get response (from request), parse JSON response and print each result
 		getAndParseResponseAndPrintResults(request);
@@ -103,47 +102,48 @@ public class Lesson_03_APIs_JSON_Libraries_Maven
 	//		Returns:
 	//			void (nothing)
 	////////////////////////////////////////////////////////////////////////////////
-	private static void getAndParseResponseAndPrintResults(HttpRequest request)
-	{
+	private static void getAndParseResponseAndPrintResults(HttpRequest request) {
 		try {
 			// Get the main response
 			JSONObject objResponse = request.asJson().getBody().getObject();
-
+			//System.out.println("RESPONSE OBJECT: " + objResponse);
+			
 			// First, check if there is an error
 			if (objResponse.has("error")) {
 				String shortDescription = objResponse.getJSONObject("error").getString("code");
 				String longDescription = objResponse.getJSONObject("error").getString("description");
-				System.out.println("ERROR: " + shortDescription + ": ");
-				System.out.println("\t" + longDescription);
+				System.out.printf("%s: %s\n", shortDescription, longDescription);
 				return;
-			}			
-
+			}
+			
 			// Get the businesses array in the response
 			JSONArray arrBusinesses = objResponse.getJSONArray("businesses");
-
-			// Iterate through each JSON object (business) in the results array
-			System.out.println("\nYelp Search Results:");
+			//System.out.println("BUSINESSES ARRAY: " + arrBusinesses);
+			
+			// Iterate through each JSON object (business) in the results (businesses) array
+			System.out.println("Yelp Search Results:");
 			for (int i = 0; i < arrBusinesses.length(); i++) {
 				// Get the next business
 				JSONObject objBusiness = arrBusinesses.getJSONObject(i);
-
+				//System.out.println("BUSINESS: " + objBusiness);
+				
 				// Pull the name from the business
 				String name = objBusiness.getString("name");
-
-				// Pull address info from the business
+				
+				// Pull the address info from the business
 				JSONObject objLocation = objBusiness.getJSONObject("location");
-				String address = objLocation.getString("address1");
-				address += ", " + objLocation.getString("city") + ", " + objLocation.getString("state") + " (" + objLocation.getString("country") + ")";
-
+				String address = String.format("%s, %s, %s (%s)",
+						objLocation.getString("address1"), objLocation.getString("city"), objLocation.getString("state"), objLocation.getString("country"));
+				
 				// Pull the rating from the business
 				double rating = objBusiness.getDouble("rating");
-
+				
 				// Print result
 				System.out.printf("\t%s) %s - %s (%s/5.0)\n", (i+1), name, address, rating);
 			}
 		} catch (UnirestException e) {
 			System.out.println("API ERROR: " + e.getMessage());
-		}  catch (Exception e) {
+		} catch (Exception e) {
 			System.out.println("ERROR: " + e.getMessage());
 		}
 	}
