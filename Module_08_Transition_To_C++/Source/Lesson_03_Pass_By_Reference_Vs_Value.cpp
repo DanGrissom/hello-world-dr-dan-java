@@ -20,6 +20,12 @@ using namespace std;	// Needed for cout, cin, endl, etc.
 void passByValue(int val);
 void passByReference(int *valPtr);
 
+//////////////////////////////////////////////////////////
+// NOTE: Only one "main()" can be active in this project.
+// Please comment out the "main()s" in the other lessons
+// before trying to run this program or you will get compiler
+// errors.
+//////////////////////////////////////////////////////////
 int main() {
 	// Welcome user to program
 	cout << "Welcome to the Pass-By-Value vs. Pass-By-Reference Demo!" << endl << endl;
@@ -50,10 +56,14 @@ int main() {
 	return 0;
 }
 
-///////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
 // This method takes in a COPY of some value val such that when you change val in
 // this method, it does NOT change the variable's value in main()
-///////////////////////////////////////////////////////////////////////////////////
+//		Parameters:
+//			val - An integer that is passed by value
+//		Returns:
+//			void (NOTHING)
+////////////////////////////////////////////////////////////////////////////////
 void passByValue(int val) {
 	val += 10;
 	cout << "\tVAL's VALUES INSIDE passByValue(a)" << endl << "\t-----------------------------" << endl;
@@ -61,11 +71,15 @@ void passByValue(int val) {
 	cout << "\t\t&val = " << &val << " (val's address)" << endl << endl;
 }
 
-///////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
 // This method takes in a POINTER of some variable such that when you dereference
 // the valPtr and change the dereferenced value, you will see this change reflected
 // in main() with the dereferenced location of the value passed into this method
-///////////////////////////////////////////////////////////////////////////////////
+//		Parameters:
+//			*valPtr - A pointer to an integer (passed by reference)
+//		Returns:
+//			void (NOTHING)
+////////////////////////////////////////////////////////////////////////////////
 void passByReference(int *valPtr) {
 	*valPtr += 10;
 	cout << "\tVAL's VALUES INSIDE passByReference(aPtr)" << endl << "\t-----------------------------" << endl;

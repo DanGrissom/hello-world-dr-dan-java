@@ -13,11 +13,16 @@
 //			d) Conditionals (If statements)
 //			e) Storage using arrays and vectors (equivalent to Java ArrayList)
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
 #include <iostream>		// Needed for input/output
 #include <vector>		// Needed for cout, cin, endl, etc.
 using namespace std;
 
+//////////////////////////////////////////////////////////
+// NOTE: Only one "main()" can be active in this project.
+// Please comment out the "main()s" in the other lessons
+// before trying to run this program or you will get compiler
+// errors.
+//////////////////////////////////////////////////////////
 int main() {
 
 	// Prompt user for some personal info
