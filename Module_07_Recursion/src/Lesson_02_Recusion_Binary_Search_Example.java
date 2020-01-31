@@ -30,17 +30,10 @@ public class Lesson_02_Recusion_Binary_Search_Example {
 		// Index values:	   0,  1,  2,  3,   4,   5,  6*,   7,   8,   9,  10,   11,   12
 
 		// Prompt the user for a number to search
-		System.out.println("Please enter a number to search for in the array: ");
-		int key = scan.nextInt();		
 
 		// Search for the key in the sortedArray and return the index
-		int index = binarySearch(sortedArray, key);
 
 		// Print out results
-		if (index >= 0)
-			System.out.println(key + " found at index " + index + " after " + numRecursiveCalls + " recursive calls.");
-		else
-			System.out.println(key + " not found after " + numRecursiveCalls + " recursive calls.");
 	}
 
 	////////////////////////////////////////////////////////////////////////////////
@@ -53,11 +46,6 @@ public class Lesson_02_Recusion_Binary_Search_Example {
 	//		Returns:
 	//			An int representing the index at which key is located (-1 if not found)
 	////////////////////////////////////////////////////////////////////////////////
-	public static int binarySearch(int[] sortedArray, int key)
-	{
-		// Start off by performing a binary search on the ENTIRE array
-		return recursiveBinarySearch(sortedArray, key, 0, sortedArray.length - 1);
-	}
 
 	////////////////////////////////////////////////////////////////////////////////
 	// This is a recursive method which performs binary search (think of the 
@@ -82,21 +70,4 @@ public class Lesson_02_Recusion_Binary_Search_Example {
 	//		Returns:
 	//			An int representing the index at which key is located (-1 if not found)
 	////////////////////////////////////////////////////////////////////////////////
-	private static int recursiveBinarySearch(int[] sortedArray, int key, int beginSearchIndex, int endSearchIndex)
-	{
-		numRecursiveCalls++; // Do NOT erase/change. Used for autograding and counting the number of recursive calls
-
-		// Your code goes here
-		int midSearchIndex = (beginSearchIndex + endSearchIndex) / 2;
-
-		// If the key is right in the middle of the array, return the middle index
-		if (sortedArray[midSearchIndex] == key)
-			return midSearchIndex;
-		else if (beginSearchIndex < 0 || endSearchIndex >= sortedArray.length || beginSearchIndex == endSearchIndex)
-			return -1; // Else, if the (sub-)array is empty 
-		else if (key > sortedArray[midSearchIndex]) // Else, if key is greater than middle element, search to right 
-			return recursiveBinarySearch(sortedArray, key, midSearchIndex+1, endSearchIndex);
-		else // Else, if key is less than middle element, search to left
-			return recursiveBinarySearch(sortedArray, key, beginSearchIndex, midSearchIndex-1);
-	}
 }
