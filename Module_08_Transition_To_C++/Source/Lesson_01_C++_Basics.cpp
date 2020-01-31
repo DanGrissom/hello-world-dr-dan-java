@@ -25,6 +25,10 @@ using namespace std;
 //////////////////////////////////////////////////////////
 int main() {
 
+	// Simple welcome statements printed to screen
+	cout << "Program Objective: Learn basic syntax of C++ with reference to Java syntax." << endl;
+	cout << "===========================================================================" << endl;
+
 	// Prompt user for some personal info
 	cout << "Please tell me your first and last name: ";								// cout instead of System.out.print
 	string name;

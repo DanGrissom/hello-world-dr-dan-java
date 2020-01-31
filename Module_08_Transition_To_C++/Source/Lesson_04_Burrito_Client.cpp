@@ -24,6 +24,10 @@ using namespace std;
 //////////////////////////////////////////////////////////
 int main() {
 
+	// Simple welcome statements printed to screen
+	cout << "Program Objective: Learn how to create classes (source and header files) in C++." << endl;
+	cout << "===========================================================================" << endl;
+
 	// Welcome user
 	cout << "Welcome to Chipotle!" << endl << endl;
 

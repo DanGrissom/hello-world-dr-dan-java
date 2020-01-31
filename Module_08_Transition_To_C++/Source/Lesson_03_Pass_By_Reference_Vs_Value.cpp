@@ -27,6 +27,11 @@ void passByReference(int *valPtr);
 // errors.
 //////////////////////////////////////////////////////////
 int main() {
+
+	// Simple welcome statements printed to screen
+	cout << "Program Objective: Learn how to create functions that pass-by-value and pass-by-reference in C++." << endl;
+	cout << "===========================================================================" << endl;
+
 	// Welcome user to program
 	cout << "Welcome to the Pass-By-Value vs. Pass-By-Reference Demo!" << endl << endl;
 

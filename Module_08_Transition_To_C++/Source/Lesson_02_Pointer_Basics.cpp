@@ -24,6 +24,10 @@ using namespace std;
 //////////////////////////////////////////////////////////
 int main() {
 
+	// Simple welcome statements printed to screen
+	cout << "Program Objective: Learn the basics of pointers in C++." << endl;
+	cout << "===========================================================================" << endl;
+
 	// Welcome user to program
 	cout << "Welcome to the C++ Basic Pointer Demo" << endl;
 
