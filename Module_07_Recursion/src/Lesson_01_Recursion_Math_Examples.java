@@ -10,9 +10,6 @@
 //			a) Base Case(s)
 //			b) Recursive Case(s)
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-import java.text.DecimalFormat;
-import java.util.ArrayList;
-
 public class Lesson_01_Recursion_Math_Examples {
 
 	public static void main(String[] args) {
@@ -23,22 +20,22 @@ public class Lesson_01_Recursion_Math_Examples {
 
 		////////////////////////////////////////////////////////////
 		// Recursive power computation
-		long b = 2;
-		long e = 25;
-		long result = recursivePower(b, e);
-		DecimalFormat df = new DecimalFormat("#,###");
-		System.out.println(b + "^" + e + " = " + df.format(result));
+		long b = 3;
+		long e = 4;
+		long result = recursivePower(b, e); // Equivalent => Math.pow(b, e);
+		System.out.printf("%s^%s = %,d\n", b, e, result);
 
 		////////////////////////////////////////////////////////////
-		// Recursive factorial computation		
-		long f = 20;
+		// Recursive factorial computation	
+		long f = 5;
 		result = recursiveFactorial(f);
-		System.out.println(f + "! = " + df.format(result));
+		System.out.printf("%s! = %,d\n", f, result);
 
 		////////////////////////////////////////////////////////////
 		// Recursive fibonacci number computation
-		long fibNum = 40;
-		System.out.println("Fibonacci number " + fibNum + " is: " + recursiveFibonacci(fibNum));
+		long fibNumber = 1000;
+		result = recursiveFibonacci(fibNumber);
+		System.out.printf("Fibonacci number %s = %,d\n", fibNumber, result);
 	}
 
 	////////////////////////////////////////////////////////////////////////////////
@@ -57,12 +54,11 @@ public class Lesson_01_Recursion_Math_Examples {
 	//		Returns:
 	//			A long that represents base^exp 
 	////////////////////////////////////////////////////////////////////////////////
-	private static long recursivePower(long base, long exp)
-	{
+	private static long recursivePower(long base, long exp) {
 		if (exp == 0)
 			return 1;
 		else
-			return base * recursivePower(base, exp-1);		
+			return base * recursivePower(base, exp-1);
 	}
 	
 	////////////////////////////////////////////////////////////////////////////////
@@ -77,19 +73,16 @@ public class Lesson_01_Recursion_Math_Examples {
 	//		Returns:
 	//			A long that represents f! 
 	////////////////////////////////////////////////////////////////////////////////
-	private static long recursiveFactorial(long f)
-	{
-		if (f == 0)
-			return 1;
-		else if (f == 1)
+	private static long recursiveFactorial(long f) {
+		if (f == 0 || f == 1)
 			return 1;
 		else
 			return f * recursiveFactorial(f-1);
 	}
 	
 	////////////////////////////////////////////////////////////////////////////////
-	// Base case 1: fibNum = 1 ==> 0 (by definition)
-	// Base case 2: fibNum = 2 ==> 1 (by definition)
+	// Base case 1: fibNum = 0 ==> 0 (by definition)
+	// Base case 2: fibNum = 1 ==> 1 (by definition)
 	// Recursive case: Fib(fibNum) ==> Fib(fibNum-1) + Fib(fibNum-2)
 	//
 	// The idea here is to compute fibonacci numbers the simple definition of how
@@ -104,12 +97,36 @@ public class Lesson_01_Recursion_Math_Examples {
 	//			A long that represents the fibNum fibonacci number
 	////////////////////////////////////////////////////////////////////////////////
 	private static long recursiveFibonacci(long fibNum) {
-		
-		if (fibNum == 1)
+		if (fibNum == 0)
 			return 0;
-		else if (fibNum == 2)
+		else if (fibNum == 1)
 			return 1;
 		else
 			return recursiveFibonacci(fibNum - 1) + recursiveFibonacci(fibNum - 2);
+		
+//		// FOR LOOP IMPLEMENTATION - MUCH FASTER
+//		long fi_min2 = 0;
+//		long fi_min1 = 1;
+//		long fi = -1;
+//		for (int i = 2; i <= fibNum; i++) {
+//			// Compute the ith fib number
+//			fi = fi_min1 + fi_min2;
+//			
+//			// Update the ith-1 and ith-2 fib numbers for the next iteration
+//			fi_min2 = fi_min1;
+//			fi_min1 = fi;
+//		}
+//		
+//		// fi is the fibNum being requested
+//		return fi;		
 	}
 }
+
+
+
+
+
+
+
+
+
