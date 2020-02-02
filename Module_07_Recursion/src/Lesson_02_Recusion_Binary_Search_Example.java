@@ -65,8 +65,8 @@ public class Lesson_02_Recusion_Binary_Search_Example {
 	//		Parameters:
 	//			sortedArray - A sorted array of integers
 	//			key - The value being searched for in sortedArray
-	//			beginSearchIndex - The index at which this call should start searching for key
-	//			endSearchIndex - The index at which this call should end searching for key
+	//			begIndex - The index at which this call should start searching for key
+	//			endIndex - The index at which this call should end searching for key
 	//		Returns:
 	//			An int representing the index at which key is located (-1 if not found)
 	////////////////////////////////////////////////////////////////////////////////
