@@ -22,7 +22,7 @@ public class Lesson_01_Recursion_Math_Examples {
 		// Recursive power computation
 
 		////////////////////////////////////////////////////////////
-		// Recursive factorial computation		
+		// Recursive factorial computation	
 
 		////////////////////////////////////////////////////////////
 		// Recursive fibonacci number computation
@@ -59,8 +59,8 @@ public class Lesson_01_Recursion_Math_Examples {
 	////////////////////////////////////////////////////////////////////////////////
 	
 	////////////////////////////////////////////////////////////////////////////////
-	// Base case 1: fibNum = 1 ==> 0 (by definition)
-	// Base case 2: fibNum = 2 ==> 1 (by definition)
+	// Base case 1: fibNum = 0 ==> 0 (by definition)
+	// Base case 2: fibNum = 1 ==> 1 (by definition)
 	// Recursive case: Fib(fibNum) ==> Fib(fibNum-1) + Fib(fibNum-2)
 	//
 	// The idea here is to compute fibonacci numbers the simple definition of how
