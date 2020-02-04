@@ -24,6 +24,8 @@ using namespace std;	// Needed for cout, cin, endl, etc.
 // before trying to run this program or you will get compiler
 // errors.
 //////////////////////////////////////////////////////////
+/* TODO: TODO: Comment (uncomment) this line when you want to run (disable) this program
+
 int main() {
 	
 	// Simple welcome statements printed to screen
@@ -40,6 +42,8 @@ int main() {
 
 	return 0;
 }
+
+TODO: Comment (uncomment) this line when you want to run (disable) this program */
 
 ////////////////////////////////////////////////////////////////////////////////
 // This method takes in a COPY of some value val such that when you change val in

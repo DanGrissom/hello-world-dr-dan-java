@@ -22,6 +22,8 @@ using namespace std;
 // before trying to run this program or you will get compiler
 // errors.
 //////////////////////////////////////////////////////////
+///* TODO: Comment (uncomment) this line when you want to run (disable) this program
+
 int main() {
 	
 	// Simple welcome statements printed to screen
@@ -48,3 +50,5 @@ int main() {
 
 	return 0;
 }
+
+//TODO: Comment (uncomment) this line when you want to run (disable) this program */
