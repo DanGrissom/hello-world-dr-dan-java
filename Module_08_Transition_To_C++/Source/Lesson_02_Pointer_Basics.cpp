@@ -32,7 +32,7 @@ int main() {
 	cout << "===========================================================================" << endl;
 
 	// Welcome user to program
-	cout << "Welcome to the C++ Basic Pointer Demo" << endl;
+	cout << "Welcome to the C++ Basic Pointer Demo" << endl << endl;
 
 	// Create variables a and b
 	int a = 11;
