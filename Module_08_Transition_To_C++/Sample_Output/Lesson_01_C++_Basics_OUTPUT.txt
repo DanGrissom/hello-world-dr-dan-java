@@ -1,0 +1,57 @@
+Program Objective: Learn the basics of pointers in C++.
+===========================================================================
+Welcome to the C++ Basic Pointer Demo
+
+A's VALUES
+-----------------------------
+a = 11
+&a = 0x68fe44 (a's address)
+aPtr = 0x68fe44 (a's address)
+&aPtr = 0x68fe38 (address of aPtr var)
+*aPtr = 11 (value pointed to by aPtr; a)
+
+B's VALUES
+-----------------------------
+b = 77
+&b = 0x68fe40 (b's address)
+bPtr = 0x68fe40 (b's address)
+&bPtr = 0x68fe30 (address of bPtr var)
+*bPtr = 77 (value pointed to by bPtr; b)
+
+CHANGE OF A's VALUES
+-----------------------------
+a = 22 (changed DIRECTLY by: a = 22;)
+&a = 0x68fe44 (a's address)
+
+a = 33 (changed INDIRECTLY by: *aPtr = 33;)
+&a = 0x68fe44 (a's address)
+
+SETTING POINTERS EQUAL
+-----------------------------
+aPtr = 0x68fe44 (a's address)
+bPtr = 0x68fe44 (b's address)	SAME ADDRESS
+
+a = 44
+b = 77				DIFFERENT VALUES
+
+&a = 0x68fe44 (a's address)
+&b = 0x68fe40 (b's address)	DIFFERENT ADDRESS
+
+ARRAY POINTER ARITHMETIC
+-----------------------------
+&array = 0x68fe10	(array's address is really just address of 0th element - SEE BELOW)
+	array[0] = 100
+	*(array + 0) = 100 @ addr 0x68fe10
+
+	array[1] = 200
+	*(array + 1) = 200 @ addr 0x68fe14
+
+	array[2] = 300
+	*(array + 2) = 300 @ addr 0x68fe18
+
+	array[3] = 400
+	*(array + 3) = 400 @ addr 0x68fe1c
+
+	array[4] = 500
+	*(array + 4) = 500 @ addr 0x68fe20
+
