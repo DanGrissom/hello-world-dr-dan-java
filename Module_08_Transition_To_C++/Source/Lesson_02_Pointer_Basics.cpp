@@ -11,9 +11,10 @@
 //			b) The * syntax for dereferencing pointers
 //			c) The & syntax for obtaining the address of a variable
 //			d) Using pointer arithmetic to iterate through an array
+//
+// NOTE: You will not code this from scratch, but rather, follow along through detailed slides.
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 #include <iostream>		// Needed for input/output
-#include <vector>		// Needed for cout, cin, endl, etc.
 using namespace std;
 
 //////////////////////////////////////////////////////////
@@ -22,6 +23,8 @@ using namespace std;
 // before trying to run this program or you will get compiler
 // errors.
 //////////////////////////////////////////////////////////
+/* TODO: Comment (uncomment) this line when you want to run (disable) this program
+
 int main() {
 
 	// Simple welcome statements printed to screen
@@ -89,3 +92,5 @@ int main() {
 
 	return 0;
 }
+
+TODO: Comment (uncomment) this line when you want to run (disable) this program */

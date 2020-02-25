@@ -26,6 +26,8 @@ void passByReference(int *valPtr);
 // before trying to run this program or you will get compiler
 // errors.
 //////////////////////////////////////////////////////////
+/* TODO: Comment (uncomment) this line when you want to run (disable) this program
+
 int main() {
 
 	// Simple welcome statements printed to screen
@@ -91,3 +93,5 @@ void passByReference(int *valPtr) {
 	cout << "\t\t*valPtr = " << *valPtr << endl;
 	cout << "\t\tvalPtr = " << valPtr << " (valPtr - also a's address)" << endl << endl;
 }
+
+TODO: Comment (uncomment) this line when you want to run (disable) this program */

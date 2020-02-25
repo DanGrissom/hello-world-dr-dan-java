@@ -23,6 +23,8 @@ using namespace std;
 // before trying to run this program or you will get compiler
 // errors.
 //////////////////////////////////////////////////////////
+///* TODO: Comment (uncomment) this line when you want to run (disable) this program
+
 int main() {
 
 	// Simple welcome statements printed to screen
@@ -33,7 +35,7 @@ int main() {
 	cout << "Please tell me your first and last name: ";								// cout instead of System.out.print
 	string name;
 	getline(cin, name); 																		// Similar to scan.nextLine()
-	cout << endl << "Welcome " + name << "! Let's learn some basic C++!" << endl << endl;		// endl is newline character
+	cout << endl << "Welcome " << name << "! Let's learn some basic C++!" << endl << endl;		// endl is newline character
 
 	// Prompt user for a number
 	int num;
@@ -88,3 +90,5 @@ int main() {
 
 	return 0;
 }
+
+//TODO: Comment (uncomment) this line when you want to run (disable) this program */
