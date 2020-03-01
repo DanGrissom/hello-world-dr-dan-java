@@ -28,9 +28,6 @@ int main() {
 	cout << "Program Objective: Learn how to create classes (source and header files) in C++." << endl;
 	cout << "===========================================================================" << endl;
 	
-	// Welcome user
-	cout << "Welcome to Chipotle!" << endl << endl;
-
 	// Prompt user for number of burritos and read in value
 
 	// Must clear off the new-line character from hitting ENTER
