@@ -11,9 +11,12 @@
 class Burrito {
 		// Instance variables
 
-		// Constructors
+		// Constructors & Destructors
 
 		// Methods
 
 		// Getters/Setters
+
+		// Friend classes are classes that can access private data
+		// (instance variables, constructors, destructors, methods, etc.)
 };
