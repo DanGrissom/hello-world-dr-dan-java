@@ -8,8 +8,11 @@
 // In this lesson you will learn:
 //		1) Separating your files into SOURCE (.cpp) and HEADER (.h) files
 //		2) Creating classes in C++
-//			a) #ifndef #define #endif macros for .h files
+//			a) #ifndef #define #endif preprocessor (compiler) directives for .h files
 //			b) Deconstructor (~) syntax and implementation
+//			c) Access modifiers
+//			d) friend classes
+//		3) Creating object pointers using "new" and deleting them using "delete"
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 #include <iostream>
 using namespace std;
