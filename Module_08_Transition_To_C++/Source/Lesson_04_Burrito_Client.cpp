@@ -14,6 +14,7 @@
 #include <iostream>
 #include <vector>
 using namespace std;
+
 #include "../Headers/Burrito.h"
 
 //////////////////////////////////////////////////////////
@@ -34,6 +35,7 @@ int main() {
 	cout << "How many burritos do you want to order: ";
 	int numBurritos;
 	cin >> numBurritos;
+	cout << endl;
 
 	// Must clear off the new-line character from hitting ENTER
 	// so it doesn't mess up NEXT getline call below
@@ -45,35 +47,34 @@ int main() {
 
 	// Process burrito orders
 	for (int i = 0; i < numBurritos; i++) {
-
 		// Ask user what they want on each burrito
 		string meatType, beanType;
 		cout << "Burrito order " << (i+1) << endl;
 		cout << "\tWhat type of meat would you like: ";
 		getline(cin, meatType);
-		cout << "\tWhat type of beans would you like: ";
+		cout << "\tWhat type of bean would you like: ";
 		getline(cin, beanType);
 
-		// Add burrito to vector
+		// Create a new burrito (pointer) and add it to the vector
 		Burrito *burritoPtr = new Burrito(meatType, beanType);
 		burritos.push_back(burritoPtr);
-
-		//cout << "DEBUG - Order Summary: Burrito w/ " << meatType << " & " << beanType << endl << endl;
 	}
 
 	// Print the entire order
-	cout << "Your Order Contains: " << endl;
+	cout << endl << "Your Order Contains:" << endl;
 	for (int i = 0; i < burritos.size(); i++) {
 		Burrito *bPtr = burritos.at(i);
 		cout << "\t" << bPtr->getSummary() << endl;
+		//cout << "\t" << bPtr->getMeatType() + "/" + bPtr->getBeanType() << endl;
 	}
 
 	// Cleanup memory (delete burrito pointers) - NOTE how we iterate backwards because we
 	// are removing items from the vector. If we iterated forward, by the time we got to
 	// the last item in the list, it would be GONE
+	cout << endl << "Deleting Burrito Pointers: " << endl;
 	for (int i = burritos.size() - 1; i >= 0; i--) {
-		Burrito *bPtr = burritos.back(); 	// Get pointer to last item in vector
-		burritos.pop_back(); 				// Remove last item in vector (bPtr from above)
+		Burrito *bPtr = burritos.back();	// Get pointer to last item in vector
+		burritos.pop_back();				// Remove last item in vector (bPtr from above)
 		delete bPtr;						// Free memory
 	}
 

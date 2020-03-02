@@ -8,9 +8,10 @@
 // Lesson Note:
 // 		This class is consumed by Lesson_04_Burrito_Client.cpp
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-#ifndef BURRITO_H_
-#define BURRITO_H_
+#ifndef BURRITO_H
+#define BURRITO_H
 
+#include <iostream>
 using namespace std;
 #include <string>
 
@@ -19,10 +20,12 @@ class Burrito {
 		// Instance variables
 		string meatType;
 		string beanType;
+		string *guacPtr;
 
 	public:
-		// Constructors
-		Burrito(string meat, string beans);
+		// Constructors & Destructors
+		Burrito();
+		Burrito(string pMeatType, string pBeanType);
 		virtual ~Burrito();
 
 		// Methods
@@ -31,8 +34,12 @@ class Burrito {
 		// Getters/Setters
 		string getMeatType() { return meatType; }
 		string getBeanType() { return beanType; }
-		void setMeatType(string meat) { meatType = meat; }
-		void setBeanType(string bean) { beanType = bean; }
+		void setMeatType(string pMeatType) { meatType = pMeatType; }
+		void setBeanType(string pBeanType) { beanType = pBeanType; }
+
+		// Friend classes are classes that can access private data
+		// (instance variables, constructors, destructors, methods, etc.)
+		//friend ChipotleStore;		// This class doesn't exist in this project...just hypothetical example
 };
 
-#endif /* BURRITO_H_ */
+#endif /* BURRITO_H */
