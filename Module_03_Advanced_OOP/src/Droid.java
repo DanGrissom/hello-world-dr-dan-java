@@ -7,7 +7,7 @@
 //
 // Lesson Note:
 // 		This class is consumed by Lesson_01_StarWarsUniverseClient_Basic_OOP & Lesson_02_StarWarsUniverseClient_Advanced_OOP.
-//		This class encapsulates the Robot, which describes basic robot properties; it also inherits methods/variables
+//		This class encapsulates the Droid, which describes basic droid properties; it also inherits methods/variables
 // 		from the GalacticID class.
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 public class Droid {
@@ -25,9 +25,9 @@ public class Droid {
 	///////////////////////////////////////////////////////////////
 	// Overloaded Constructor
 	//		Parameters:
-	//			pName - A String representing the robot's name
-	//			mfgYear - An int representing the robot's manufacturing year
-	//			mfgMonth - An int representing the robot's manufacturing year
+	//			pName - A String representing the droid's name
+	//			mfgYear - An int representing the droid's manufacturing year
+	//			mfgMonth - An int representing the droid's manufacturing year
 	///////////////////////////////////////////////////////////////
 
 	///////////////////////////////////////////////////////////////
@@ -43,7 +43,7 @@ public class Droid {
 	//		Parameters:
 	//			NONE
 	//		Returns:
-	//			A String representing the object's (Robot's) properties
+	//			A String representing the object's (Droid's) properties
 	///////////////////////////////////////////////////////////////
 	
 	///////////////////////////////////////////////////////////////
