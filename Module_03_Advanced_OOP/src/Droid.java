@@ -1,5 +1,5 @@
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-// Hello World with Dr. Dan - A Complete Introduction to Programming from Java to C++ (Code and Course © Dan Grissom)
+// Hello World with Dr. Dan - A Complete Introduction to Programming from Java to C++ (Code and Course Â© Dan Grissom)
 //
 // Additional Lesson Resources from Dr. Dan:
 //		High-Quality Video Tutorials: www.helloDrDan.com
@@ -10,7 +10,7 @@
 //		This class encapsulates the Robot, which describes basic robot properties; it also inherits methods/variables
 // 		from the GalacticID class.
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-public class Robot {
+public class Droid {
 	
 	///////////////////////////////////////////////////////////////
 	// Instance variables
